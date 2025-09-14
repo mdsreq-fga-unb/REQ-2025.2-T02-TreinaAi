@@ -1,0 +1,61 @@
+site_name: TreinaAí
+site_description: Documentação oficial do projeto
+site_author: Equipe TreinaAí
+repo_url: https://github.com/mdsreq-fga-unb/2025.2-TO2-TreinaAi
+repo_name: 2025.2-T02-TreinaAí
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/logoPNG.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: red
+      accent: orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Modo escuro
+    - scheme: slate
+      primary: orange
+      accent: yellow
+      toggle:
+        icon: material/toggle-switch
+        name: Modo claro
+  features:
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - repo.icon
+
+
+nav:
+  - Início: index.md
+  - Visão do Produto e Projeto:
+      - Cenario Atual do cliente e negócio: pages/VisaoDoProduto/CenarioAtual.md
+      - Solução Proposta: pages/VisaoDoProduto/SolucaoProposta.md
+      - Estratégias de Engenharia de Software
+      - Interação entre Equipe e Cliente
+      - Cronogramas e Entregas
+      - Engenharia de Requisitos
+      - DoR e DoD
+      - Lições Aprendidas:
+          - Unidade 1
+          - Unidade 2
+          - Unidade 3
+  - Referências:
+      - Requisitos de Software
+      - Backlog do Produto
+  - Entregas:
+    - Unidade 1
+    - Unidade 2
+    - Unidade 3
+  - Evidências de ESW e ER:
+    - Atas
+  - Estudos de Caso
+  - Extras
+
+
+
