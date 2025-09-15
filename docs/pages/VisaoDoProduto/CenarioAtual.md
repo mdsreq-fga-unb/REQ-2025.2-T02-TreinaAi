@@ -4,17 +4,15 @@ O cliente **Gustavo Rangel** atua como personal trainer na academia **Clube** e 
 
 Seu público-alvo inclui alunos que desejam acompanhar de forma estruturada a própria evolução, seja no ganho de força, resistência, condicionamento ou estética.
 
----
 
-# 1.2 Identificação da Oportunidade ou Problema
+## Identificação da Oportunidade ou Problema
 
 Atualmente, Gustavo identifica como principal desafio a **falta de ferramentas claras e visuais para demonstrar o progresso de seus alunos**.  
 
 Embora a progressão de carga já seja acompanhada, ele busca uma forma mais completa de apresentar dados que incluem variáveis como tipo de estímulo, número de repetições, evolução de carga e outros indicadores de desempenho — todo tipo de ferramenta que possa **estimular o aluno a continuar treinando com foco total.**
 
----
 
-# 1.3 Desafios do Projeto
+## Desafios do Projeto
 
 Analisando as descrições do cliente sobre a problemática e os desafios para manter o aluno com foco no treinamento personalizado, definem-se três principais desafios:
 
@@ -22,9 +20,8 @@ Analisando as descrições do cliente sobre a problemática e os desafios para m
 - **Carência de indicadores visuais claros**, que permitam mostrar a evolução de forma compreensível para diferentes perfis de alunos (que podem necessitar de diferentes estímulos).
 - **Desafios operacionais na coleta e organização de dados**, que hoje não são centralizados ou padronizados e dependem exclusivamente das notas do treinador, sem participação direta dos indivíduos em treino.
 
----
 
-# 1.4 Segmentação de Clientes
+## Segmentação de Clientes
 
 Considerando a extensa categoria de alunos atendida pelo personal, considera-se necessário, para melhor abordagem de cada público, uma divisão em quatro categorias:
 

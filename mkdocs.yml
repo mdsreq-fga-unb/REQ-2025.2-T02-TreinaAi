@@ -20,7 +20,7 @@ theme:
         name: Modo escuro
     - scheme: slate
       primary: orange
-      accent: yellow
+      accent: red
       toggle:
         icon: material/toggle-switch
         name: Modo claro
@@ -37,26 +37,30 @@ nav:
   - Visão do Produto e Projeto:
       - Cenario Atual do cliente e negócio: pages/VisaoDoProduto/CenarioAtual.md
       - Solução Proposta: pages/VisaoDoProduto/SolucaoProposta.md
-      - Estratégias de Engenharia de Software
-      - Interação entre Equipe e Cliente
-      - Cronogramas e Entregas
-      - Engenharia de Requisitos
-      - DoR e DoD
+      - Interação entre Equipe e Cliente: pages/VisaoDoProduto/EquipeCliente.md
+      - Estratégias de Engenharia de Software: pages/VisaoDoProduto/estrategias.md
+      - Cronogramas: pages/VisaoDoProduto/Cronograma.md
+      - Engenharia de Requisitos: pages/VisaoDoProduto/ER.md
+      - Contribuição: pages/VisaoDoProduto/PoliticadeContribuicao.md
       - Lições Aprendidas:
-          - Unidade 1
-          - Unidade 2
-          - Unidade 3
+          - Unidade 1: pages/VisaoDoProduto/LicaoAprendida/Unidade1.md
+          - Unidade 2: pages/VisaoDoProduto/LicaoAprendida/Unidade2.md
+          - Unidade 3: pages/VisaoDoProduto/LicaoAprendida/Unidade3.md
   - Referências:
-      - Requisitos de Software
-      - Backlog do Produto
+      - Backlog do Produto: pages/Backlog/geral.md
+      - MVP: pages/Backlog/mvp.md
+  - Requisitos:
+      - Funcionais: pages/Requisitos/RequisitosFunc.md
+      - Não funcionais: pages/Requisitos/RequisitosNFunc.md
   - Entregas:
-    - Unidade 1
-    - Unidade 2
-    - Unidade 3
+    - Unidade 1: pages/Entregas/Unidade01.md
+    - Unidade 2: pages/Entregas/Unidade02.md
+    - Unidade 3: pages/Entregas/Unidade03.md
   - Evidências de ESW e ER:
     - Atas
-  - Estudos de Caso
-  - Extras
+  - Estudos de Caso: pages/EstudosCaso/estudo01.md
+  - Extras: pages/Extra/extra.md
 
-
+extra_css:
+  - stylesheets/style.css
 

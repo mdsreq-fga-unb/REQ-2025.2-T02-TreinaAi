@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como parte da disciplina de **Requisitos de Softwa
 
 ## Introdução
 
-O presente trabalho possui objetivo de 
+O presente trabalho tem como objetivo propor, documentar e gerenciar a implementação do **TreinaAí**, um aplicativo móvel desenvolvido para o personal trainer **Gustavo Rangel**, com a finalidade de aprimorar o acompanhamento da progressão de seus alunos.
 
 ## Integrantes do grupo
 
@@ -21,8 +21,8 @@ O presente trabalho possui objetivo de
 <a href="https://github.com/DaviNegreiros" style="text-decoration: none; color: inherit;">
   <div style="text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
     <img src="assets/davi.jpeg" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b10f2e;">
-    <h3>Davi Negreiros</h3>
-    <h7>232013971</h7>
+    <h3 style="color: #55;">Davi Negreiros</h3>
+    <h7 style="color: #55;">232013971</h7>
     <p style="color: #555;">Líder do grupo</p>
   </div>
 </a>
@@ -49,7 +49,7 @@ O presente trabalho possui objetivo de
   <div style="text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
     <img src="assets/raissa.jpeg" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b10f2e;">
     <h3>Raissa</h3>
-    <h7>23000000</h7>
+    <h7>232014763</h7>
     <p style="color: #555;">Desenvolvedor</p>  </div>
 </a>
 
@@ -62,9 +62,9 @@ O presente trabalho possui objetivo de
   </div>
 </a>
 
-<a href="https://github.com/" style="text-decoration: none; color: inherit;">
+<a href="https://github.com/SirJorgito" style="text-decoration: none; color: inherit;">
   <div style="text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
-    <img src="assets/.jpg" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b10f2e;">
+    <img src="assets/jorge.jpeg" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b10f2e;">
     <h3>Jorge Henrique</h3>
     <h7>231011570</h7>
     <p style="color: #555;">Desenvolvedor</p>
