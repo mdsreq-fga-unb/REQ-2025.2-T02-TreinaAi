@@ -35,14 +35,12 @@ theme:
 nav:
   - Início: index.md
   - Visão do Produto e Projeto:
-      - Cenario Atual do cliente e negócio: pages/VisaoDoProduto/CenarioAtual.md
-      - Solução Proposta: pages/VisaoDoProduto/SolucaoProposta.md
-      - Interação entre Equipe e Cliente: pages/VisaoDoProduto/EquipeCliente.md
-      - Estratégias de Engenharia de Software: pages/VisaoDoProduto/estrategias.md
-      - Cronogramas: pages/VisaoDoProduto/Cronograma.md
-      - Engenharia de Requisitos: pages/VisaoDoProduto/ER.md
-      - Contribuição: pages/VisaoDoProduto/PoliticadeContribuicao.md
-      - Lições Aprendidas:
+      - 1. Cenario Atual do cliente e negócio: pages/VisaoDoProduto/CenarioAtual.md
+      - 2. Solução Proposta: pages/VisaoDoProduto/SolucaoProposta.md
+      - 3. Estratégias de Engenharia de Software: pages/VisaoDoProduto/estrategias.md
+      - 4. Cronogramas: pages/VisaoDoProduto/Cronograma.md
+      - 5. Interação entre Equipe e Cliente: pages/VisaoDoProduto/EquipeCliente.md
+      - 6. Lições Aprendidas:
           - Unidade 1: pages/VisaoDoProduto/LicaoAprendida/Unidade1.md
           - Unidade 2: pages/VisaoDoProduto/LicaoAprendida/Unidade2.md
           - Unidade 3: pages/VisaoDoProduto/LicaoAprendida/Unidade3.md
@@ -59,7 +57,10 @@ nav:
   - Evidências de ESW e ER:
     - Atas
   - Estudos de Caso: pages/EstudosCaso/estudo01.md
-  - Extras: pages/Extra/extra.md
+  - Extras: 
+    - Contribuição: pages/Extra/PoliticadeContribuicao.md
+    - Engenharia de Requisitos: pages/Extra/ER.md
+
 
 extra_css:
   - stylesheets/style.css
