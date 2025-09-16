@@ -4,8 +4,7 @@ A equipe de desenvolvimento será composta por:
 
 | Papel | Descrição | Responsável | Participantes|
 | :-----:| :-------: | :---------:|:------------:|
-| Gerente de Projeto | Coordena o projeto, garante a comunicação entre
-cliente e equipe, controla prazos e entregas | Davi Negreiros | - |
+| Gerente de Projeto | Coordena o projeto, garante a comunicação entre cliente e equipe, controla prazos e entregas | Davi Negreiros | - |
 | Desenvolvedor Frontend | Interface do usuário, design e funcionalidades do lado do cliente | Jorge Henrique | Raissa, João Marcelo |
 | Desenvolvedor Backend | Implementa lógica de negócios, integração de banco de dados e APIs | Arthur Gomes | Davi Negreiros, Gabriel Fae |
 | Analista de QA | Garante qualidade do produto realizando testes constantes | Gabriel Fae | Raissa |
@@ -19,7 +18,7 @@ cliente e equipe, controla prazos e entregas | Davi Negreiros | - |
 
 - **Whatsapp**: comunicação diária e rápida entre os membros da equipe, buscando compartilhamento de arquivos, discussões curtas e específicas, agendamento de reuniões extra-oficiais e mais de forma dinâmica.
 
-- **Zenhub**: ferramenta de gerenciamento do backlog, controle das tarefas do grupo, acompanhamento do progresso de sprints e revisão de trabalho à ser feito. Permite que a equipe visualize e administre as tarefas de forma rápida e fácil.
+- **Miro**: ferramenta de gerenciamento do backlog, controle das tarefas do grupo, acompanhamento do progresso de sprints e revisão de trabalho à ser feito. Permite que a equipe visualize e administre as tarefas de forma rápida e fácil.
 
 ### Frequência de reuniões
 
@@ -45,3 +44,9 @@ O processo de validação da solução será realizado em três etapas principai
 -- **DoD (Definition of Done)**: Uma funcionalidade só será considerada concluída quando atender ao Definition of Done, ou seja, após passar pelos testes unitários e de integração, além de receber aprovação visual e funcional tanto da equipe quanto do cliente.
 
 -- **Entrega**: Após a validação interna, o produto será disponibilizado ao cliente para os testes de aceitação. Nessa etapa, o cliente avaliará se o sistema cumpre os requisitos estabelecidos, validando cada funcionalidade com base nos critérios definidos durante o DoR.
+
+## Histórico de Versão
+
+| Data     | Versão | Descrição             | Autor              |
+| -------- | ------ | --------------------- | ------------------ |
+| 14/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
