@@ -30,6 +30,10 @@ A equipe de desenvolvimento será composta por:
 
 - **Reunião de aprendizado**: No final de cada unidade entregue, o grupo terá uma reunião extra-oficial para coletar as dificuldades, os aprendizados, detalhes e comentários sobre a unidade estudada em sala.
 
+#### Heatmap da equipe
+
+![Mapa de calor equipe](../../assets/heatmap.png)
+
 
 ## 5.3 Processo de Validação
 
