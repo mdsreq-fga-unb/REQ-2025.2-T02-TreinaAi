@@ -68,3 +68,9 @@ A proposta da nossa solução se diferencia ao colocar o personal trainer como p
 
 Essa centralização não só otimiza o trabalho do personal, mas também amplia a motivação e fidelização dos alunos, ao receberem feedback visual claro e consistente da sua progressão sem terem o trabalho de precisar anotar tudo.
 
+## Histórico de Versão
+
+| Data     | Versão | Descrição             | Autor              |
+| -------- | ------ | --------------------- | ------------------ |
+| 14/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
+

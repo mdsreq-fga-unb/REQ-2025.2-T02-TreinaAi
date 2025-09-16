@@ -16,7 +16,7 @@ A partir da estratégia de desenvolvimento de software estabelecida, tem-se a se
 | Sprint 6| 20/10/2025 | 26/10/2025 | Integração das páginas de planejamento mensal e de inserção de dados | **Entrega Parcial 3:** <br> - Interfaces finalizadas <br> - Integração das funcionalidades de cadastro dos alunos com a inserção de dados | Validação da integração          |
 | Sprint 7| 27/10/2025 | 02/11/2025 | Desenvolvimento da página de relatórios visuais   | - Criar interface para exibição de gráficos, indicadores e comparativos de evolução             | Validação da interface de relatórios          |
 | Sprint 8| 03/11/2025 | 09/11/2025 | Implementação da geração de relatórios dinâmicos  | - Implementar lógica de geração dos gráficos com dados do banco                                | Gráficos apresentando dados reais             |
-| Sprint 9| 10/11/2025 | 16/11/2025 | Testes e automação de QA                           | - Implementar testes automatizados com **Attium** <br> - Testes de integração e usabilidade | Aprovação nos testes automatizados          |
+| Sprint 9| 10/11/2025 | 16/11/2025 | Testes e automação de QA                           | - Implementar testes automatizados com **Appium** <br> - Testes de integração e usabilidade | Aprovação nos testes automatizados          |
 | Sprint 10| 17/11/2025 | 23/11/2025 | Ajustes e melhorias gerais                        | - Correção de bugs identificados <br> - Refinamento da interface e otimizações de performance    | Feedback positivo do cliente e equipe         |
 | Sprint 11| 24/11/2025 | 01/12/2025 | Entrega final                                     | **Entrega Parcial 4 (Final):** <br> - Sistema completo e funcional <br> - Documentação entregue  | Aceito formal do cliente                      |
 

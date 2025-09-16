@@ -1,6 +1,6 @@
 # Introdução ao Negócio e Contexto
 
-O cliente **Gustavo Rangel** atua como personal trainer na academia **Clube Coach** e também em consultorias privadas, atendendo indivíduos que buscam melhorar desempenho físico, saúde e qualidade de vida por meio de um treinamento monitorado e personalizado pelo mesmo.  
+O cliente **Gustavo Rangel** atua como personal trainer na academia **ClubeCoat** e também em consultorias privadas, atendendo indivíduos que buscam melhorar desempenho físico, saúde e qualidade de vida por meio de um treinamento monitorado e personalizado pelo mesmo.  
 
 Seu público-alvo inclui alunos que desejam acompanhar de forma estruturada a própria evolução, seja no ganho de força, resistência, condicionamento ou estética.
 
