@@ -12,13 +12,15 @@ Com base nas definições e solicitações do cliente, aliadas ao conhecimento d
 
 Segue anexo o quadro comparativo entre as duas principais opções de processos de ES.
 
-| Característica | Scrum/Xp | Outra |
-| :----------: | :-------: | :-----:|
-| Op01 | Op2 | OP3 |
-| Op01 | Op2 | OP3 |
-| Op01 | Op2 | OP3 |
-| Op01 | Op2 | OP3 |
-| Op01 | Op2 | OP3 |
+| Características                 | RAD                                                                 | ScrumXP                                                                 |
+|---------------------------------|---------------------------------------------------------------------|------------------------------------------------------------------------|
+| Complexidade do processo        | Menos formal que metodologias tradicionais, com forte foco em prototipagem rápida e ciclos curtos de desenvolvimento. | Mais leve e ágil, com menos documentação formal e mais foco na entrega funcional, facilitando a adaptação contínua. |
+| Qualidade Técnica               | Qualidade garantida pela validação frequente de protótipos junto ao cliente, mas pode pecar em aspectos estruturais se não houver disciplina. | Alta ênfase na qualidade técnica, com práticas como TDD (Test-Driven Development), Pair Programming e integração contínua para garantir um código limpo e funcional. |
+| Práticas de Desenvolvimento     | Baseado em prototipagem e interação com o cliente. Menos práticas técnicas específicas dentro do processo. | Inclui práticas técnicas robustas como TDD, refatoração contínua, integração contínua e Pair Programming, promovendo alta qualidade do código. |
+| Adaptação ao projeto do TreinaAi | Ideal para projetos que exigem protótipos rápidos para validação de ideias e feedback imediato do cliente (ex.: testar telas e fluxos com usuários). | Ideal para projetos onde a interação constante com o cliente e a evolução contínua do produto são fundamentais. Adaptável a mudanças frequentes e rápidos ciclos de feedback. |
+| Documentação                    | Documentação reduzida, prioriza protótipos e comunicação direta, o que pode comprometer a rastreabilidade em projetos maiores. | Minimiza a documentação formal, com foco em comunicação e feedback rápido. A documentação é apenas o essencial. |
+| Controle de Qualidade           | Baseado em validação dos protótipos e feedback contínuo do cliente durante o processo. | Controle de qualidade embutido nas práticas do XP, como TDD e integração contínua, garantindo que o software seja testado a cada nova funcionalidade. |
+| Escalabilidade                  | Funciona melhor em equipes pequenas e médias, voltado para aplicações de menor porte ou com necessidade de rápida entrega. | Escalável, mas mais indicado para equipes menores e médias devido à sua abordagem colaborativa e interativa constante. |
 
 ## Justificativa
 

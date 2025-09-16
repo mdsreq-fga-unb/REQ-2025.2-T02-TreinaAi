@@ -4,11 +4,12 @@ A equipe de desenvolvimento será composta por:
 
 | Papel | Descrição | Responsável | Participantes|
 | :-----:| :-------: | :---------:|:------------:|
-| Gerente de Projeto | coord | Davi Negreiros | - |
-| Desenvolvedor Frontend | definição | Jorge Henrique | Raissa, João Marcelo |
-| Desenvolvedor Backend | definição | Arthur Gomes | Davi Negreiros, Gabriel Fae |
-| Analista de QA | definição | Gabriel Fae | Raissa |
-| Analista de Requisitos | definição | João Marcelo | Davi, Gabriel, Raissa, Arthur e Jorge |
+| Gerente de Projeto | Coordena o projeto, garante a comunicação entre
+cliente e equipe, controla prazos e entregas | Davi Negreiros | - |
+| Desenvolvedor Frontend | Interface do usuário, design e funcionalidades do lado do cliente | Jorge Henrique | Raissa, João Marcelo |
+| Desenvolvedor Backend | Implementa lógica de negócios, integração de banco de dados e APIs | Arthur Gomes | Davi Negreiros, Gabriel Fae |
+| Analista de QA | Garante qualidade do produto realizando testes constantes | Gabriel Fae | Raissa |
+| Analista de Requisitos | Define os requisitos funcionais do sistema e garante que estejam atualizados | João Marcelo | Davi, Gabriel, Raissa, Arthur e Jorge |
 
 ## 5.2 Comunicação
 

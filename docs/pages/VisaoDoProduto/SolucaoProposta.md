@@ -34,7 +34,7 @@ Para o desenvolvimento da solução proposta, serão utilizadas tecnologias mode
 
 Nos últimos anos, o mercado de aplicativos voltados para saúde, bem-estar e fitness tem apresentado crescimento significativo, impulsionado pela digitalização de serviços e pelo aumento da procura por acompanhamento físico personalizado. 
 
-Atualmente, já existem plataformas que oferecem acompanhamento de métricas de treino, como MyFitnessPal, SmartFit e o Nike Training CLub.
+Atualmente, já existem plataformas que oferecem acompanhamento de métricas de treino, como MyFitnessPal, SmartFit, Nike Training Club e MFIT Personal.
 
 Entretanto, em entrevistas realizadas, o cliente destacou que não conhece aplicativos que ofereçam uma organização completa dos treinos voltada para o trabalho do profissional. Segundo ele, utiliza apenas um app que gera gráficos de força do exercício, mas considera a ferramenta imprecisa, pois depende que o aluno insira manualmente a carga utilizada. 
 
