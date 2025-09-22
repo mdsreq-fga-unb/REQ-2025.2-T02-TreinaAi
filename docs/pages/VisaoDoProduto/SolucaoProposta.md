@@ -2,19 +2,28 @@ Aqui, analisamos cada etapa referente ao produto que pretendemos produzir, junto
 
 ## 2.1 Objetivos do Produto
 
-O objetivo do produto é ampliar a eficiência do trabalho de personal trainers e professores de educação física por meio de um aplicativo digital intuitivo, que permita o registro detalhado de treinos, incluindo carga, repetições, séries, estímulos e demais variáveis de desempenho. 
+Com este produto, buscamos otimizar o trabalho de personal trainers e professores de educação física, permitindo que o registro, acompanhamento e análise dos treinos dos alunos sejam feitos de forma mais rápida, organizada e estratégica. Além de reduzir o tempo gasto em anotações manuais ou planilhas, a solução visa centralizar todas as informações de treino em um ambiente intuitivo, permitindo que o profissional e, de forma complementar, o próprio aluno, compreendam facilmente o progresso e desempenho físico.
+Os objetivos a seguir detalham especificamente o que o produto busca alcançar, transformando a gestão de treinos em um processo mais ágil, confiável e visualmente interativo:
 
-A solução irá possibilitar a geração de relatórios visuais em tempo real, com gráficos interativos, indicadores e comparativos de evolução, garantindo aos profissionais uma visão clara e objetiva da progressão física para apresentar aos seus alunos.
+- Reduzir o tempo de registro e acompanhamento de treinos, garantindo praticidade durante e após as sessões.
+- Consolidar informações de carga, séries, repetições, estímulos e demais variáveis em uma visão única por aluno, possibilitando comparativos e histórico.
+- Evitar erros e inconsistências nos registros por meio de validações automáticas e alertas sobre dados incompletos ou fora do padrão, por meio da análise crítica do próprio profissional.
+- Apoiar o profissional com informações estratégicas, para que o profissional analise a evolução de desempenho por período, tendências individuais e sugestões de ajustes de treino.
+- Permitir dados para personalização de indicadores e métricas de acordo com o perfil do aluno e objetivos específicos de cada treino.
+
 
 ## 2.2 Características da Solução
 
-Nossa plataforma é voltada inteiramente para personal trainers e professores de educação física, funcionando como uma ferramenta prática para organização e acompanhamento dos treinos de seus alunos. 
+A solução será uma plataforma mobile, acessível pelo personal trainer ou professor de educação física, que trará ferramentas para tornar o registro, acompanhamento e análise dos treinos mais práticos, organizados e estratégicos.
+Entre as principais características estão:
 
-O objetivo é que o profissional registre todos os dados relevantes do treino — como carga utilizada, volume de repetições, séries, tipo de estímulo aplicado e demais variáveis — de forma rápida e conveniente, logo após a sessão ou no momento que considerar adequado.
+- Cadastro de alunos: com informações como nome e descrição.
+- Registro detalhado de treinos: incluindo carga, séries, repetições, tipo de estímulo, observações sobre desempenho e ajustes necessários.
+- Histórico e comparativos: visualização de evolução por períodos, com gráficos e indicadores de desempenho.
+- Relatórios visuais: permitindo ao profissional gerar gráficos de evolução, indicadores de performance e comparativos estratégicos para acompanhamento e feedback.
+- Autonomia e flexibilidade: cada profissional pode gerir os treinos, relatórios e ajustes de forma independente, sem interferência externa.
+- Feedback motivador para alunos: disponibilizando a visualização do progresso de forma clara, gerenciado pelo profissional responsável, reforçando engajamento e percepção de evolução.
 
-A partir dessas informações, o aplicativo processará os dados e gerará gráficos, indicadores e comparativos de evolução. Esses relatórios podem ser armazenados pelo treinador para seu próprio controle técnico e, periodicamente, apresentados ao aluno, seja diretamente no aplicativo ou por meio da impressão de relatórios visuais completos. 
-
-Assim, o aluno terá uma percepção clara e motivadora da sua progressão, enquanto o personal trainer mantém em mãos um portfólio estruturado e confiável do trabalho realizado.
 
 
 ## 2.3 Tecnologias a Serem Utilizadas
@@ -73,4 +82,5 @@ Essa centralização não só otimiza o trabalho do personal, mas também amplia
 | Data     | Versão | Descrição             | Autor              |
 | -------- | ------ | --------------------- | ------------------ |
 | 14/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
+| 22/09/2025 | 1.1 | Refinamento | Gabriel Fae | 
 
