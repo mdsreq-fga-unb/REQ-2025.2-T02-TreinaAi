@@ -1,3 +1,9 @@
+# Requisitos Funcionais
+
+Requisitos funcionais são especificações que descrevem o que o sistema deve fazer. Eles definem as funções, comportamentos e processos que o software precisa executar para atender às necessidades do usuário ou do negócio.
+
+Com base na definição acima, montamos uma lista de requisitos inicias que conseguimos montar com base nos objetivos específicos.
+
 | Índice | Requisito | Valor |
 |--------|----------|-------|
 | REQ01     | O usuário deve ser capaz de realizar o registro de usuário ao entrar no aplicativo pela primeira vez.         |    4   |
