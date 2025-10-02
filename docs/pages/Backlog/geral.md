@@ -50,3 +50,12 @@ A tabela a seguir organiza os Épicos do seu projeto, detalhando o **Código**, 
 | US13   | Ocultar alunos inativos | Como um usuário, eu quero ocultar alunos da minha lista para que eu possa organizar apenas os ativos. <br><br> **Descrição:** Função de marcar aluno como inativo, mantendo seus dados salvos. |
 | US14   | Exclusão de aluno | Como um usuário, quero deletar um aluno cadastrado para que ele não apareça mais no sistema. <br><br> **Descrição:** Opção de exclusão definitiva de aluno. |
 | US15   | Adição de observações | Como um personal, quero adicionar observações em diferentes locais do aplicativo para que eu registre informações adicionais relevantes. <br><br> **Descrição:** Campo de anotações livres em pontos estratégicos (aluno, período, treino, etc.). |
+
+### Processo de Priorização
+
+A priorização foi definida a partir de reuniões com a equipe junto do cliente. Foram considerados dois fatores principais:
+
+- **Valor para o negócio** e experiência do usuário, conforme expressado pelo cliente e pelos objetivos do sistema.
+-- **Custo técnico e esforço estimado**, calculado com base em tempo e esforço, que representam o esforço necessário para a implementação de cada funcionalidade, considerando complexidade técnica, volume de trabalho e incertezas. 
+
+Utilizando da técnica **MoSCoW**, todos os requisitos atuais do projeto foram considerados Must Have (funcinalidades orbigatórias para funcionamento básico do app) e Should Have (funcionalidades obrigatórias mas que podem ser adiadas se necessário).
