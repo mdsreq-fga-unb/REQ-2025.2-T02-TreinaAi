@@ -2,6 +2,8 @@
 
 O **Backlog do Produto** é uma lista viva e priorizada de tudo que é necessário para construir, manter e aprimorar um produto, servindo como uma **única fonte de requisitos** para qualquer mudança no produto.
 
+Todos os épicos e histórias de usuário apresentados nesta página compõem o **Mínimo Produto Viável (MVP)** do projeto. Ou seja, representam o conjunto essencial de funcionalidades necessárias para garantir a entrega de valor inicial aos usuários, permitindo validação, testes e evolução futura da aplicação.
+
 ### Itens do Backlog e Sua Estrutura
 
 Os itens dentro do Backlog são hierárquicos:
@@ -26,3 +28,25 @@ A tabela a seguir organiza os Épicos do seu projeto, detalhando o Código, o T�
 | **E04** | **Página do Aluno** | O sistema deve oferecer uma página dedicada a cada aluno, onde seja possível visualizar e editar seu perfil completo. Essa página deve concentrar informações pessoais, períodos de treino e status de atividade (ativo/inativo), além de permitir operações CRUD (criar, visualizar, atualizar e excluir). |
 | **E05** | **Registro de Treinos** | O sistema deve permitir o registro de treinos de forma digital e centralizada, eliminando a dependência do aluno para anotar cargas e execuções. Esse recurso possibilita ao treinador controlar e salvar o histórico de treinos diretamente na plataforma. |
 | **E06** | **PDF do Período** | O sistema deve permitir exportar relatórios em PDF contendo a evolução e os objetivos cumpridos pelos alunos em um determinado período. |
+
+## Histórias de Usuário
+
+A tabela a seguir organiza os Épicos do seu projeto, detalhando o **Código**, o **Título** e a **Descrição Geral** de cada item de alto nível:
+
+| Código | Título | Descrição Geral |
+|:--------:|:--------:|:----------------:|
+| US01   | Registro de novo usuário | Como um novo usuário, eu quero realizar meu registro no aplicativo para que eu possa ter pdf’s personalizados e atendimento mais pessoal. <br><br> **Descrição:** Ao abrir o app pela primeira vez, o usuário deve preencher suas informações (nome, CREF (opcional) e pronomes) para ser atendido como preferir. |
+| US02   | Cadastro de aluno | Como um usuário, eu quero cadastrar um novo aluno para que eu possa acompanhar seus períodos e treinos. <br><br> **Descrição:** Permite adicionar um aluno com dados pessoais e objetos de acompanhamento. |
+| US03   | Acesso ao perfil do aluno | Como um usuário, eu quero abrir o perfil de um aluno para que eu possa visualizar suas informações e períodos. <br><br> **Descrição:** Tela com dados do aluno, períodos ativos e anteriores. |
+| US04   | Acesso a períodos ativos ou anteriores | Como um usuário, eu quero acessar períodos anteriores ou ativos de um aluno para que eu possa revisar ou acompanhar sua evolução. <br><br> **Descrição:** Navegação no perfil do aluno entre períodos concluídos e em andamento. |
+| US05   | Cadastro de período de treino | Como um usuário, eu quero cadastrar um período de treino para um aluno para que ele tenha um plano estruturado e metas definidas. <br><br> **Descrição:** Cadastro de período com título, objetivo e plano de treino associado. |
+| US06   | Registro de treinos em período ativo | Como um usuário, eu quero registrar treinos no período ativo de um aluno para que seu progresso seja acompanhado corretamente. <br><br> **Descrição:** Inclusão de treinos ao longo do período vigente. |
+| US07   | Registro de exercícios em um treino | Como um usuário, eu quero registrar exercícios realizados em um treino para que eu possa detalhar carga, duração e outras informações. <br><br> **Descrição:** Cada treino pode ter exercícios vinculados com métricas registradas. |
+| US08   | Edição de perfis e períodos | Como um usuário, eu quero editar perfis de alunos e períodos ativos para que eu possa manter informações sempre atualizadas. <br><br> **Descrição:** Alteração de dados de aluno, período, objetivos, planos e treinos. |
+| US09   | Fechamento de período de treino | Como um usuário, eu quero fechar um período de treino de um aluno para que ele seja arquivado e um novo possa ser iniciado. <br><br> **Descrição:** Função para encerrar oficialmente um período ativo. |
+| US10   | Geração de PDF ao encerrar período | Como um usuário, eu quero que o sistema gere um PDF ao fechar um período para que eu tenha um relatório baixável da evolução do aluno. <br><br> **Descrição:** Geração automática de arquivo PDF ao encerrar um período. |
+| US11   | PDF completo de relatório | Como um usuário, quero que o PDF contenha título, plano de treino, datas, gráficos e variáveis para que o relatório seja completo. <br><br> **Descrição:** O PDF deve ser gerado com layout organizado e dados de evolução. |
+| US12   | Busca de alunos por nome | Como um usuário, eu quero buscar alunos por nome para que eu encontre rapidamente o aluno desejado. <br><br> **Descrição:** Barra de busca dentro da lista de alunos cadastrados. |
+| US13   | Ocultar alunos inativos | Como um usuário, eu quero ocultar alunos da minha lista para que eu possa organizar apenas os ativos. <br><br> **Descrição:** Função de marcar aluno como inativo, mantendo seus dados salvos. |
+| US14   | Exclusão de aluno | Como um usuário, quero deletar um aluno cadastrado para que ele não apareça mais no sistema. <br><br> **Descrição:** Opção de exclusão definitiva de aluno. |
+| US15   | Adição de observações | Como um personal, quero adicionar observações em diferentes locais do aplicativo para que eu registre informações adicionais relevantes. <br><br> **Descrição:** Campo de anotações livres em pontos estratégicos (aluno, período, treino, etc.). |

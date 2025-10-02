@@ -46,7 +46,7 @@ nav:
           - Unidade 3: pages/VisaoDoProduto/LicaoAprendida/Unidade3.md
   - Referências:
       - Backlog do Produto: pages/Backlog/geral.md
-      - MVP: pages/Backlog/mvp.md
+      - US Completas: pages/Backlog/mvp.md
   - Requisitos:
       - Funcionais: pages/Requisitos/RequisitosFunc.md
       - Não funcionais: pages/Requisitos/RequisitosNFunc.md
