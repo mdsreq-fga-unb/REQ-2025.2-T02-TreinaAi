@@ -51,11 +51,50 @@ A tabela a seguir organiza os Épicos do seu projeto, detalhando o **Código**, 
 | US14   | Exclusão de aluno | Como um usuário, quero deletar um aluno cadastrado para que ele não apareça mais no sistema. <br><br> **Descrição:** Opção de exclusão definitiva de aluno. |
 | US15   | Adição de observações | Como um personal, quero adicionar observações em diferentes locais do aplicativo para que eu registre informações adicionais relevantes. <br><br> **Descrição:** Campo de anotações livres em pontos estratégicos (aluno, período, treino, etc.). |
 
+## Priorização do Backlog Geral e Definição do MVP
+
+Para a priorização do backlog geral do sistema **TreinaAí**, a equipe optou por utilizar a técnica **MoSCoW**, conforme descrita na etapa de Engenharia de Requisitos, dentro do módulo de Análise e Consenso. Essa metodologia, amplamente reconhecida em abordagens ágeis, auxilia na identificação das funcionalidades essenciais para o Mínimo Produto Viável (MVP) e na definição daquelas que poderão ser implementadas em versões futuras.
+
+### Técnica MoSCoW
+
+A técnica MoSCoW classifica os requisitos em quatro níveis de prioridade:
+
+- **Must Have (M)** – Deve Ter: Funcionalidades indispensáveis para o funcionamento básico do sistema. Sem elas, o produto não é considerado viável.
+
+- **Should Have (S)** – Deveria Ter: Funcionalidades importantes, que agregam valor relevante, mas que podem ser adiadas sem comprometer a entrega inicial.
+
+- **Could Have (C)** – Poderia Ter: Funcionalidades desejáveis, que melhoram a experiência do usuário, mas não são essenciais para o funcionamento mínimo.
+
+- **Won’t Have (W)** – Não Terá por agora: Funcionalidades que não serão implementadas nesta versão, podendo ser consideradas em futuras atualizações.
+
 ### Processo de Priorização
 
-A priorização foi definida a partir de reuniões com a equipe junto do cliente. Foram considerados dois fatores principais:
+A priorização dos requisitos foi definida com base em reuniões de alinhamento entre a equipe de desenvolvimento e o cliente, considerando os objetivos estratégicos do TreinaAí e as necessidades do público-alvo.
 
-- **Valor para o negócio** e experiência do usuário, conforme expressado pelo cliente e pelos objetivos do sistema.
--- **Custo técnico e esforço estimado**, calculado com base em tempo e esforço, que representam o esforço necessário para a implementação de cada funcionalidade, considerando complexidade técnica, volume de trabalho e incertezas. 
+Dois fatores principais foram avaliados:
 
-Utilizando da técnica **MoSCoW**, todos os requisitos atuais do projeto foram considerados Must Have (funcinalidades orbigatórias para funcionamento básico do app) e Should Have (funcionalidades obrigatórias mas que podem ser adiadas se necessário).
+- **Valor para o negócio e experiência do usuário**: A importância de cada funcionalidade foi analisada de acordo com seu impacto direto na entrega de valor e na usabilidade do sistema definida pelo cliente em 0-10 e também com a técnica MoSCoW.
+
+- **Viabilidade técnica e esforço de implementação**: A equipe realizou uma estimação de **0 a 5 do tempo necessário** para o desenvolvimento e somou com outra estimação de **0 a 5** com base no **nível de esforço** exigido para a implementação de cada funcionalidade.
+
+Com base nesses critérios, todos os **Requisitos Funcionais (RF)** foram classificados segundo a técnica MoSCoW, permitindo à equipe definir de forma clara o escopo do MVP e organizar o backlog de maneira estratégica e eficiente.
+
+## Definição do MVP
+
+O MVP será composto por funcionalidades que possuam **alto valor de negócio** e possuam boa viabilidade, ou seja:
+
+- Alto valor de negócio (Must Have ou Should Have segundo MoSCoW, junto da métrica feita com cliente);
+- Baixo esforço de desenvolvimento (baixa pontuação em CT, de 4-8);
+
+**Funcionalidades incluídas:**
+
+``` REQ02, REQ03, REQ05, REQ06, REQ07, REQ08, REQ10, REQ011 ```
+
+**Essas funcionalidades serão entregues na primeira versão do sistema, garantindo entrega rápida de valor com menor complexidade e maior impacto para o usuário final.**
+
+## Histórico de Versão
+
+| Data     | Versão | Descrição             | Autor              |
+| -------- | ------ | --------------------- | ------------------ |
+| 28/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
+| 06/10/2025 | 1.1 | Adição da priorizaão | Gabriel Fae|
