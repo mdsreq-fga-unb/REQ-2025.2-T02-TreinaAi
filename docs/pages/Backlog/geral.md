@@ -88,7 +88,7 @@ O MVP será composto por funcionalidades que possuam **alto valor de negócio** 
 
 **Funcionalidades incluídas:**
 
-``` REQ02, REQ03, REQ05, REQ06, REQ07, REQ08, REQ10, REQ011 ```
+``` REQ02, REQ03, REQ04, REQ05, REQ6, REQ07, REQ11, REQ012, REQ14 ```
 
 **Essas funcionalidades serão entregues na primeira versão do sistema, garantindo entrega rápida de valor com menor complexidade e maior impacto para o usuário final.**
 
@@ -98,3 +98,4 @@ O MVP será composto por funcionalidades que possuam **alto valor de negócio** 
 | -------- | ------ | --------------------- | ------------------ |
 | 28/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
 | 06/10/2025 | 1.1 | Adição da priorizaão | Gabriel Fae|
+
