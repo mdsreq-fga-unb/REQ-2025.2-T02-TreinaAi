@@ -92,10 +92,19 @@ O MVP será composto por funcionalidades que possuam **alto valor de negócio** 
 
 **Essas funcionalidades serão entregues na primeira versão do sistema, garantindo entrega rápida de valor com menor complexidade e maior impacto para o usuário final.**
 
+**Objetivos específicos concluídos:**
+
+- O1: reduzir o tempo de registro e acompanhamento de treinos;
+- O2: Consolidar informações e métricas de treino em um lugar só (período) e por aluno;
+- O3: apoiar o profissional com informações de progressão nos treinos.
+
+O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pelo cliente, principalmente a falta de tempo para adição de métricas, dificuldade de visualização da evolução e a grande gama de alunos administrados em diferentes tabelas.
+
+
 ## Histórico de Versão
 
 | Data     | Versão | Descrição             | Autor              |
 | -------- | ------ | --------------------- | ------------------ |
 | 28/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
 | 06/10/2025 | 1.1 | Adição da priorizaão | Gabriel Fae|
-
+| 07/10/2025 | 1.2 | Adição dos objetivos MVP | Gabriel Fae |
