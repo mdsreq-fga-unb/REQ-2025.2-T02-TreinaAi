@@ -31,8 +31,10 @@ Descrição breve do projeto. Por exemplo:
 Antes de rodar o projeto, você precisa ter instalado:  
 
 - [Flutter SDK](https://docs.flutter.dev/get-started/install)  
+- [Node.js](https://nodejs.org/en/download)  
+- [PostgreSQL](https://www.postgresql.org/download/)  
 - [Git](https://git-scm.com/)  
-- Um editor de código (de preferência VScode ou Android Studio) 
+- Um editor de código (recomendado: **VS Code** ou **Android Studio**)  
 - Emulador ou dispositivo físico para testar o app
 
 ---
@@ -82,8 +84,15 @@ _Testes com appium serão adicionados futuramente._
 - ```docs```: Documentação do projeto, incluindo requisitos, diagramas, etc.
 - ```tests```: Testes automatizados (unitários, integração, etc.).
 
+### Fluxo do projeto
+
+Flutter → HTTP Request → Node.js (localhost:3000) → PostgreSQL
+
 ### Licença
 
 Este projeto está licenciado sob a licença...
 
 
+### Equipe
+
+Projeto desenvolvido pelo grupo T02 - TreinaAi da disciplina de Requisitos de Software (2025.2) - Faculdade do Gama / Universidade de Brasília (FGA/UnB).
