@@ -21,13 +21,6 @@ class _RegisterPageState extends State<RegisterPage> {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {},
         ),
-        title: const Text(
-          'Cadastro',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -35,14 +28,14 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // LOGO
+            //LOGO
             Image.asset(
-              'assets/logo.png', // substitua pelo caminho real da sua logo
+              'assets/logo.png', 
               height: 140,
             ),
             const SizedBox(height: 24),
 
-            // TÍTULO
+            //TÍTLE
             const Text(
               'Cadastre-se!',
               style: TextStyle(
@@ -52,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 24),
 
-            // CAMPO NOME
+            //FIELD NAME
             TextField(
               decoration: InputDecoration(
                 labelText: 'Nome completo',
@@ -62,7 +55,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 16),
 
-            // CAMPO EMAIL
+            //FIELD EMAIL
             TextField(
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -72,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 24),
 
-            // GÊNERO
+            //GENRE
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -96,10 +89,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
             const SizedBox(height: 40),
 
-            // BOTÃO CADASTRAR
+            //REGISTER BUTTON
             GestureDetector(
               onTap: () {
-                // ação do botão cadastrar
+                
               },
               child: Container(
                 width: double.infinity,
@@ -107,7 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   gradient: const LinearGradient(
-                    colors: [Color(0xFFEF5350), Color(0xFFE53935)],
+                    colors: [Color(0xFFFF8A5C), Color(0xFFC30000)],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                   ),
