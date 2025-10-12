@@ -1,0 +1,67 @@
+site_name: TreinaAí
+site_description: Documentação oficial do projeto
+site_author: Equipe TreinaAi
+site_url: https://mdsreq-fga-unb.github.io/REQ-2025.2-T02-TreinaAi/
+repo_url: https://github.com/mdsreq-fga-unb/2025.2-TO2-TreinaAi
+repo_name: REQ-2025.2-T02-TreinaAi
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/logoPNG.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: red
+      accent: orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Modo escuro
+    - scheme: slate
+      primary: orange
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Modo claro
+  features:
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - repo.icon
+
+
+nav:
+  - Início: index.md
+  - Visão do Produto e Projeto:
+      - 1. Cenario Atual do cliente e negócio: pages/VisaoDoProduto/CenarioAtual.md
+      - 2. Solução Proposta: pages/VisaoDoProduto/SolucaoProposta.md
+      - 3. Estratégias de Engenharia de Software: pages/VisaoDoProduto/estrategias.md
+      - 4. Cronogramas: pages/VisaoDoProduto/Cronograma.md
+      - 5. Interação entre Equipe e Cliente: pages/VisaoDoProduto/EquipeCliente.md
+      - 6. Lições Aprendidas:
+          - Unidade 1: pages/VisaoDoProduto/LicaoAprendida/Unidade1.md
+          - Unidade 2: pages/VisaoDoProduto/LicaoAprendida/Unidade2.md
+          - Unidade 3: pages/VisaoDoProduto/LicaoAprendida/Unidade3.md
+  - Referências:
+      - Backlog do Produto: pages/Backlog/geral.md
+      - US Completas: pages/Backlog/mvp.md
+  - Requisitos:
+      - Funcionais: pages/Requisitos/RequisitosFunc.md
+      - Não funcionais: pages/Requisitos/RequisitosNFunc.md
+  - Entregas:
+    - Unidade 1: pages/Entregas/Unidade01.md
+    - Unidade 2: pages/Entregas/Unidade02.md
+    - Unidade 3: pages/Entregas/Unidade03.md
+  - Evidências de ESW e ER:
+    - Atas
+  - Estudos de Caso: pages/EstudosCaso/estudo01.md
+  - Extras: 
+    - Contribuição: pages/Extra/PoliticadeContribuicao.md
+    - Engenharia de Requisitos: pages/Extra/ER.md
+
+
+extra_css:
+  - stylesheets/style.css
+
