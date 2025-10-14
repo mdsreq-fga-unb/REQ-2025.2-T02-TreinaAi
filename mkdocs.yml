@@ -50,6 +50,8 @@ nav:
   - Requisitos:
       - Funcionais: pages/Requisitos/RequisitosFunc.md
       - Não funcionais: pages/Requisitos/RequisitosNFunc.md
+      - Processo de ER: pages/Requisitos/ProcessoER.md
+
   - Entregas:
     - Unidade 1: pages/Entregas/Unidade01.md
     - Unidade 2: pages/Entregas/Unidade02.md
