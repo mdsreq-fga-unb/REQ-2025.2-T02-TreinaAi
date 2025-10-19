@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'student_search_screen.dart';
 import 'components.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -27,20 +28,14 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //LOGO
-            // Image.asset(
-            //   'assets/logo.png',
-            //   height: 140,
-            // ),
             const SizedBox(height: 24),
 
-            //title 'Cadastre-se!'
-            Text('Cadastre-se!', 
-              style: titleText.copyWith(color: Colors.black)
+            Text(
+              'Cadastre-se!',
+              style: titleText.copyWith(color: Colors.black),
             ),
             const SizedBox(height: 24),
 
-            //Form Fields
             TextField(decoration: defaultInputDecoration('Nome completo')),
             const SizedBox(height: 16),
             TextField(decoration: defaultInputDecoration('CREF')),
@@ -48,11 +43,15 @@ class _RegisterPageState extends State<RegisterPage> {
             TextField(decoration: defaultInputDecoration('Contato')),
             const SizedBox(height: 40),
 
-            //Register Button
             GradientButton(
               text: 'Cadastrar',
               onPressed: () {
-                //Cadastro action
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const StudentSearchScreen(),
+                  ),
+                );
               },
             ),
           ],
@@ -60,4 +59,4 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
-} 
+}

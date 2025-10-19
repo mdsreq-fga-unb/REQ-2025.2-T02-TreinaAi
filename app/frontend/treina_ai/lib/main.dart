@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'ui/student_search_screen.dart';
+import 'ui/register_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TreinaAi',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      home: StudentSearchScreen(), // REMOVEU O CONST
       debugShowCheckedModeBanner: false,
+      home: const RegisterPage(),
     );
   }
 }
