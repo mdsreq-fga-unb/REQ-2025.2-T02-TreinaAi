@@ -223,3 +223,15 @@ class GradientButton extends StatelessWidget {
     );
   }
 }
+InputDecoration formInputDecoration(String label) {
+  return InputDecoration(
+    labelText: label,
+    labelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
+    enabledBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.black54, width: 1),
+    ),
+    focusedBorder: const UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.black, width: 1.2),
+    ),
+  );
+}

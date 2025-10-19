@@ -119,15 +119,17 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
             const SizedBox(height: 16),
 
             // Botão "+" dentro do casulo e centralizado
-            Center(
-              child: SizedBox(
-                width: 120,
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: SizedBox(
+                width: double.infinity,
                 child: BorderedButton(
-                  text: '+',
-                  onPressed: _addNewStudent,
-                ),
-              ),
-            ),
+                text: '+',
+                onPressed: _addNewStudent,
+             ),
+           ),
+          ),
+
 
             const SizedBox(height: 16),
 

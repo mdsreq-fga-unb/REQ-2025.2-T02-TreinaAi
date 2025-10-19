@@ -24,36 +24,55 @@ class _RegisterPageState extends State<RegisterPage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 24),
 
-            Text(
-              'Cadastre-se!',
-              style: titleText.copyWith(color: Colors.black),
+            // ===== LOGO =====
+            Image.asset(
+              'assets/logo.png', // coloque aqui o caminho da sua imagem
+              height: 120,
             ),
+
             const SizedBox(height: 24),
 
-            TextField(decoration: defaultInputDecoration('Nome completo')),
+            // ===== TÍTULO =====
+            const Text(
+              'Cadastre-se!',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // ===== CAMPOS =====
+            TextField(decoration: formInputDecoration('Nome completo')),
             const SizedBox(height: 16),
-            TextField(decoration: defaultInputDecoration('CREF')),
+            TextField(decoration: formInputDecoration('CREF')),
             const SizedBox(height: 16),
-            TextField(decoration: defaultInputDecoration('Contato')),
+            TextField(decoration: formInputDecoration('Contato')),
             const SizedBox(height: 40),
 
-            GradientButton(
+            // ===== BOTÃO GRADIENTE =====
+           SizedBox(
+              width: double.infinity, // faz o botão ocupar toda a largura
+              child: GradientButton(
               text: 'Cadastrar',
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const StudentSearchScreen(),
-                  ),
-                );
-              },
-            ),
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const StudentSearchScreen(),
+        ),
+      );
+    },
+  ),
+),
+
           ],
         ),
       ),
