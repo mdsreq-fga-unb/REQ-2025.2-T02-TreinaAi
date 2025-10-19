@@ -59,7 +59,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
       builder: (context) => AlertDialog(
         title: const Text('Adicionar Aluno'),
         content: const Text(
-            'Funcionalidade de adicionar aluno será implementada com integração ao banco de dados.'),
+            'Integrar com o backEnd..'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -76,7 +76,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
       builder: (context) => AlertDialog(
         title: Text(student.name),
         content: Text(
-            'Aluno ${student.isActive ? 'Ativo' : 'Inativo'}\n\nDetalhes do aluno serão exibidos aqui quando integrado com o banco de dados.'),
+            'Aluno ${student.isActive ? 'Ativo' : 'Inativo'}\n\nIntegrar com o backEnd.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -118,7 +118,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Botão "+" dentro do casulo e centralizado
+            //"+" Button to add new student
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: SizedBox(
@@ -133,7 +133,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
 
             const SizedBox(height: 16),
 
-            // Lista de alunos
+            //lIST OF STUDENTS
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -161,7 +161,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
               ),
             ),
 
-            // Botão de Alunos Inativos fixado ao fim
+            //Inactive Students Button
             Padding(
               padding: const EdgeInsets.only(bottom: 24),
               child: DarkRoundedButton(

@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
             const SizedBox(height: 24),
 
-            // ===== TÍTULO =====
+            //===== Tittle =====
             const Text(
               'Cadastre-se!',
               style: TextStyle(
@@ -49,7 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 32),
 
-            // ===== CAMPOS =====
+            //=====Filds =====
             TextField(decoration: formInputDecoration('Nome completo')),
             const SizedBox(height: 16),
             TextField(decoration: formInputDecoration('CREF')),
@@ -57,9 +57,9 @@ class _RegisterPageState extends State<RegisterPage> {
             TextField(decoration: formInputDecoration('Contato')),
             const SizedBox(height: 40),
 
-            // ===== BOTÃO GRADIENTE =====
+            //===== Gradient Button =====
            SizedBox(
-              width: double.infinity, // faz o botão ocupar toda a largura
+              width: double.infinity,
               child: GradientButton(
               text: 'Cadastrar',
               onPressed: () {

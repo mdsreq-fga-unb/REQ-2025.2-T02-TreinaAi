@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-// ==================== COLORS ====================
+//==================== COLORS ====================
 const Color primaryRed = Color(0xFFE53935);
 const Color gradientStart = Color(0xFFFF8A5C);
 const Color gradientEnd = Color(0xFFC30000);
 const Color backgroundColor = Color(0xFFF5F5F5);
 
-// ==================== TEXT STYLES ====================
+//==================== TEXT STYLES ====================
 const TextStyle titleText = TextStyle(
   fontSize: 22,
   fontWeight: FontWeight.w600,
@@ -25,7 +25,7 @@ const TextStyle inactiveStudentsButtonStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-// ==================== INPUT DECORATIONS ====================
+//==================== INPUT DECORATIONS ====================
 InputDecoration searchInputDecoration(String hint) {
   return InputDecoration(
     hintText: hint,
@@ -54,7 +54,7 @@ InputDecoration defaultInputDecoration(String hint) {
   );
 }
 
-// ==================== SIMPLE BORDER BUTTON (SEARCH PAGE "+") ====================
+//==================== SIMPLE BORDER BUTTON (Students PAGE "+") ====================
 class BorderedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -101,7 +101,7 @@ class BorderedButton extends StatelessWidget {
   }
 }
 
-// ==================== STUDENT CARD ====================
+//==================== STUDENT CARD ====================
 class StudentCard extends StatelessWidget {
   final String name;
   final bool isActive;
@@ -139,7 +139,7 @@ class StudentCard extends StatelessWidget {
   }
 }
 
-// ==================== DARK BUTTON (INACTIVE STUDENTS) ====================
+//==================== DARK BUTTON (INACTIVE STUDENTS) ====================
 class DarkRoundedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -169,7 +169,7 @@ class DarkRoundedButton extends StatelessWidget {
   }
 }
 
-// ==================== GradientButton ====================
+//==================== GradientButton ====================
 class GradientButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
