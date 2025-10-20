@@ -30,6 +30,7 @@ Com base na definição acima, montamos uma lista de requisitos inicias que cons
 | REQ12  | Cadastrar período  | 10 | 8 | M |
 | REQ13  | Registrar treinos por aluno | 6 | 5 | M |
 | REQ14  | Exportar pdf ao inativar período| 9 | 8 | M |
+| REQ15  | Gerar gráficos das métricas de treino | 9 | 8 | S | 
 
 
 
