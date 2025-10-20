@@ -27,7 +27,7 @@ O DoD é um acordo que demonstra a qualidade do requisito produzido, indicando q
 
 **Mantém os índices de performance do produto:**  A funcionalidade implementada deve respeitar os requisitos de desempenho, sem degradar a performance do sistema.
 
-**Desenvolvimento completo:**  A funcionalidade foi implementada por completo de acordo com o requisito associado à sua US.
+**Desenvolvimento completo:**  A funcionalidade foi implementada por completo de acordo com o requisito associado ao seu épico.
 
 **Testes Unitários e de Integração Realizados:** Todos os testes unitários e de integração foram executados e aprovados, garantindo que o sistema de recomendação funcione corretamente e se integre com o histórico de clientes. 
 
