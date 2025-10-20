@@ -19,17 +19,17 @@ Com base na definição acima, montamos uma lista de requisitos inicias que cons
 | REQ06  | Editar treino | 3 | 5 | M |
 | REQ07  | Deletar aluno cadastrado | 3 | 2 | M |
 | REQ08  | Buscar aluno por nome | 4 | 1 | C |
-| REQ09  |  Inativar aluno | 3 | 2 | C |
+| REQ09  | Inativar aluno | 3 | 2 | C |
 | REQ10  | Adicionar observações | 4 | 1 | C |
 
 ### Administração de Períodos
 
 | Índice | Requisito | Valor | CT | MoSCoW |
 |--------|-----------|-------|----|--------|
-| REQ11  | Cadastrar novo aluno | 8 | 5 | M |
-| REQ12  | Acessar perfil do aluno | 10 | 8 | M |
-| REQ13  | Editar perfil do aluno | 6 | 5 | M |
-| REQ14  | Editar período ativo | 7 | 7 | M |
-| REQ15  | Editar treino | 5 | 2 | M |
-| REQ16  | Deletar aluno cadastrado | 9 | 8 | M |
+| REQ11  | Acessar períodos no perfil do | 8 | 5 | M |
+| REQ12  | Cadastrar período  | 10 | 8 | M |
+| REQ13  | Registrar treinos por aluno | 6 | 5 | M |
+| REQ14  | Exportar pdf ao inativar período| 9 | 8 | M |
+
+
 
