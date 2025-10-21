@@ -17,21 +17,21 @@ A Definition of Ready (DoR) é um conjunto de critérios que um item ou uma User
 
 O DoD é um acordo que demonstra a qualidade do requisito produzido, indicando que “Done” comprova a satisfação de todos com o trabalho realizado. Se um requisito não atende ao “Done”, ele não deve ser liberado ou apresentado na Sprint Review.
 
-**Entrega um incremento do produto:** A funcionalidade desenvolvida deve agregar valor ao produto como um todo.
+- **Entrega um incremento do produto:** A funcionalidade desenvolvida deve agregar valor ao produto como um todo.
 
-**Contempla os critérios de aceite estabelecidos:**  Todos os critérios de aceitação definidos na US ou requisito devem ser cumpridos, garantindo que o comportamento esperado do requisito foi atingido.
+- **Contempla os critérios de aceite estabelecidos:**  Todos os critérios de aceitação definidos na US ou requisito devem ser cumpridos, garantindo que o comportamento esperado do requisito foi atingido.
 
-**Está documentado para uso:** A documentação deve estar atualizada e disponível, garantindo que qualquer pessoa possa entender como a funcionalidade deve ser usada ou mantida.
+- **Está documentado para uso:** A documentação deve estar atualizada e disponível, garantindo que qualquer pessoa possa entender como a funcionalidade deve ser usada ou mantida.
 
-**Está aderente aos padrões de codificação:** O código deve seguir os padrões de codificação estabelecidos pela equipe, garantindo qualidade, consistência e facilidade de manutenção.
+- **Está aderente aos padrões de codificação:** O código deve seguir os padrões de codificação estabelecidos pela equipe, garantindo qualidade, consistência e facilidade de manutenção.
 
-**Mantém os índices de performance do produto:**  A funcionalidade implementada deve respeitar os requisitos de desempenho, sem degradar a performance do sistema.
+- **Mantém os índices de performance do produto:**  A funcionalidade implementada deve respeitar os requisitos de desempenho, sem degradar a performance do sistema.
 
-**Desenvolvimento completo:**  A funcionalidade foi implementada por completo de acordo com o requisito associado ao seu épico.
+- **Desenvolvimento completo:**  A funcionalidade foi implementada por completo de acordo com o requisito associado ao seu épico.
 
-**Testes Unitários e de Integração Realizados:** Todos os testes unitários e de integração foram executados e aprovados, garantindo que o sistema de recomendação funcione corretamente e se integre com o histórico de clientes. 
+- **Testes Unitários e de Integração Realizados:** Todos os testes unitários e de integração foram executados e aprovados, garantindo que o sistema de recomendação funcione corretamente e se integre com o histórico de clientes. 
 
-**Aprovação do Cliente:** A funcionalidade foi aprovada pelo cliente em reunião direta com a equipe.
+- **Aprovação do Cliente:** A funcionalidade foi aprovada pelo cliente em reunião direta com a equipe.
 
 
 
