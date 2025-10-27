@@ -2,6 +2,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/user.dart';
 
+//classe básica do database. Aqui define o statico inicial e o construtor privado
+// fora que inicializa o banco (junto com o nome do arquivo) e cria a tabela
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._internal();
   DatabaseHelper._internal();
@@ -24,17 +26,17 @@ class DatabaseHelper {
     );
   }
 
-  Future<void> _onCreate(Database db, int version) async {
+  Future<void> _onCreate(Database db, int version) async { // Cria a tabela de usuários quando o db é criado! Acredito que seja apenas uma vez.
     await db.execute('''
       CREATE TABLE users (
         cref TEXT PRIMARY KEY,
         name TEXT NOT NULL,
-        email TEXT NOT NULL
+        contato TEXT NOT NULL
       )
     ''');
   }
 
-  // CRUD básico
+  // CRUD básico, feito apenas comoo placeholder por enquanto!
   Future<void> insertUser(User user) async {
     final db = await database;
     await db.insert('users', user.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
