@@ -29,14 +29,15 @@ class DatabaseHelper {
   Future<void> _onCreate(Database db, int version) async { // Cria a tabela de usuários quando o db é criado! Acredito que seja apenas uma vez.
     await db.execute('''
       CREATE TABLE users (
-        cref TEXT PRIMARY KEY,
-        name TEXT NOT NULL,
-        contato TEXT NOT NULL
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        cref TEXT NOT NULL,
+        name TEXT,
+        contato TEXT
       )
     ''');
   }
 
-  // CRUD básico, feito apenas comoo placeholder por enquanto!
+  // CRUD básico, feito apenas como placeholder por enquanto!
   Future<void> insertUser(User user) async {
     final db = await database;
     await db.insert('users', user.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
@@ -52,4 +53,14 @@ class DatabaseHelper {
     final db = await database;
     await db.delete('users', where: 'cref = ?', whereArgs: [cref]);
   }
+
+  Future<User?> getFirstUser() async {
+  final db = await database;
+  final maps = await db.query('users', limit: 1);
+  if (maps.isNotEmpty) {
+    return User.fromMap(maps.first);
+  }
+  return null;
+}
+
 }

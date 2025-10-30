@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'components.dart';
+import '../data/users_database.dart';
+import '../models/user.dart';
+
 
 class StudentSearchScreen extends StatefulWidget {
   const StudentSearchScreen({super.key});
@@ -26,6 +29,8 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
   List<Student> filteredInactiveStudents = [];
   final TextEditingController searchController = TextEditingController();
   bool _showInactiveStudents = false;
+  User? _primeiroUsuario;
+  bool _loadingUsuario = true;
 
   @override
   void initState() {
@@ -33,6 +38,22 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
     filteredActiveStudents = activeStudents;
     filteredInactiveStudents = inactiveStudents;
     searchController.addListener(_filterStudents);
+    _loadFirstUser();
+  }
+
+  Future<void> _loadFirstUser() async {
+    try {
+      final user = await DatabaseHelper.instance.getFirstUser();
+      setState(() {
+        _primeiroUsuario = user;
+        _loadingUsuario = false;
+      });
+    } catch (e) {
+      setState(() {
+        _primeiroUsuario = null;
+        _loadingUsuario = false;
+      });
+    }
   }
 
   void _filterStudents() {
@@ -110,7 +131,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Olá, Gustavo', style: titleText),
+            Text('Olá, ${_loadingUsuario ? '...' : (_primeiroUsuario?.name ?? 'Visitante')}', style: titleText),
             const SizedBox(height: 16),
             TextField(
               controller: searchController,
