@@ -235,3 +235,107 @@ InputDecoration formInputDecoration(String label) {
     ),
   );
 }
+//==================== ADD BUTTON (PLUS ICON) ====================
+
+class AddButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final double size;
+  final Color backgroundColor;
+  final Color iconColor;
+
+  const AddButton({
+    super.key,
+    required this.onPressed,
+    this.size = 70,
+    this.backgroundColor = const Color(0xFFE9E3E2),
+    this.iconColor = Colors.black,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Icon(Icons.add, color: iconColor, size: 30),
+      ),
+    );
+  }
+}
+
+//==================== SMALL DARK BUTTON (Periodo Page "Baixar planilha") ====================
+class SmallDarkButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+
+  const SmallDarkButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF1C2A35),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        elevation: 0,
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+//==================== TRAINING BUTTON (Periodo Page Treinos realizados) ====================
+class TrainingButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+
+  const TrainingButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFFE57C55),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 14),
+        ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
