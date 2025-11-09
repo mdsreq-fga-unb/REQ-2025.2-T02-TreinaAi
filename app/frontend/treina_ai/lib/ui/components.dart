@@ -169,7 +169,7 @@ class DarkRoundedButton extends StatelessWidget {
   }
 }
 
-//==================== GradientButton ====================
+//==================== GRADIENT BUTTON ====================
 class GradientButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -223,6 +223,7 @@ class GradientButton extends StatelessWidget {
     );
   }
 }
+
 InputDecoration formInputDecoration(String label) {
   return InputDecoration(
     labelText: label,
@@ -236,113 +237,71 @@ InputDecoration formInputDecoration(String label) {
   );
 }
 
-//============= Periodo - Page Area =================
-
-/// Botão padrão estilizado
-class CustomButton extends StatelessWidget {
+//==================== SQUARE ACTION BUTTONS (PeriodoPage) ====================
+class SquareActionButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
   final Color color;
-  final Color textColor;
-  final EdgeInsetsGeometry padding;
+  final VoidCallback onPressed;
 
-  const CustomButton({
+  const SquareActionButton({
     super.key,
     required this.text,
-    required this.onPressed,
     required this.color,
-    this.textColor = Colors.white,
-    this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        padding: padding,
-        elevation: 0,
-      ),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: textColor,
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-        ),
-      ),
-    );
-  }
-}
-
-/// Botão de adicionar (quadrado com o sinal de +)
-class AddSquareButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final Color backgroundColor;
-  final Color iconColor;
-
-  const AddSquareButton({
-    super.key,
-    required this.onPressed,
-    this.backgroundColor = const Color(0xFFE8E3E3),
-    this.iconColor = Colors.black,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(12),
-      onTap: onPressed,
-      child: Container(
-        width: 80,
-        height: 80,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Icon(Icons.add, color: iconColor, size: 30),
-      ),
-    );
-  }
-}
-
-/// Botão para cada treino realizado
-class TrainingButton extends StatelessWidget {
-  final String label;
-  final VoidCallback onPressed;
-
-  const TrainingButton({
-    super.key,
-    required this.label,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
+    return SizedBox(
+      width: 110,
+      height: 110,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFE67C5B),
+          backgroundColor: color,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(20),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 14),
-          elevation: 0,
+          elevation: 4,
+          shadowColor: Colors.black.withOpacity(0.2),
+          padding: EdgeInsets.zero,
         ),
         onPressed: onPressed,
         child: Text(
-          label,
+          text,
+          textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
             color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            height: 1.2,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class AddSquareButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const AddSquareButton({super.key, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 110,
+      height: 110,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.grey.shade200,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          elevation: 2,
+          shadowColor: Colors.black.withOpacity(0.1),
+        ),
+        onPressed: onPressed,
+        child: const Icon(Icons.add, color: Colors.black, size: 34),
       ),
     );
   }

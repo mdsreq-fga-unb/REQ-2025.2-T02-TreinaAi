@@ -17,9 +17,10 @@ class _PeriodoPageState extends State<PeriodoPage> {
   ];
 
   void adicionarTreino() {
-    // Exemplo de ação
     setState(() {
-      treinos.add("Treino ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}");
+      treinos.add(
+        "Treino ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}",
+      );
     });
   }
 
@@ -44,102 +45,145 @@ class _PeriodoPageState extends State<PeriodoPage> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: ListView(
-          children: [
-            const SizedBox(height: 8),
-            const Center(
-              child: Text(
-                "Objetivo: Fortalecimento de quadríceps",
-                style: TextStyle(fontSize: 15, color: Colors.black87),
-              ),
-            ),
-            const SizedBox(height: 30),
-
-            // Plano de Treino
-            const Text(
-              "Plano de Treino",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 420),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: ListView(
               children: [
-                CustomButton(
-                  text: "Baixar planilha",
-                  color: const Color(0xFF0C1F28),
-                  onPressed: () {
-                    // Ação: baixar planilha
-                  },
+                const SizedBox(height: 8),
+                const Center(
+                  child: Text(
+                    "Objetivo: Fortalecimento de quadríceps",
+                    style: TextStyle(fontSize: 15, color: Colors.black87),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                AddSquareButton(
-                  onPressed: () {
-                    // Ação: adicionar planilha
-                  },
+                const SizedBox(height: 30),
+
+                //lano de Treino
+                const Text(
+                  "Plano de Treino",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
+                const SizedBox(height: 12),
+
+                //Botões lado a lado
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SquareActionButton(
+                      text: "Baixar\nplanilha",
+                      color: const Color(0xFF0C1F28),
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 24),
+                    AddSquareButton(
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 36),
+
+                const Text(
+                  "Treinos realizados",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                //Botão adicionar treino
+                GestureDetector(
+                  onTap: adicionarTreino,
+                  child: Container(
+                    height: 36,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE67C5B)),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 14),
+
+                //Lista de treinos
+                for (var treino in treinos)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE67C5B),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      alignment: Alignment.center,
+                      child: Text(
+                        treino,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                const SizedBox(height: 24),
+
+              //Botões Gerar PDF e Fechar Período
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0C1F28),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    elevation: 4,
+                    shadowColor: Colors.black.withOpacity(0.2),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    "Gerar PDF",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFA0162B),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    elevation: 4,
+                    shadowColor: Colors.black.withOpacity(0.2),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    "Fechar Período",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
               ],
             ),
-
-            const SizedBox(height: 40),
-
-            const Text(
-              "Treinos realizados",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // Botão de adicionar treino
-            GestureDetector(
-              onTap: adicionarTreino,
-              child: Container(
-                height: 36,
-                decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xFFE67C5B)),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Center(
-                  child: Icon(Icons.add, color: Color(0xFFE67C5B)),
-                ),
-              ),
-            ),
-            const SizedBox(height: 14),
-
-            // Lista de treinos
-            for (var treino in treinos)
-              TrainingButton(
-                label: treino,
-                onPressed: () {
-                  // ação ao clicar em treino
-                },
-              ),
-
-            const SizedBox(height: 20),
-
-            // Botões de ação final
-            CustomButton(
-              text: "Gerar PDF",
-              color: const Color(0xFF0C1F28),
-              onPressed: () {
-                // ação gerar PDF
-              },
-            ),
-            const SizedBox(height: 12),
-            CustomButton(
-              text: "Fechar Período",
-              color: const Color(0xFFA0162B),
-              onPressed: () {
-                // ação fechar período
-              },
-            ),
-            const SizedBox(height: 30),
-          ],
+          ),
         ),
       ),
     );
