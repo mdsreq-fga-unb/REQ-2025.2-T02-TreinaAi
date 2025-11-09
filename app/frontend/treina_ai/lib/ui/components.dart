@@ -235,32 +235,74 @@ InputDecoration formInputDecoration(String label) {
     ),
   );
 }
-//==================== ADD BUTTON (PLUS ICON) ====================
 
-class AddButton extends StatelessWidget {
+//============= Periodo - Page Area =================
+
+/// Botão padrão estilizado
+class CustomButton extends StatelessWidget {
+  final String text;
   final VoidCallback onPressed;
-  final double size;
+  final Color color;
+  final Color textColor;
+  final EdgeInsetsGeometry padding;
+
+  const CustomButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    required this.color,
+    this.textColor = Colors.white,
+    this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: padding,
+        elevation: 0,
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: textColor,
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
+        ),
+      ),
+    );
+  }
+}
+
+/// Botão de adicionar (quadrado com o sinal de +)
+class AddSquareButton extends StatelessWidget {
+  final VoidCallback onPressed;
   final Color backgroundColor;
   final Color iconColor;
 
-  const AddButton({
+  const AddSquareButton({
     super.key,
     required this.onPressed,
-    this.size = 70,
-    this.backgroundColor = const Color(0xFFE9E3E2),
+    this.backgroundColor = const Color(0xFFE8E3E3),
     this.iconColor = Colors.black,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(12),
       onTap: onPressed,
       child: Container(
-        width: size,
-        height: size,
+        width: 80,
+        height: 80,
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Icon(Icons.add, color: iconColor, size: 30),
       ),
@@ -268,70 +310,36 @@ class AddButton extends StatelessWidget {
   }
 }
 
-//==================== SMALL DARK BUTTON (Periodo Page "Baixar planilha") ====================
-class SmallDarkButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
-
-  const SmallDarkButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF1C2A35),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        elevation: 0,
-      ),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
-  }
-}
-
-//==================== TRAINING BUTTON (Periodo Page Treinos realizados) ====================
+/// Botão para cada treino realizado
 class TrainingButton extends StatelessWidget {
-  final String text;
+  final String label;
   final VoidCallback onPressed;
 
   const TrainingButton({
     super.key,
-    required this.text,
+    required this.label,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFE57C55),
+          backgroundColor: const Color(0xFFE67C5B),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(8),
           ),
           padding: const EdgeInsets.symmetric(vertical: 14),
+          elevation: 0,
         ),
         onPressed: onPressed,
         child: Text(
-          text,
+          label,
           style: const TextStyle(
             fontSize: 15,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             color: Colors.white,
           ),
         ),
