@@ -29,10 +29,49 @@ class DatabaseHelper {
   Future<void> _onCreate(Database db, int version) async { // Cria a tabela de usuários quando o db é criado! Acredito que seja apenas uma vez.
     await db.execute('''
       CREATE TABLE users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        codUser INTEGER PRIMARY KEY AUTOINCREMENT,
         cref TEXT NOT NULL,
         name TEXT,
-        contato TEXT
+        contact TEXT
+      )
+
+      CREATE TABLE clients (
+        codClient INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        desc TEXT,
+        photoPath TEXT,
+        age INTEGER,
+        height REAL,
+        weight REAL,
+        gender TEXT,
+        codUser INTEGER,
+        FOREIGN KEY (codUser) REFERENCES users (codUser)
+      )
+
+      CREATE TABLE periods (
+        codPeriod INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        objective TEXT,
+        codClient INTEGER,
+        FOREIGN KEY (codClient) REFERENCES clients (codClient)
+      )
+
+      CREATE TABLE workout (
+        codWorkout INTEGER PRIMARY KEY AUTOINCREMENT,
+        date DATE NOT NULL,
+        notes TEXT,
+        codPeriod INTEGER,
+        FOREIGN KEY (codPeriod) REFERENCES periods (codPeriod)
+      )
+
+      CREATE TABLE exercise (
+        codExercise INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        sets INTEGER,
+        reps INTEGER,
+        weight REAL,
+        codWorkout INTEGER,
+        FOREIGN KEY (codWorkout) REFERENCES workout (codWorkout)
       )
     ''');
   }

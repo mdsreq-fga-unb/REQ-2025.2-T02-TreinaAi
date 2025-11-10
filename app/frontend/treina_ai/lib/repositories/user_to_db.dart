@@ -15,7 +15,7 @@ class UserRepository{
     return await _dbHelper.getUsers();
   }
 
-  Future<void> removeUser(String cref) async {
-    await _dbHelper.deleteUser(cref);
+  Future<void> removeUser(String codUser) async {
+    await _dbHelper.deleteUser(codUser);
   }
 }
