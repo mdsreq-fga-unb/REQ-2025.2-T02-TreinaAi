@@ -54,6 +54,8 @@ nav:
     - Unidade 1: pages/VisaoDoProduto/LicaoAprendida/Unidade1.md
     - Unidade 2: pages/VisaoDoProduto/LicaoAprendida/Unidade2.md
     - Unidade 3: pages/VisaoDoProduto/LicaoAprendida/Unidade3.md
+  - Estudos de caso:
+    - PBB: pages/EstudosCaso/pbb.md
   - Extras: 
     - Contribuição: pages/Extra/PoliticadeContribuicao.md
 
