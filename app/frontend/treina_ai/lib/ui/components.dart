@@ -169,7 +169,7 @@ class DarkRoundedButton extends StatelessWidget {
   }
 }
 
-//==================== GradientButton ====================
+//==================== GRADIENT BUTTON ====================
 class GradientButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -223,6 +223,7 @@ class GradientButton extends StatelessWidget {
     );
   }
 }
+
 InputDecoration formInputDecoration(String label) {
   return InputDecoration(
     labelText: label,
@@ -234,4 +235,74 @@ InputDecoration formInputDecoration(String label) {
       borderSide: BorderSide(color: Colors.black, width: 1.2),
     ),
   );
+}
+
+//==================== SQUARE ACTION BUTTONS (PeriodoPage) ====================
+class SquareActionButton extends StatelessWidget {
+  final String text;
+  final Color color;
+  final VoidCallback onPressed;
+
+  const SquareActionButton({
+    super.key,
+    required this.text,
+    required this.color,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 110,
+      height: 110,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          elevation: 4,
+          shadowColor: Colors.black.withOpacity(0.2),
+          padding: EdgeInsets.zero,
+        ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            height: 1.2,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AddSquareButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const AddSquareButton({super.key, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 110,
+      height: 110,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.grey.shade200,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          elevation: 2,
+          shadowColor: Colors.black.withOpacity(0.1),
+        ),
+        onPressed: onPressed,
+        child: const Icon(Icons.add, color: Colors.black, size: 34),
+      ),
+    );
+  }
 }
