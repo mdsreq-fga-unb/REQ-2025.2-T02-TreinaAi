@@ -3,7 +3,7 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'dart:io' show Platform;
 import 'ui/register_page.dart';
 import 'ui/student_search_screen.dart';
-import 'ui/periodo_page.dart'; // adicionei sua página
+import 'ui/periodo_page.dart'; 
 import 'data/users_database.dart';
 
 Future<void> main() async {
@@ -15,9 +15,22 @@ Future<void> main() async {
     databaseFactory = databaseFactoryFfi;
   }
 
+  // Primeiro inicializa o database (cria as tabelas)
+  //await DatabaseHelper.instance.database;
+
+  // DESCOMENTE a linha abaixo para resetar o banco DEPOIS que as tabelas foram criadas
+  //await DatabaseHelper.instance.resetDatabase();
+
   // checa se o usuário está registrado antes de rodar o app
-  final user = await DatabaseHelper.instance.getFirstUser();
-  final bool registered = user != null;
+  bool registered = false;
+  try {
+    final user = await DatabaseHelper.instance.getFirstUser();
+    registered = user != null;
+  } catch (e, st) {
+    debugPrint('Erro ao verificar usuário: $e\n$st');
+    // Se houver erro ao ler DB, assume não registrado (irá resetar DB se necessário)
+    registered = false;
+  }
 
   runApp(MyApp(isUserRegistered: registered));
 }
@@ -32,8 +45,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TreinaAí',
-      // troquei o home para a página de teste
-      home: TestPages(isUserRegistered: isUserRegistered),
+       home: isUserRegistered ? StudentSearchScreen() : RegisterPage(), // vai pra register_page se não registrado else vai pra student_search_screen
     );
   }
 }

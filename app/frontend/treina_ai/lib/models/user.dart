@@ -21,9 +21,9 @@ class User {
   // Cria um objeto User a partir de um mapa (para ler do banco)
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      cref: map['cref'],
-      name: map['name'],
-      contact: map['contact'],
+      cref: (map['cref'] ?? '').toString(),
+      name: (map['name'] ?? '').toString(),
+      contact: (map['contact'] ?? '').toString(),
     );
   }
 
