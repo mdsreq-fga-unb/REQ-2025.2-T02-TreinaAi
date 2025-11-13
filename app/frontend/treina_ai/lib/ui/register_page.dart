@@ -15,14 +15,14 @@ class _RegisterPageState extends State<RegisterPage> {
   // controllers para pegar o texto dos campos
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _crefController = TextEditingController();
-  final TextEditingController _contatoController = TextEditingController();
+  final TextEditingController _contactController = TextEditingController();
 
   @override
   void dispose() {
     // limpa os controllers
     _nameController.dispose();
     _crefController.dispose();
-    _contatoController.dispose();
+    _contactController.dispose();
     super.dispose();
   }
 
@@ -43,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
       final user = User(
         cref: _crefController.text.trim(),
         name: _nameController.text.trim(),
-        contato: _contatoController.text.trim(),
+        contact: _contactController.text.trim(),
       );
 
       // salva no banco de dados
@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
       print('VERIFICAÇÃO DO BANCO:');
       print('Total de usuários: ${allUsers.length}');
       for (var u in allUsers) {
-        print('  → ${u.name} | ${u.cref} | ${u.contato}');
+        print('  → ${u.name} | ${u.cref} | ${u.contact}');
       }
       // } (remover dps)
 
@@ -139,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 16),
             TextField(
-              controller: _contatoController,
+              controller: _contactController,
               decoration: formInputDecoration('Contato (opcional)'),
               keyboardType: TextInputType.phone,
             ),

@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 import '../models/user.dart';
 import 'package:treina_ai/data/users_database.dart';
 
-// conecta o ui com o database! Possui o crud basico, de adicionar, buscar e remover os usuarios do db.
+// conecta a UI com o database! Possui o crud basico, de adicionar, buscar e remover os usuarios do db.
 class UserRepository{ 
   final DatabaseHelper _dbHelper = DatabaseHelper.instance;
 

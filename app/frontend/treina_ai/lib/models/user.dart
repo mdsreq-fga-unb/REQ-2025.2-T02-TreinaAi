@@ -1,12 +1,12 @@
 class User {
   final String cref;
   final String name;
-  final String contato;
+  final String contact;
 
   User({
     required this.cref,
     required this.name,
-    required this.contato,
+    required this.contact,
   });
 
   // Converte o objeto User em um mapa (para salvar no banco)
@@ -14,7 +14,7 @@ class User {
     return {
       'cref': cref,
       'name': name,
-      'contato': contato,
+      'contact': contact,
     };
   }
 
@@ -23,12 +23,12 @@ class User {
     return User(
       cref: map['cref'],
       name: map['name'],
-      contato: map['contato'],
+      contact: map['contact'],
     );
   }
 
   @override
   String toString() {
-    return 'User(cref: $cref, name: $name, contato: $contato)';
+    return 'User(cref: $cref, name: $name, contact: $contact)';
   }
 }
