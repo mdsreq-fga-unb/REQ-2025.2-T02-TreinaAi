@@ -14,21 +14,27 @@ Com este produto, buscamos otimizar o trabalho de personal trainers e professore
 A solução será uma plataforma mobile, acessível pelo personal trainer ou professor de educação física, que trará ferramentas para tornar o registro, acompanhamento e análise dos treinos mais práticos, organizados e estratégicos.
 Entre as principais características estão:
 
-- Cadastro de alunos: com informações como nome e descrição.
-- Registro detalhado de treinos: incluindo carga, séries, repetições, tipo de estímulo, observações sobre desempenho e ajustes necessários.
-- Histórico e comparativos: visualização de evolução por períodos, com gráficos e indicadores de desempenho.
-- Relatórios visuais: permitindo ao profissional gerar gráficos de evolução, indicadores de performance e comparativos estratégicos para acompanhamento e feedback.
-- Autonomia e flexibilidade: cada profissional pode gerir os treinos, relatórios e ajustes de forma independente, sem interferência externa.
-- Feedback motivador para alunos: disponibilizando a visualização do progresso de forma clara, gerenciado pelo profissional responsável, reforçando engajamento e percepção de evolução.
+*Tabela 01: Características da Solução*
+
+<a id="tabela-2"></a> <a id="TAB01"></a>
+| Código | Característica        | Descrição                                          |
+|:-------:|:-----------------------:|-----------------------------------------------------|
+| C01 <a id="C01"></a>| Cadastro de alunos | Regisgro de alunos com informações completas, como nome e descrição, de forma dinâmica. |
+| C02 <a id="C02"></a>| Planejamento de treinos | Criação e organização de planos de treino personalizados para cada aluno, com exercícios, séries, repetições e cargas. |
+| C03 <a id="C03"></a>| Registro detalhado de treinos | Permitir o registro completo de cada sessão de treino, incluindo carga, séries, repetições, tipo de estímulo e observações. |
+| C04 <a id="C04"></a>| Histórico e comparativos | Visualização da evolução dos alunos ao longo do tempo, com gráficos e indicadores de desempenho. |
+| C05 <a id="C05"></a>| Relatórios visuais | Geração de gráficos e relatórios de evolução para análise do desempenho dos alunos. |
+| C06 <a id="C06"></a>| Autonomia e flexibilidade | Permitir que cada profissional gerencie seus treinos, relatórios e ajustes de forma independente. |
+| C07 <a id="C07"></a>| Feedback motivador para alunos | Disponibilizar a visualização do progresso de forma clara, reforçando o engajamento dos alunos. |
 
 ### Objetivos Específicos (OE) do projeto:
 
 *Tabela 02: Objetivos Específicos do Projeto*
 
-<a id="tabela-1"></a> <a id="OE1"></a>
-*Tabela 1: Objetivos Específicos do Projeto*
+<a id="tabela-2"></a> <a id="TAB01"></a>
+
 | Código | Objetivo Específico   | Indicador de Sucesso                                |
-|--------|-----------------------|-----------------------------------------------------|
+|:--------:|:-----------------------:|:---------------------------------------------------:|
 | OE1 <a id="OE1"></a>| Reduzir o tempo necessário para registrar e acompanhar treinos. | O profissional consegue registrar um treino completo em menos de 20 minutos. |
 | OE2 <a id="OE2"></a>| Centralizar todas as informações de treino em um único ambiente. | Todas as variáveis do treino (carga, séries, repetições, estímulos etc.) podem ser consultadas em uma única tela/página, eliminando múltiplas planilhas ou consultas separadas. |
 | OE3 <a id="OE3"></a>| Fornecer ferramentas visuais para análise de desempenho. | O profissional pode gerar gráficos e relatórios de evolução com apenas alguns cliques, facilitando a compreensão do progresso dos alunos. |
