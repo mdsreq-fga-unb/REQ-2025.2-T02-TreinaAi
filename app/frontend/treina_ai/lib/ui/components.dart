@@ -306,3 +306,35 @@ class AddSquareButton extends StatelessWidget {
     );
   }
 }
+//==================== ADD EXERCISE BUTTON (TrainingPage "+") ====================
+class AddExerciseButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const AddExerciseButton({super.key, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 48,
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(color: gradientStart, width: 2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          backgroundColor: Colors.white,
+        ),
+        onPressed: onPressed,
+        child: const Text(
+          "+",
+          style: TextStyle(
+            color: gradientStart,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+}

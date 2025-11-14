@@ -5,6 +5,8 @@ import 'ui/register_page.dart';
 import 'ui/student_search_screen.dart';
 import 'ui/periodo_page.dart'; 
 import 'data/users_database.dart';
+import 'ui/training_register_page.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TreinaAí',
-       home: isUserRegistered ? StudentSearchScreen() : RegisterPage(), // vai pra register_page se não registrado else vai pra student_search_screen
+       home: TrainingPage(date: "24/11/2024"), // vai pra register_page se não registrado else vai pra student_search_screen
     );
   }
 }

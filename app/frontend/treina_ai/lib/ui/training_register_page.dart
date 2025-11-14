@@ -57,15 +57,12 @@ class _TrainingPageState extends State<TrainingPage> {
             const SizedBox(height: 18),
 
             // BOTÃO DE ADICIONAR (+)
-            SizedBox(
-              height: 48,
-              child: BorderedButton(
-                text: "+",
-                onPressed: () {
-                  // Ação do botão de adicionar
-                },
-              ),
-            ),
+           AddExerciseButton(
+               onPressed: () {
+    // ação do botão
+  },
+),
+
 
             const SizedBox(height: 25),
 
