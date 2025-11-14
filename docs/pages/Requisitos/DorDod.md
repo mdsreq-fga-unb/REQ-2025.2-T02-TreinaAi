@@ -3,7 +3,15 @@
 
 A Definition of Ready (DoR) é um conjunto de critérios que um item ou uma User Story do Backlog deve atender para ser considerando pronto para iniciar o trabalho desse item. Assim que um item do Backlog atende a esses critérios, ele é puxado para ser trabalhado durante a Sprint. Para que um item possa ser considerado 'Ready', ele precisa atender aos seguintes critérios:
 
-- **Requisito possui estrutura necessária:** O requisito segue uma estrutura base definida pelo grupo que fornece um código, informação rápida e descrição com fácil entendimento sem existência de ambiguidades.
+- **Requisito possui estrutura necessária:** O requisito segue uma estrutura base definida pelo grupo, ou seja, está documentado de forma correta seguindo o padrão estabelecido. A estrutura necessária inclui:
+
+- - **Identificador** (código único do requisito);
+
+- - **Título curto**;
+
+- - **Prioridade com CT e Valor**;
+
+Quando um requisito atende todos esses elementos e pode ser entendido sem interpretações duvidosas, diz-se que ele possui a estrutura necessária e está pronto para ser trabalhado.
 
 - **O requisito cabe em uma Sprint:** O requisito deve ser suficientemente pequeno para ser concluído dentro de uma Sprint.
 
