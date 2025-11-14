@@ -16,9 +16,10 @@ Entre as principais características estão:
 
 *Tabela 01: Características da Solução*
 
-<a id="tabela-2"></a> <a id="TAB01"></a>
+<a id="tabela-1"></a> <a id="TAB01"></a>
+
 | Código | Característica        | Descrição                                          |
-|:-------:|:-----------------------:|-----------------------------------------------------|
+|:-------:|:-----------------------:|-----------------------------------------------------:|
 | C01 <a id="C01"></a>| Cadastro de alunos | Regisgro de alunos com informações completas, como nome e descrição, de forma dinâmica. |
 | C02 <a id="C02"></a>| Planejamento de treinos | Criação e organização de planos de treino personalizados para cada aluno, com exercícios, séries, repetições e cargas. |
 | C03 <a id="C03"></a>| Registro detalhado de treinos | Permitir o registro completo de cada sessão de treino, incluindo carga, séries, repetições, tipo de estímulo e observações. |
