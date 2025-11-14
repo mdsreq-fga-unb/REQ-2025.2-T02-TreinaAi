@@ -3,13 +3,10 @@ Aqui, analisamos cada etapa referente ao produto que pretendemos produzir, junto
 ## 2.1 Objetivos do Produto
 
 Com este produto, buscamos otimizar o trabalho de personal trainers e professores de educação física, permitindo que o registro, acompanhamento e análise dos treinos dos alunos sejam feitos de forma mais rápida, organizada e estratégica. Além de reduzir o tempo gasto em anotações manuais ou planilhas, a solução visa centralizar todas as informações de treino em um ambiente intuitivo, permitindo que o profissional e, de forma complementar, o próprio aluno, compreendam facilmente o progresso e desempenho físico.
-Os objetivos a seguir detalham especificamente o que o produto busca alcançar, transformando a gestão de treinos em um processo mais ágil, confiável e visualmente interativo:
 
-- Reduzir o tempo de registro e acompanhamento de treinos, garantindo praticidade durante e após as sessões.
-- Consolidar informações de carga, séries, repetições, estímulos e demais variáveis em uma visão única por aluno, possibilitando comparativos e histórico.
-- Evitar erros e inconsistências nos registros por meio de validações automáticas e alertas sobre dados incompletos ou fora do padrão, por meio da análise crítica do próprio profissional.
-- Apoiar o profissional com informações estratégicas, para que o profissional analise a evolução de desempenho por período, tendências individuais e sugestões de ajustes de treino.
-- Permitir dados para personalização de indicadores e métricas de acordo com o perfil do aluno e objetivos específicos de cada treino.
+**Objetivo geral (OG) do projeto:** 
+
+- Desenvolver uma plataforma digital que otimize o trabalho de personal trainers e professores de educação física, permitindo o registro, acompanhamento e análise de treinos de forma centralizada, rápida e confiável, aprimorando o gerenciamento do desempenho dos alunos.
 
 
 ## 2.2 Características da Solução
@@ -24,6 +21,19 @@ Entre as principais características estão:
 - Autonomia e flexibilidade: cada profissional pode gerir os treinos, relatórios e ajustes de forma independente, sem interferência externa.
 - Feedback motivador para alunos: disponibilizando a visualização do progresso de forma clara, gerenciado pelo profissional responsável, reforçando engajamento e percepção de evolução.
 
+### Objetivos Específicos (OE) do projeto:
+
+*Tabela 02: Objetivos Específicos do Projeto*
+
+<a id="tabela-1"></a> <a id="OE1"></a>
+*Tabela 1: Objetivos Específicos do Projeto*
+| Código | Objetivo Específico   | Indicador de Sucesso                                |
+|--------|-----------------------|-----------------------------------------------------|
+| OE1 <a id="OE1"></a>| Reduzir o tempo necessário para registrar e acompanhar treinos. | O profissional consegue registrar um treino completo em menos de 20 minutos. |
+| OE2 <a id="OE2"></a>| Centralizar todas as informações de treino em um único ambiente. | Todas as variáveis do treino (carga, séries, repetições, estímulos etc.) podem ser consultadas em uma única tela/página, eliminando múltiplas planilhas ou consultas separadas. |
+| OE3 <a id="OE3"></a>| Fornecer ferramentas visuais para análise de desempenho. | O profissional pode gerar gráficos e relatórios de evolução com apenas alguns cliques, facilitando a compreensão do progresso dos alunos. |
+| OE4 <a id="OE4"></a>| Permitir personalização de indicadores e métricas de acordo com o perfil do aluno.| O profissional consegue configurar ao menos 3 indicadores personalizados por aluno sem necessidade de realizar trabalho manual |
+| OE6 <a id="OE5"></a>| Aumentar a motivação e engajamento dos alunos por meio de feedback visual. | Pelo menos 80% dos alunos relatam maior motivação para continuar os treinos após visualizarem seu progresso na plataforma. |
 
 
 ## 2.3 Tecnologias a Serem Utilizadas
@@ -71,11 +81,23 @@ Com isso, o projeto mantém alta viabilidade e baixo risco, sustentado pelo equi
 
 Os benefícios para os usuários serão percebidos com essa nova forma de demonstrar ganho de força e resistência em atividades físicas: os alunos ficarão mais motivados a seguir com o acompanhamento dos personais. 
 
-Especialmente porque essa evolução agora estará palpável ao aluno da mesma forma que, em geral, está ao personal.
+#### Redução do tempo de registro - OE1 & OE4
 
-A proposta da nossa solução se diferencia ao colocar o personal trainer como protagonista: é o profissional quem organiza, registra e controla todos os dados de treino, podendo gerar relatórios, gráficos e comparativos de evolução confiáveis. 
+A redução do tempo de registro e acompanhamento de treinos melhora significativamente a produtividade dos profissionais, permitindo que atendam mais alunos por dia, diminuam o tempo gasto em atividades administrativas e dediquem mais atenção ao planejamento de treinos e à qualidade do acompanhamento individual.
 
-Essa centralização não só otimiza o trabalho do personal, mas também amplia a motivação e fidelização dos alunos, ao receberem feedback visual claro e consistente da sua progressão sem terem o trabalho de precisar anotar tudo.
+#### Centralização das informações - OE2 
+
+A centralização dos dados elimina a necessidade de navegar entre planilhas, aplicativos ou anotações físicas, reduzindo erros humanos e aumentando a confiabilidade das informações. Isso resulta em maior organização, facilidade de consulta e ganho de eficiência no processo de acompanhamento dos alunos.
+
+#### Ferramentas visuais de análise de desempenho - OE3 & OE4 
+
+A disponibilização de gráficos e relatórios automáticos facilita a interpretação de dados complexos, permitindo que o profissional tome decisões mais embasadas sobre ajustes de carga, periodização e evolução dos alunos. Isso aprimora a qualidade das prescrições e favorece resultados mais consistentes.
+
+A possibilidade de configurar indicadores específicos para cada aluno torna o acompanhamento mais alinhado aos objetivos individuais, aumentando a precisão das análises e a relevância das métricas. Isso contribui para planos de treino mais personalizados e eficazes, elevando o valor percebido pelo aluno.
+
+#### Aumento da motivação e engajamento - OE5, OE3 & OE4
+
+O fornecimento de feedback visual sobre o progresso aumenta o engajamento dos alunos, tornando o processo de treino mais recompensador e estimulante. A sensação de evolução contínua contribui para maior aderência ao programa de treinos, diminuição da taxa de desistência e melhora geral na experiência do usuário.
 
 ## Histórico de Versão
 
@@ -83,4 +105,5 @@ Essa centralização não só otimiza o trabalho do personal, mas também amplia
 | -------- | ------ | --------------------- | ------------------ |
 | 14/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
 | 22/09/2025 | 1.1 | Refinamento | Gabriel Fae | 
+| 14/11/2025 | 1.2 | Ajuste para correção issue #1 | Gabriel Fae |
 
