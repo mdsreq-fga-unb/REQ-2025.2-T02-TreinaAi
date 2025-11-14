@@ -21,6 +21,8 @@ Quando um requisito atende todos esses elementos e pode ser entendido sem interp
 
 - **O requisito cumpre um objetivo/problema do cliente:** Um ou mais problemas do cliente devem ser cumpridos pelo requisito.
 
+- **Aprovação do Cliente:** A funcionalidade foi aprovada pelo cliente em reunião direta com a equipe.
+
 # Definition of Done
 
 O DoD é um acordo que demonstra a qualidade do requisito produzido, indicando que “Done” comprova a satisfação de todos com o trabalho realizado. Se um requisito não atende ao “Done”, ele não deve ser liberado ou apresentado na Sprint Review.
@@ -29,9 +31,21 @@ O DoD é um acordo que demonstra a qualidade do requisito produzido, indicando q
 
 - **Contempla os critérios de aceite estabelecidos:**  Todos os critérios de aceitação definidos na US ou requisito devem ser cumpridos, garantindo que o comportamento esperado do requisito foi atingido.
 
-- **Está documentado para uso:** A documentação deve estar atualizada e disponível, garantindo que qualquer pessoa possa entender como a funcionalidade deve ser usada ou mantida.
+- **Está documentado para uso:** A documentação deve estar atualizada e disponível, garantindo que qualquer pessoa possa entender como a funcionalidade deve ser usada ou mantida de acordo com os seguintes artefatos:
 
-- **Está aderente aos padrões de codificação:** O código deve seguir os padrões de codificação estabelecidos pela equipe, garantindo qualidade, consistência e facilidade de manutenção.
+- - Documentação técnica, incluindo detalhes de implementação, arquitetura e quaisquer decisões técnicas relevantes.
+
+- - Documentação do usuário, se aplicável, explicando como utilizar a funcionalidade (qual o objetivo, como pretende-se que o usuário a utilize, etc).
+
+- - EvidÊncias de teste, como vídeos ou documentos mostrando que testes foram conduzidos.
+
+- **Está aderente aos padrões de codificação:** O código deve seguir os padrões de codificação estabelecidos pela equipe, garantindo qualidade, consistência e facilidade de manutenção. Os padrões são:
+
+- - Documentação dentro do código com comentários explicando a lógica e funcionalidade em secções.
+
+- - Nomenclatura clara e consistente para variáveis, funções, classes e outros elementos do código, usando camelCase ou snake_case conforme apropriado.
+
+- - O código deve sseguir a política branch: não deve haver commits diretos na main, dev deve ser usado para integração de features e novas branchs devem ser criadas para cada nova feature ou correção de bug.
 
 - **Mantém os índices de performance do produto:**  A funcionalidade implementada deve respeitar os requisitos de desempenho, sem degradar a performance do sistema.
 
@@ -39,7 +53,11 @@ O DoD é um acordo que demonstra a qualidade do requisito produzido, indicando q
 
 - **Testes Unitários e de Integração Realizados:** Todos os testes unitários e de integração foram executados e aprovados, garantindo que o sistema de recomendação funcione corretamente e se integre com o histórico de clientes. 
 
-- **Aprovação do Cliente:** A funcionalidade foi aprovada pelo cliente em reunião direta com a equipe.
+- **Aprovação do Cliente:** A funcionalidade foi já conclúída é avaliada pelo cliente em reunião indireta com a equipe.
 
+## Histórico de Versão
 
-
+| Data     | Versão | Descrição             | Autor              |
+| -------- | ------ | --------------------- | ------------------ |
+| 14/09/2025 | 1.0    | Criação do Documento  | Gabriel Fae    |
+| 14/11/2025 | 1.1 | Ajuste de Definition of Done e Ready | Gabriel Fae |
