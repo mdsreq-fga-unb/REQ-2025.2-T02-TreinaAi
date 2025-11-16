@@ -22,12 +22,12 @@ A tabela a seguir organiza os Épicos do seu projeto, detalhando o Código, o T�
 
 | Código | Título | Descrição Geral |
 | :---: | :--- | :--- |
-| **E01** | **Criar Usuário** | O sistema deve permitir o cadastro do usuário, possibilitando que informações pessoais sejam armazenadas de forma organizada e segura para uso posterior. Esse recurso servirá como base para o gerenciamento dos alunos dentro da aplicação. |
-| **E02** | **Página do Período** | O sistema deve disponibilizar uma página de período para organizar e acompanhar os treinos dos alunos de forma digital. Essa página funcionará como um painel central em que serão definidos objetivos, peculiaridades do treino e observações específicas de cada aluno, substituindo os registros manuais em papel. |
-| **E03** | **Gerar Gráficos** | O sistema deve permitir a geração de gráficos personalizados a partir de métricas selecionadas, possibilitando que treinadores e alunos visualizem de forma clara a evolução do desempenho. Os gráficos poderão ser gerados em diferentes formatos e compartilhados facilmente. |
-| **E04** | **Página do Aluno** | O sistema deve oferecer uma página dedicada a cada aluno, onde seja possível visualizar e editar seu perfil completo. Essa página deve concentrar informações pessoais, períodos de treino e status de atividade (ativo/inativo), além de permitir operações CRUD (criar, visualizar, atualizar e excluir). | REQ02,  |
-| **E05** | **Registro de Treinos** | O sistema deve permitir o registro de treinos de forma digital e centralizada, eliminando a dependência do aluno para anotar cargas e execuções. Esse recurso possibilita ao treinador controlar e salvar o histórico de treinos diretamente na plataforma. |
-| **E06** | **PDF do Período** | O sistema deve permitir exportar relatórios em PDF contendo a evolução e os objetivos cumpridos pelos alunos em um determinado período. |
+| **E01** | **Criar Usuário** | Como administrador, quero gerenciar o cadastro de usuários para que seja possível organizar e controlar o acesso à plataforma. |
+| **E02** | **Página do Período** | Como treinador, quero acessar uma visão geral dos períodos de treino dos alunos para acompanhar objetivos, progresso e particularidades de cada ciclo. |
+| **E03** | **Gerar Gráficos** | Como usuário (aluno ou treinador), quero visualizar gráficos personalizados de desempenho para entender a evolução ao longo do tempo. |
+| **E04** | **Página do Aluno** | Como treinador, quero acessar o perfil completo do aluno para visualizar informações pessoais, status e histórico de treinos. | REQ02,  |
+| **E05** | **Registro de Treinos** | Como aluno, quero registrar meus treinos digitalmente para manter um histórico atualizado e acessível ao treinador. |
+| **E06** | **PDF do Período** | Como treinador, quero exportar relatórios de período em PDF para documentar e compartilhar o desempenho dos alunos. |
 
 ## Histórias de Usuário
 
