@@ -9,28 +9,30 @@ Com base na definição acima, montamos uma lista de requisitos inicias que cons
 
 ### Personal e Administração de Alunos
 
-| Índice | Requisito | Valor | CT | MoSCoW |
-|--------|-----------|-------|----|--------|
-| REQ01  | Registrar usuário | 4 | 7 | S |
-| REQ02  | Cadastrar novo aluno | 9 | 7 | M |
-| REQ03  | Acessar perfil do aluno | 9 | 3 | M |
-| REQ04  | Editar perfil do aluno | 8 | 6 | M |
-| REQ05  | Editar período ativo  | 6 | 4 | M |
-| REQ06  | Editar treino | 3 | 5 | M |
-| REQ07  | Deletar aluno cadastrado | 3 | 2 | M |
-| REQ08  | Buscar aluno por nome | 4 | 1 | C |
-| REQ09  | Inativar aluno | 3 | 2 | C |
-| REQ10  | Adicionar observações | 4 | 1 | C |
+| Índice | Requisito | Valor | Complexidade | MoSCoW | Prioridade |
+|--------|-----------|--------|--------------|--------|------------|
+| REQ01  | Registrar usuário | Médio | Alta | S | Baixa |
+| REQ02  | Cadastrar novo aluno | Alto | Alta | M | Avaliar retorno |
+| REQ03  | Acessar perfil do aluno | Alto | Média | M | Alta |
+| REQ04  | Editar perfil do aluno | Alto | Alta | M | Avaliar retorno |
+| REQ05  | Editar período ativo  | Médio | Média | M | Média |
+| REQ06  | Editar treino | Baixo | Média | M | Baixa |
+| REQ07  | Deletar aluno cadastrado | Baixo | Baixa | M | Média |
+| REQ08  | Buscar aluno por nome | Médio | Média | C | Média |
+| REQ09  | Inativar aluno | Baixo | Baixa | C | Média |
+| REQ10  | Adicionar observações | Médio | Baixa | C | Alta |
+
 
 ### Administração de Períodos
 
-| Índice | Requisito | Valor | CT | MoSCoW |
-|--------|-----------|-------|----|--------|
-| REQ11  | Acessar períodos no perfil do aluno | 8 | 5 | M |
-| REQ12  | Cadastrar período  | 10 | 8 | M |
-| REQ13  | Registrar treinos por aluno | 6 | 5 | M |
-| REQ14  | Exportar pdf ao inativar período| 9 | 8 | M |
-| REQ15  | Gerar gráficos das métricas de treino | 9 | 8 | S | 
+| Índice | Requisito | Valor | Complexidade | MoSCoW | Prioridade |
+|--------|-----------|--------|--------------|--------|------------|
+| REQ11  | Acessar períodos no perfil do aluno | Alto | Média | M | Alta |
+| REQ12  | Cadastrar período  | Alto | Alta | M | Avaliar retorno |
+| REQ13  | Registrar treinos por aluno | Médio | Média | M | Média |
+| REQ14  | Exportar PDF ao inativar período | Alto | Alta | M | Avaliar retorno |
+| REQ15  | Gerar gráficos das métricas de treino | Alto | Alta | S | Avaliar retorno |
+
 
 
 
