@@ -20,15 +20,15 @@ Os itens dentro do Backlog são hierárquicos:
 
 1.  **Épicos (Epics):**
 
-*  **O que são:** Itens grandes e abrangentes que representam um recurso ou funcionalidade significativa. São grandes demais para serem entregues em um único ciclo de desenvolvimento (Sprint).
+- **O que são:** Itens grandes e abrangentes que representam um recurso ou funcionalidade significativa. São grandes demais para serem entregues em um único ciclo de desenvolvimento (Sprint).
 
-*  **Estrutura Básica:** Título (`E01 – Criar Usuário`) e **Descrição Geral** (o propósito e o valor do recurso).
+-  **Estrutura Básica:** Título (`E01 – Criar Usuário`) e **Descrição Geral** (o propósito e o valor do recurso).
 
 2.  **Histórias de Usuário (User Stories - US):**
 
-*  **O que são:** Pequenas descrições de um recurso do ponto de vista do usuário final. Representam a menor unidade de trabalho que agrega valor.
+-  **O que são:** Pequenas descrições de um recurso do ponto de vista do usuário final. Representam a menor unidade de trabalho que agrega valor.
 
-*  **Estrutura Básica Comum:** "Como um [tipo de usuário], eu quero [alguma meta], para que [algum benefício]."
+-  **Estrutura Básica Comum:** "Como um [tipo de usuário], eu quero [alguma meta], para que [algum benefício]."
 
 ---
 
@@ -126,6 +126,8 @@ Além do MoSCoW, cada requisito também recebeu uma avaliação segundo dois cri
 
 ### Valor de Negócio
 
+Mede o impacto e o retorno financeiro ou estratégico para o projeto. A escala foi $ (Baixo Valor), $$ (Médio Valor) e $$$ (Alto Valor). Esse critério informou o eixo de Valor (V) da matriz de priorização.
+
 | Nível | Definição |
 |------|-----------|
 | **Baixo** | Impacto limitado; funcionalidade complementar. |
@@ -135,6 +137,8 @@ Além do MoSCoW, cada requisito também recebeu uma avaliação segundo dois cri
 ---
 
 ### Complexidade / Esforço Técnico
+
+Mede a complexidade de implementação. A escala utilizada foi B (Baixo Esforço), M (Médio Esforço) e A (Alto Esforço). Este critério informou o eixo de Complexidade (C) da matriz de priorização.
 
 | Nível | Definição |
 |------|-----------|
@@ -146,11 +150,13 @@ Além do MoSCoW, cada requisito também recebeu uma avaliação segundo dois cri
 
 ## Matriz de Priorização (Valor × Complexidade)
 
-| Valor \ Complexidade | Baixa | Média | Alta |
+A matriz a seguir cruza os níveis de Valor e Complexidade para definir a prioridade de implementação dos requisitos:
+
+| V \ C | Baixa | Média | Alta |
 |----------------------|-------|-------|------|
-| **Alta** | Prioridade Máxima | Alta | Avaliar retorno |
-| **Média** | Alta | Média | Baixa |
-| **Baixa** | Média | Baixa | Mínima |
+| **Alto** | Prioridade Máxima | Alta | Avaliar retorno |
+| **Médio** | Alta | Média | Baixa |
+| **Baixo** | Média | Baixa | Mínima |
 
 Essa matriz permite identificar:
 
@@ -158,44 +164,44 @@ Essa matriz permite identificar:
 - **Planejar com cuidado:** Alto valor + alta complexidade  
 - **Deixar para depois:** Baixo valor + alta complexidade
 
+### Grafico de Prioridade
+
+![Matriz de Prioridade](../../assets/priorizacao.png)
+
 ---
 
-# Definição do MVP
+## Definição do MVP
 
 O MVP é composto por funcionalidades que apresentam:
 
 - **Alto valor** (segundo MoSCoW e a matriz de valor);  
 - **Baixa ou média complexidade**;  
 - **Relevância direta para os objetivos principais do produto**.
-
   
 
 **Funcionalidades incluídas:**
 
+Correlacionamos o id de cada requisito funcional com a história de usuário e o objetivo específico que ele atende, conforme a tabela abaixo:
   
+*Tabela 04: funcionalidades do MVP*
 
-``` REQ02, REQ03, REQ04, REQ05, REQ07, REQ10, REQ11, REQ012, REQ13, REQ14 ```
+| ID      | US Relacionada | Objetivo Específico |
+|---------|-----------------|---------------------|
+| REQ02   | US01            | OE2                 |
+| REQ03   | US02            | OE2                 |
+| REQ04   | US03            | OE2                 |
+| REQ05   | US04            | OE2                 |
+| REQ07   | US05            | OE1                 |
+| REQ10   | US10            | OE3                 |
+| REQ11   | US11            | OE3                 |
+| REQ012  | US12            | OE1                 |
+| REQ13   | US13            | OE2                 |
+| REQ14   | US14            | OE4 & OE5                |
 
-  
 
 **Essas funcionalidades serão entregues na primeira versão do sistema, garantindo entrega rápida de valor com menor complexidade e maior impacto para o usuário final.**
 
-  
-
-**Objetivos específicos concluídos:**
-
-  
-
-- O1: reduzir o tempo de registro e acompanhamento de treinos;
-
-- O2: Consolidar informações e métricas de treino em um lugar só (período) e por aluno;
-
-- O3: apoiar o profissional com informações de progressão nos treinos.
-
-  
-
-O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pelo cliente, principalmente a falta de tempo para adição de métricas, dificuldade de visualização da evolução e a grande gama de alunos administrados em diferentes tabelas.
-
+O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pelo cliente, principalmente a falta de tempo para adição de métricas, dificuldade de visualização da evolução e a grande gama de alunos administrados em diferentes tabelas. Assim, o MVP foca em entregar as funcionalidades essenciais que atendem diretamente aos objetivos do projeto, garantindo uma base sólida para futuras melhorias e expansões.
   
   
 
@@ -209,3 +215,4 @@ O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pe
 | 06/10/2025 | 1.1 | Adição da priorização | Gabriel Fae|
 | 07/10/2025 | 1.2 | Adição dos objetivos MVP | Gabriel Fae |
 | 16/11/2025 | 1.3 | Ajustes na priorização | Davi Negreiros |
+| 27/11/2025 | 1.4 | Ajustes e inserção de tabelas | Gabriel Fae |

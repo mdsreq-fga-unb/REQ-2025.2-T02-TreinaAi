@@ -12,11 +12,11 @@ Com base na definição acima, montamos uma lista de requisitos inicias que cons
 | Índice | Requisito | Valor | Complexidade | MoSCoW | Prioridade |
 |--------|-----------|--------|--------------|--------|------------|
 | REQ01  | Registrar usuário | Médio | Alta | S | Baixa |
-| REQ02  | Cadastrar novo aluno | Alto | Alta | M | Avaliar retorno |
+| REQ02  | Cadastrar novo aluno | Alto | Alta | S| Avaliar retorno |
 | REQ03  | Acessar perfil do aluno | Alto | Média | M | Alta |
 | REQ04  | Editar perfil do aluno | Alto | Alta | M | Avaliar retorno |
 | REQ05  | Editar período ativo  | Médio | Média | M | Média |
-| REQ06  | Editar treino | Baixo | Média | M | Baixa |
+| REQ06  | Editar treino | Baixo | Média | S | Baixa |
 | REQ07  | Deletar aluno cadastrado | Baixo | Baixa | M | Média |
 | REQ08  | Buscar aluno por nome | Médio | Média | C | Média |
 | REQ09  | Inativar aluno | Baixo | Baixa | C | Média |
@@ -28,8 +28,8 @@ Com base na definição acima, montamos uma lista de requisitos inicias que cons
 | Índice | Requisito | Valor | Complexidade | MoSCoW | Prioridade |
 |--------|-----------|--------|--------------|--------|------------|
 | REQ11  | Acessar períodos no perfil do aluno | Alto | Média | M | Alta |
-| REQ12  | Cadastrar período  | Alto | Alta | M | Avaliar retorno |
-| REQ13  | Registrar treinos por aluno | Médio | Média | M | Média |
+| REQ12  | Cadastrar período  | Alto | Alta | S | Avaliar retorno |
+| REQ13  | Registrar treinos por aluno | Médio | Média | S | Média |
 | REQ14  | Exportar PDF ao inativar período | Alto | Alta | M | Avaliar retorno |
 | REQ15  | Gerar gráficos das métricas de treino | Alto | Alta | S | Avaliar retorno |
 
