@@ -27,7 +27,7 @@ class DatabaseHelper {
     );
   }
 
-  // CRUD básico, feito apenas como placeholder por enquanto!
+  // CRUD operations
   Future<void> insertUser(User user) async {
     final db = await database;
     await db.insert('users', user.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
@@ -48,7 +48,8 @@ class DatabaseHelper {
     final db = await database;
     final maps = await db.query('users', limit: 1);
     if (maps.isNotEmpty) {
-      return User.fromMap(maps.first);
+      final user = User.fromMap(maps.first);
+      return user;
     }
     return null;
   }
@@ -64,7 +65,14 @@ class DatabaseHelper {
 
   Future<void> updateUser(User user, String codUser) async {
     final db = await database;
-    await db.update('users', user.toMap(), where: 'codUser = ?', whereArgs: [codUser]);
+    final codUserInt = int.tryParse(codUser) ?? 1;
+    
+    await db.update(
+      'users', 
+      user.toMap(), 
+      where: 'codUser = ?', 
+      whereArgs: [codUserInt]
+    );
   }
 
   // ===================== UTILITY METHODS =====================

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'components.dart';
 import 'student_register_page.dart';
 import 'student_page.dart';
+import 'edit_user_page.dart';
 import '../data/users_database.dart';
 import '../data/clients_database.dart';
 import '../models/user.dart';
@@ -122,22 +123,18 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
             periodosFechados: [],
             client: student.client!,
             onEditProfile: () {
-              // TODO: Implementar navegação para edit profile
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Editar perfil em desenvolvimento')),
               );
             },
             onAddPeriodo: () {
-              // TODO: Implementar adição de período
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Adicionar período em desenvolvimento')),
               );
             },
             onTapPeriodoAtivo: (periodo) {
-              // TODO: Implementar tap em período ativo
             },
             onTapPeriodoFechado: (periodo) {
-              // TODO: Implementar tap em período fechado
             },
           ),
         ),
@@ -170,7 +167,63 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
         elevation: 0,
       ),
       drawer: Drawer(
-        child: ListView(children: const []),
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [gradientStart, gradientEnd],
+                ),
+              ),
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Menu',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.edit, color: primaryRed),
+              title: const Text('Editar Usuário'),
+              onTap: () {
+                Navigator.pop(context); // Fecha a drawer
+                if (_primeiroUsuario != null && _primeiroUsuario!.codUser != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditUserPage(
+                        user: _primeiroUsuario!,
+                        codUser: _primeiroUsuario!.codUser.toString(),
+                      ),
+                    ),
+                  ).then((value) {
+                    if (value == true) {
+                      // Recarregar os dados do usuário após edição
+                      _loadFirstUser();
+                    }
+                  });
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Erro: Usuário não encontrado'),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -200,7 +253,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
 
             const SizedBox(height: 16),
 
-            //lIST OF STUDENTS
+            // List of students
             Expanded(
               child: _loadingStudents
                   ? const Center(

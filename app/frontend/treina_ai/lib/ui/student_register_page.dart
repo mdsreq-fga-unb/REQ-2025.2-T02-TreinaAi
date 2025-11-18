@@ -192,8 +192,6 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
 
   Future<void> _pickImage() async {
     try {
-      // Aqui você pode implementar a seleção de imagem
-      // Por enquanto, deixamos como placeholder
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Funcionalidade de câmera em desenvolvimento')),
       );
