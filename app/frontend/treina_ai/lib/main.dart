@@ -4,10 +4,22 @@ import 'dart:io' show Platform;
 import 'ui/register_page.dart';
 import 'ui/student_search_screen.dart';
 import 'data/users_database.dart';
+import 'package:window_manager/window_manager.dart';
 
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Configurar tamanho da janela para simular celular em pé (portrait) - proporção 9:16
+  if (Platform.isWindows) {
+    await windowManager.ensureInitialized();
+    // 420px de largura = 9 unidades, então altura = 420 * 16 / 9 = 746.67px
+    const windowSize = Size(420, 746);
+    await windowManager.setSize(windowSize);
+    await windowManager.setMinimumSize(const Size(360, 640));
+    await windowManager.setMaximumSize(const Size(420, 746));
+    await windowManager.center();
+  }
 
   // inicializa sqflite (para rodar no desktop)
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
