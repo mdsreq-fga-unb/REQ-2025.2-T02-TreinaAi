@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'components.dart';
+import 'student_register_page.dart';
+import 'student_page.dart';
 import '../data/users_database.dart';
+import '../data/clients_database.dart';
 import '../models/user.dart';
+import '../models/client.dart';
 
 
 class StudentSearchScreen extends StatefulWidget {
@@ -12,18 +16,8 @@ class StudentSearchScreen extends StatefulWidget {
 }
 
 class _StudentSearchScreenState extends State<StudentSearchScreen> {
-  final List<Student> activeStudents = [
-    Student(name: 'Maria Fernandez', isActive: true),
-    Student(name: 'Eduardo Menezes', isActive: true),
-    Student(name: 'Mateus Fernandes', isActive: true),
-    Student(name: 'João Gabriel Freitas', isActive: true),
-  ];
-
-  final List<Student> inactiveStudents = [
-    Student(name: 'Carlos Silva', isActive: false),
-    Student(name: 'Ana Oliveira', isActive: false),
-    Student(name: 'Pedro Santos', isActive: false),
-  ];
+  List<Student> activeStudents = [];
+  List<Student> inactiveStudents = [];
 
   List<Student> filteredActiveStudents = [];
   List<Student> filteredInactiveStudents = [];
@@ -31,14 +25,41 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
   bool _showInactiveStudents = false;
   User? _primeiroUsuario;
   bool _loadingUsuario = true;
+  bool _loadingStudents = true;
 
   @override
   void initState() {
     super.initState();
-    filteredActiveStudents = activeStudents;
-    filteredInactiveStudents = inactiveStudents;
     searchController.addListener(_filterStudents);
     _loadFirstUser();
+    _loadStudentsFromDatabase();
+  }
+
+  Future<void> _loadStudentsFromDatabase() async {
+    try {
+      final clients = await ClientsDatabase.instance.getClients();
+      
+      setState(() {
+        activeStudents = clients
+            .map((client) => Student(
+                  name: client.name,
+                  isActive: true,
+                  client: client,
+                ))
+            .toList();
+        inactiveStudents = [];
+        filteredActiveStudents = activeStudents;
+        filteredInactiveStudents = inactiveStudents;
+        _loadingStudents = false;
+      });
+      
+      debugPrint('Alunos carregados: ${clients.length}');
+    } catch (e) {
+      debugPrint('Erro ao carregar alunos: $e');
+      setState(() {
+        _loadingStudents = false;
+      });
+    }
   }
 
   Future<void> _loadFirstUser() async {
@@ -75,37 +96,62 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
   }
 
   void _addNewStudent() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Adicionar Aluno'),
-        content: const Text(
-            'Integrar com o backEnd..'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
-          ),
-        ],
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => StudentRegisterPage(
+          onSuccess: () {
+            // Recarregar a lista de alunos após o cadastro
+            _loadStudentsFromDatabase();
+          },
+        ),
       ),
     );
   }
 
   void _onStudentTap(Student student) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(student.name),
-        content: Text(
-            'Aluno ${student.isActive ? 'Ativo' : 'Inativo'}\n\nIntegrar com o backEnd.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('FECHAR'),
+    if (student.client != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => StudentPage(
+            studentName: student.client!.name,
+            studentDescription: student.client!.desc ?? 'Sem descrição',
+            studentImageUrl: student.client!.photoPath,
+            periodosAtivos: [],
+            periodosFechados: [],
+            client: student.client!,
+            onEditProfile: () {
+              // TODO: Implementar navegação para edit profile
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Editar perfil em desenvolvimento')),
+              );
+            },
+            onAddPeriodo: () {
+              // TODO: Implementar adição de período
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Adicionar período em desenvolvimento')),
+              );
+            },
+            onTapPeriodoAtivo: (periodo) {
+              // TODO: Implementar tap em período ativo
+            },
+            onTapPeriodoFechado: (periodo) {
+              // TODO: Implementar tap em período fechado
+            },
           ),
-        ],
-      ),
-    );
+        ),
+      ).then((value) {
+        // Recarregar alunos quando voltar da StudentPage
+        if (value == true) {
+          _loadStudentsFromDatabase();
+        }
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Erro ao carregar dados do aluno')),
+      );
+    }
   }
 
   void _toggleInactiveStudents() {
@@ -156,40 +202,47 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
 
             //lIST OF STUDENTS
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    ...filteredActiveStudents.map(
-                      (s) => StudentCard(
-                        name: s.name,
-                        isActive: s.isActive,
-                        onTap: () => _onStudentTap(s),
+              child: _loadingStudents
+                  ? const Center(
+                      child: CircularProgressIndicator(color: primaryRed),
+                    )
+                  : SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          ...filteredActiveStudents.map(
+                            (s) => StudentCard(
+                              name: s.name,
+                              isActive: s.isActive,
+                              onTap: () => _onStudentTap(s),
+                            ),
+                          ),
+                          if (_showInactiveStudents) ...[
+                            const SizedBox(height: 16),
+                            ...filteredInactiveStudents.map(
+                              (s) => StudentCard(
+                                name: s.name,
+                                isActive: s.isActive,
+                                onTap: () => _onStudentTap(s),
+                              ),
+                            ),
+                          ],
+                          const SizedBox(height: 32),
+                        ],
                       ),
                     ),
-                    if (_showInactiveStudents) ...[
-                      const SizedBox(height: 16),
-                      ...filteredInactiveStudents.map(
-                        (s) => StudentCard(
-                          name: s.name,
-                          isActive: s.isActive,
-                          onTap: () => _onStudentTap(s),
-                        ),
-                      ),
-                    ],
-                    const SizedBox(height: 32),
-                  ],
-                ),
-              ),
             ),
 
             //Inactive Students Button
             Padding(
               padding: const EdgeInsets.only(bottom: 24),
-              child: DarkRoundedButton(
-                text: _showInactiveStudents
-                    ? 'Ocultar alunos inativos'
-                    : 'Alunos inativos',
-                onPressed: _toggleInactiveStudents,
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: DarkRoundedButton(
+                  text: _showInactiveStudents
+                      ? 'Ocultar alunos inativos'
+                      : 'Alunos inativos',
+                  onPressed: _toggleInactiveStudents,
+                ),
               ),
             ),
           ],
@@ -208,6 +261,11 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
 class Student {
   final String name;
   final bool isActive;
+  final Client? client;
   
-  Student({required this.name, required this.isActive});
+  Student({
+    required this.name,
+    required this.isActive,
+    this.client,
+  });
 }
