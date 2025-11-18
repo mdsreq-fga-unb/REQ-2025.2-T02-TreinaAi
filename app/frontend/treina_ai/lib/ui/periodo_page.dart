@@ -1,27 +1,81 @@
 import 'package:flutter/material.dart';
 import 'components.dart';
+import '../models/period.dart';
+import '../models/workout.dart';
+import '../data/clients_database.dart';
 
 class PeriodoPage extends StatefulWidget {
-  const PeriodoPage({super.key});
+  final Period period;
+
+  const PeriodoPage({
+    super.key,
+    required this.period,
+  });
 
   @override
   State<PeriodoPage> createState() => _PeriodoPageState();
 }
 
 class _PeriodoPageState extends State<PeriodoPage> {
-  final List<String> treinos = [
-    "Treino 23/04/2025",
-    "Treino 29/04/2025",
-    "Treino 06/05/2025",
-    "Treino 10/05/2025",
-  ];
+  late List<Workout> workouts = [];
+  bool _isLoading = true;
 
-  void adicionarTreino() {
-    setState(() {
-      treinos.add(
-        "Treino ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}",
+  @override
+  void initState() {
+    super.initState();
+    _loadWorkouts();
+  }
+
+  Future<void> _loadWorkouts() async {
+    try {
+      final loadedWorkouts = await ClientsDatabase.instance
+          .getWorkoutsByPeriod(widget.period.codPeriod!);
+      setState(() {
+        workouts = loadedWorkouts;
+        _isLoading = false;
+      });
+    } catch (e) {
+      debugPrint('Erro ao carregar treinos: $e');
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  Future<void> _addWorkout() async {
+    try {
+      final now = DateTime.now();
+      final dateString = '${now.day.toString().padLeft(2, '0')}/${now.month.toString().padLeft(2, '0')}/${now.year}';
+      
+      final workout = Workout(
+        date: dateString,
+        notes: 'Treino $dateString',
+        codPeriod: widget.period.codPeriod!,
       );
-    });
+
+      await ClientsDatabase.instance.insertWorkout(workout);
+      await _loadWorkouts();
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Treino adicionado!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    } catch (e) {
+      debugPrint('Erro ao adicionar treino: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao adicionar treino: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
 
   @override
@@ -33,9 +87,9 @@ class _PeriodoPageState extends State<PeriodoPage> {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
-          "SETEMBRO",
-          style: TextStyle(
+        title: Text(
+          widget.period.title.toUpperCase(),
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             letterSpacing: 1.2,
@@ -53,16 +107,16 @@ class _PeriodoPageState extends State<PeriodoPage> {
             child: ListView(
               children: [
                 const SizedBox(height: 8),
-                const Center(
+                Center(
                   child: Text(
-                    "Objetivo: Fortalecimento de quadríceps",
-                    style: TextStyle(fontSize: 15, color: Colors.black87),
+                    "Objetivo: ${widget.period.objective ?? 'Sem objetivo definido'}",
+                    style: const TextStyle(fontSize: 15, color: Colors.black87),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(height: 30),
 
-                //lano de Treino
+                // Training Plan
                 const Text(
                   "Plano de Treino",
                   style: TextStyle(
@@ -72,7 +126,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 ),
                 const SizedBox(height: 12),
 
-                //Botões lado a lado
+                // Side by side buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -101,7 +155,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
 
                 //Botão adicionar treino
                 GestureDetector(
-                  onTap: adicionarTreino,
+                  onTap: _addWorkout,
                   child: Container(
                     height: 36,
                     decoration: BoxDecoration(
@@ -116,25 +170,51 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 const SizedBox(height: 14),
 
                 //Lista de treinos
-                for (var treino in treinos)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFE67C5B),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      alignment: Alignment.center,
-                      child: Text(
-                        treino,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
+                _isLoading
+                    ? const Center(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          child: CircularProgressIndicator(
+                            color: Color(0xFFE67C5B),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
+                      )
+                    : workouts.isEmpty
+                        ? const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 20),
+                            child: Center(
+                              child: Text(
+                                'Nenhum treino registrado',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          )
+                        : Column(
+                            children: [
+                              for (var workout in workouts)
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFFE67C5B),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    padding: const EdgeInsets.symmetric(vertical: 10),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Treino ${workout.date}',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
 
                 const SizedBox(height: 24),
 
