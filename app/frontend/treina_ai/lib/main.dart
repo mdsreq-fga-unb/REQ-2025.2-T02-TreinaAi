@@ -15,9 +15,6 @@ Future<void> main() async {
     databaseFactory = databaseFactoryFfi;
   }
 
-  // Primeiro inicializa o database (cria as tabelas)
-  //await DatabaseHelper.instance.database;
-
   // DESCOMENTE a linha abaixo para resetar o banco DEPOIS que as tabelas foram criadas
   //await DatabaseHelper.instance.resetDatabase();
 
