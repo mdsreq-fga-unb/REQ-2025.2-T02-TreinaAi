@@ -3,6 +3,7 @@ import 'components.dart';
 import '../models/period.dart';
 import '../models/workout.dart';
 import '../data/clients_database.dart';
+import 'period_edit_page.dart';
 
 class PeriodoPage extends StatefulWidget {
   final Period period;
@@ -95,6 +96,23 @@ class _PeriodoPageState extends State<PeriodoPage> {
             letterSpacing: 1.2,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit, color: Colors.black),
+            onPressed: () async {
+              final result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PeriodEditPage(period: widget.period),
+                ),
+              );
+              if (result == true && mounted) {
+                debugPrint('✓ Período atualizado/deletado, retornando ao StudentPage');
+                Navigator.pop(context, true);
+              }
+            },
+          ),
+        ],
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,

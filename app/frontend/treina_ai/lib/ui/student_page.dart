@@ -96,7 +96,7 @@ class _StudentPageState extends State<StudentPage> {
   }
 
   void _navigateToPeriodPage(Period period) async {
-    await Navigator.push(
+    final result = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => PeriodoPage(
@@ -104,6 +104,11 @@ class _StudentPageState extends State<StudentPage> {
         ),
       ),
     );
+
+    // Se houve alterações (edição ou deleção), recarrega os períodos
+    if (result == true) {
+      _loadPeriods();
+    }
   }
 
   Future<void> _reloadStudentData() async {
@@ -220,11 +225,16 @@ class _StudentPageState extends State<StudentPage> {
               ),
             ),
 
-            // Lista de Períodos Ativos
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
+            // Grid de Períodos Ativos (2xN)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              child: GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 1,
                 children: [
                   ...periods.map((period) {
                     return GestureDetector(
@@ -234,7 +244,6 @@ class _StudentPageState extends State<StudentPage> {
                         child: Container(
                           width: 140,
                           height: 140,
-                          margin: const EdgeInsets.only(right: 12),
                           decoration: BoxDecoration(
                             color: primaryRed,
                             borderRadius: BorderRadius.circular(20),
@@ -280,7 +289,11 @@ class _StudentPageState extends State<StudentPage> {
                     onTap: _navigateToRegisterPeriod,
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
-                      child: AddSquareButton(onPressed: _navigateToRegisterPeriod),
+                      child: Container(
+                        width: 140,
+                        height: 140,
+                        child: AddSquareButton(onPressed: _navigateToRegisterPeriod),
+                      ),
                     ),
                   ),
                 ],
