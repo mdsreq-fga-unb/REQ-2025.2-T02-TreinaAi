@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'student_search_screen.dart';
 import 'components.dart';
 import '../data/users_database.dart';
 import '../models/user.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class EditUserPage extends StatefulWidget {
+  final User user;
+  final String codUser;
+
+  const EditUserPage({
+    super.key,
+    required this.user,
+    required this.codUser,
+  });
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<EditUserPage> createState() => _EditUserPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _EditUserPageState extends State<EditUserPage> {
   // controllers para pegar o texto dos campos
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _crefController = TextEditingController();
-  final TextEditingController _contactController = TextEditingController();
+  late TextEditingController _nameController;
+  late TextEditingController _crefController;
+  late TextEditingController _contactController;
+  bool _isSaving = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: widget.user.name);
+    _crefController = TextEditingController(text: widget.user.cref);
+    _contactController = TextEditingController(text: widget.user.contact);
+  }
 
   @override
   void dispose() {
@@ -27,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
-  Future<void> _saveUser() async {
+  Future<void> _saveChanges() async {
     // verifica se o campo de nome ta preenchido
     if (_nameController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -39,42 +54,50 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
 
+    setState(() {
+      _isSaving = true;
+    });
+
     try {
       // cria objeto User com os dados do formulário
-      final user = User(
+      final updatedUser = User(
         cref: _crefController.text.trim(),
         name: _nameController.text.trim(),
         contact: _contactController.text.trim(),
       );
 
-      // salva no banco de dados
-      await DatabaseHelper.instance.insertUser(user);
+      // atualiza no banco de dados
+      await DatabaseHelper.instance.updateUser(updatedUser, widget.codUser);
 
-      // msg de sucesso
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Cadastro realizado com sucesso!'),
+            content: Text('Usuário atualizado com sucesso!'),
             backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
           ),
         );
 
-        // Navigate to student search screen
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const StudentSearchScreen(),
-          ),
-        );
+        // Espera um pouco para a mensagem ser exibida e volta com true
+        await Future.delayed(const Duration(milliseconds: 500));
+        if (mounted) {
+          Navigator.pop(context, true);
+        }
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao cadastrar: $e'),
+            content: Text('Erro ao salvar: $e'),
             backgroundColor: Colors.red,
           ),
         );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSaving = false;
+        });
       }
     }
   }
@@ -109,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
             //===== Tittle =====
             const Text(
-              'Cadastre-se!',
+              'Editar Perfil',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
@@ -140,13 +163,20 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             const SizedBox(height: 40),
 
-            //===== Gradient Button =====
+            //===== Save Button =====
             SizedBox(
               width: double.infinity,
-              child: GradientButton(
-                text: 'Cadastrar',
-                onPressed: _saveUser,
-              ),
+              child: _isSaving
+                  ? const Center(
+                      child: CircularProgressIndicator(color: primaryRed),
+                    )
+                  : MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GradientButton(
+                        text: 'Salvar Alterações',
+                        onPressed: _saveChanges,
+                      ),
+                    ),
             ),
           ],
         ),
