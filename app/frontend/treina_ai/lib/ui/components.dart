@@ -118,20 +118,23 @@ class StudentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(
-            color: isActive ? primaryRed : Colors.grey[600],
-            borderRadius: BorderRadius.circular(30),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(name, style: studentNameStyle),
-              const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
-            ],
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            decoration: BoxDecoration(
+              color: isActive ? primaryRed : Colors.grey[600],
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(name, style: studentNameStyle),
+                const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+              ],
+            ),
           ),
         ),
       ),
@@ -153,17 +156,20 @@ class DarkRoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF1C2A35),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF1C2A35),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
+            elevation: 0,
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
-          elevation: 0,
+          onPressed: onPressed,
+          child: Text(text, style: inactiveStudentsButtonStyle),
         ),
-        onPressed: onPressed,
-        child: Text(text, style: inactiveStudentsButtonStyle),
       ),
     );
   }
@@ -201,22 +207,25 @@ class GradientButton extends StatelessWidget {
           ),
         ],
       ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 16),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 16),
-        ),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
+          onPressed: onPressed,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
@@ -255,25 +264,28 @@ class SquareActionButton extends StatelessWidget {
     return SizedBox(
       width: 110,
       height: 110,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            elevation: 4,
+            shadowColor: Colors.black.withOpacity(0.2),
+            padding: EdgeInsets.zero,
           ),
-          elevation: 4,
-          shadowColor: Colors.black.withOpacity(0.2),
-          padding: EdgeInsets.zero,
-        ),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            height: 1.2,
+          onPressed: onPressed,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              height: 1.2,
+            ),
           ),
         ),
       ),
@@ -291,17 +303,20 @@ class AddSquareButton extends StatelessWidget {
     return SizedBox(
       width: 110,
       height: 110,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.grey.shade200,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.grey.shade200,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            elevation: 2,
+            shadowColor: Colors.black.withOpacity(0.1),
           ),
-          elevation: 2,
-          shadowColor: Colors.black.withOpacity(0.1),
+          onPressed: onPressed,
+          child: const Icon(Icons.add, color: Colors.black, size: 34),
         ),
-        onPressed: onPressed,
-        child: const Icon(Icons.add, color: Colors.black, size: 34),
       ),
     );
   }
@@ -317,21 +332,24 @@ class AddExerciseButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       height: 48,
-      child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(color: gradientStart, width: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(color: gradientStart, width: 2),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            backgroundColor: Colors.white,
           ),
-          backgroundColor: Colors.white,
-        ),
-        onPressed: onPressed,
-        child: const Text(
-          "+",
-          style: TextStyle(
-            color: gradientStart,
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
+          onPressed: onPressed,
+          child: const Text(
+            "+",
+            style: TextStyle(
+              color: gradientStart,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
