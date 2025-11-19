@@ -261,13 +261,6 @@ class _EditStudentPageState extends State<EditStudentPage> {
 
       await ClientsDatabase.instance.updateClient(updatedClient);
 
-      debugPrint('✓ Cliente atualizado no banco de dados');
-
-      // Verificar se foi salvo corretamente
-      final verificacao =
-          await ClientsDatabase.instance.getClientById(updatedClient.codClient!);
-      debugPrint('Verificação: $verificacao');
-
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Aluno atualizado com sucesso!')),
@@ -277,7 +270,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
         Navigator.pop(context, true);
       }
     } catch (e) {
-      debugPrint('❌ Erro ao salvar alterações: $e');
+      debugPrint('Erro ao salvar alterações: $e');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Erro ao salvar: $e')),
@@ -328,8 +321,6 @@ class _EditStudentPageState extends State<EditStudentPage> {
       try {
         await ClientsDatabase.instance.deleteClient(widget.client.codClient!);
 
-        debugPrint('✓ Aluno deletado com sucesso: ${widget.client.name}');
-
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Aluno excluído com sucesso!')),
@@ -341,7 +332,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
           Navigator.pop(context, true);
         }
       } catch (e) {
-        debugPrint('❌ Erro ao deletar aluno: $e');
+        debugPrint('Erro ao deletar aluno: $e');
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Erro ao deletar: $e')),

@@ -41,7 +41,7 @@ class DatabaseSchema {
     await db.execute('''
       CREATE TABLE workout (
         codWorkout INTEGER PRIMARY KEY AUTOINCREMENT,
-        date DATE NOT NULL,
+        date TEXT NOT NULL,
         notes TEXT,
         codPeriod INTEGER,
         FOREIGN KEY (codPeriod) REFERENCES periods (codPeriod)
