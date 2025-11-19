@@ -57,9 +57,7 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
         codClient: widget.period.codClient,
       );
 
-      debugPrint('📝 Atualizando período: ${updatedPeriod.title}');
       await ClientsDatabase.instance.updatePeriod(updatedPeriod);
-      debugPrint('✓ Período atualizado com sucesso');
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -76,7 +74,7 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
         }
       }
     } catch (e) {
-      debugPrint('❌ Erro ao atualizar período: $e');
+      debugPrint('Erro ao atualizar período: $e');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -148,9 +146,7 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
         _isSaving = true;
       });
 
-      debugPrint('🗑️  Deletando período: ${widget.period.title}');
       await ClientsDatabase.instance.deletePeriod(widget.period.codPeriod!);
-      debugPrint('✓ Período deletado com sucesso');
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -167,7 +163,7 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
         }
       }
     } catch (e) {
-      debugPrint('❌ Erro ao deletar período: $e');
+      debugPrint('Erro ao deletar período: $e');
       if (mounted) {
         setState(() {
           _isSaving = false;

@@ -4,6 +4,8 @@ import '../models/period.dart';
 import '../models/workout.dart';
 import '../data/clients_database.dart';
 import 'period_edit_page.dart';
+import 'workout_register_page.dart';
+import 'workout_page.dart';
 
 class PeriodoPage extends StatefulWidget {
   final Period period;
@@ -44,38 +46,32 @@ class _PeriodoPageState extends State<PeriodoPage> {
   }
 
   Future<void> _addWorkout() async {
-    try {
-      final now = DateTime.now();
-      final dateString = '${now.day.toString().padLeft(2, '0')}/${now.month.toString().padLeft(2, '0')}/${now.year}';
-      
-      final workout = Workout(
-        date: dateString,
-        notes: 'Treino $dateString',
-        codPeriod: widget.period.codPeriod!,
-      );
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WorkoutRegisterPage(
+          codPeriod: widget.period.codPeriod!,
+        ),
+      ),
+    );
 
-      await ClientsDatabase.instance.insertWorkout(workout);
-      await _loadWorkouts();
+    // Se houve adição de treino, recarrega os treinos
+    if (result == true) {
+      _loadWorkouts();
+    }
+  }
 
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Treino adicionado!'),
-            backgroundColor: Colors.green,
-            duration: Duration(seconds: 2),
-          ),
-        );
-      }
-    } catch (e) {
-      debugPrint('Erro ao adicionar treino: $e');
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Erro ao adicionar treino: $e'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+  Future<void> _navigateToWorkout(Workout workout) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TrainingPage(workout: workout),
+      ),
+    );
+
+    // Se houve atualização/deleção de treino, recarrega a lista
+    if (result == true) {
+      _loadWorkouts();
     }
   }
 
@@ -107,7 +103,6 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 ),
               );
               if (result == true && mounted) {
-                debugPrint('✓ Período atualizado/deletado, retornando ao StudentPage');
                 Navigator.pop(context, true);
               }
             },
@@ -172,16 +167,19 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 const SizedBox(height: 12),
 
                 //Botão adicionar treino
-                GestureDetector(
-                  onTap: _addWorkout,
-                  child: Container(
-                    height: 36,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xFFE67C5B)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Center(
-                      child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: _addWorkout,
+                    child: Container(
+                      height: 36,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: const Color(0xFFE67C5B)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                      ),
                     ),
                   ),
                 ),
@@ -215,18 +213,24 @@ class _PeriodoPageState extends State<PeriodoPage> {
                               for (var workout in workouts)
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 8.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFE67C5B),
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 10),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'Treino ${workout.date}',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
+                                  child: GestureDetector(
+                                    onTap: () => _navigateToWorkout(workout),
+                                    child: MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFE67C5B),
+                                          borderRadius: BorderRadius.circular(12),
+                                        ),
+                                        padding: const EdgeInsets.symmetric(vertical: 10),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          'Treino ${workout.date}',
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

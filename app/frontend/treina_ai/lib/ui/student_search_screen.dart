@@ -53,8 +53,6 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
         filteredInactiveStudents = inactiveStudents;
         _loadingStudents = false;
       });
-      
-      debugPrint('Alunos carregados: ${clients.length}');
     } catch (e) {
       debugPrint('Erro ao carregar alunos: $e');
       setState(() {

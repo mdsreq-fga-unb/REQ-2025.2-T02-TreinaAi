@@ -89,9 +89,9 @@ class _StudentPageState extends State<StudentPage> {
       ),
     );
 
-    // Após retornar, recarregar dados do aluno
+    // Após retornar, recarregar períodos
     if (result == true) {
-      _reloadStudentData();
+      _loadPeriods();
     }
   }
 
@@ -120,7 +120,6 @@ class _StudentPageState extends State<StudentPage> {
         setState(() {
           currentClient = updatedClient;
         });
-        debugPrint('✓ Dados do aluno recarregados');
         // Retornar true para a StudentSearchScreen saber que houve atualização
         Future.delayed(const Duration(milliseconds: 500), () {
           Navigator.pop(context, true);
@@ -225,77 +224,22 @@ class _StudentPageState extends State<StudentPage> {
               ),
             ),
 
-            // Grid de Períodos Ativos (2xN)
+            // Períodos Ativos com Wrap
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              child: GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: 1,
+              child: Wrap(
+                spacing: 24,
+                runSpacing: 24,
+                alignment: WrapAlignment.center,
                 children: [
                   ...periods.map((period) {
-                    return GestureDetector(
-                      onTap: () => _navigateToPeriodPage(period),
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: Container(
-                          width: 140,
-                          height: 140,
-                          decoration: BoxDecoration(
-                            color: primaryRed,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                blurRadius: 4,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                period.title,
-                                style: const TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                'Objetivo:\n${period.objective ?? "Sem objetivo"}',
-                                style: const TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
-                                  height: 1.3,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                    return SquareActionButton(
+                      text: "${period.title}\n${period.objective ?? "Sem objetivo"}",
+                      color: primaryRed,
+                      onPressed: () => _navigateToPeriodPage(period),
                     );
                   }).toList(),
-                  GestureDetector(
-                    onTap: _navigateToRegisterPeriod,
-                    child: MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: Container(
-                        width: 140,
-                        height: 140,
-                        child: AddSquareButton(onPressed: _navigateToRegisterPeriod),
-                      ),
-                    ),
-                  ),
+                  AddSquareButton(onPressed: _navigateToRegisterPeriod),
                 ],
               ),
             ),
