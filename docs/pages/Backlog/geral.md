@@ -32,24 +32,33 @@ Os itens dentro do Backlog são hierárquicos:
 
 ---
 
-  
+## Temas
+
+EM REVISÃO
+
+| Código | Tema | Descrição |
+|:--------:|:------:|--------|
+| T01 | Gerenciamento de Usuários | Tudo relacionado à administração do Profissional, permitindo cadastro de dados importantes como CRM e outros. |
+| T02 | Organização e Acompanhamento de Períodos | Cadastro das métricas de objetivo, tempo disponível e relação direta com a evolução do aluno. |
+| T03 | Visualização e Monitoramento de Desempenho | Exibe, compara e monitora o desempenho do aluno com base graficos indicadores de progresso, permitindo exportação|
+| T04 | Registro e Histórico de Treinos | Permite registrar treinos, exercícios, séries e cargas, além de consultar o histórico completo para análise de progressão |
+| T05 | Gerenciamento de Alunos | Reúne todas as informações do aluno em um só lugar: dados pessoais, atividade no sistema, períodos antigos, etc. |
 
 ## Épicos do Projeto
 
-  
 
 A tabela a seguir organiza os Épicos do seu projeto, detalhando o Código, o Título e a Descrição Geral de cada item de alto nível:
 
   
 
-| Código | Título | Descrição Geral |
-| :---: | :--- | :--- |
-| **E01** | **Criar Usuário** | Como Treinador, quero cadastrar usuários para que possam acessar a plataforma e utilizar seus recursos. |
-| **E02** | **Página do Período** | Como Treinador, quero criar e visualizar períodos de treino para organizar melhor a evolução dos alunos. |
-| **E03** | **Gerar Gráficos** | Como Treinador, quero gerar gráficos de desempenho para acompanhar a evolução dos alunos ao longo do tempo. |
-| **E04** | **Página do Aluno** |Como Treinador, quero acessar um painel completo do aluno para gerenciar suas informações e progresso. | REQ02, |
-| **E05** | **Registro de Treinos** | Como Treinador, quero registrar os treinos dos alunos para manter um histórico confiável e evitar perda de dados. |
-| **E06** | **PDF do Período** | Como Treinador, quero exportar relatórios em PDF para compartilhar o acompanhamento dos treinos com os alunos. |
+| Código | Tema Relacionado | Título | Descrição Geral |
+| :---: | :---: :--- | :--- |
+| **E01** | T01 | **Criar Usuário** | Como Treinador, quero cadastrar usuários para que possam acessar a plataforma e utilizar seus recursos. |
+| **E02** | T03 | **Página do Período** | Como Treinador, quero criar e visualizar períodos de treino para organizar melhor a evolução dos alunos. |
+| **E03** | T02 | **Gerar Gráficos** | Como Treinador, quero gerar gráficos de desempenho para acompanhar a evolução dos alunos ao longo do tempo. |
+| **E04** | T05 | **Página do Aluno** |Como Treinador, quero acessar um painel completo do aluno para gerenciar suas informações e progresso. | REQ02, |
+| **E05** | T04 |  **Registro de Treinos** | Como Treinador, quero registrar os treinos dos alunos para manter um histórico confiável e evitar perda de dados. |
+| **E06** | T03 & T04 | **PDF do Período** | Como Treinador, quero exportar relatórios em PDF para compartilhar o acompanhamento dos treinos com os alunos. |
 
 ## Temas
 
@@ -225,4 +234,5 @@ O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pe
 | 06/10/2025 | 1.1 | Adição da priorização | Gabriel Fae|
 | 07/10/2025 | 1.2 | Adição dos objetivos MVP | Gabriel Fae |
 | 16/11/2025 | 1.3 | Ajustes na priorização | Davi Negreiros |
+
 | 27/11/2025 | 1.4 | Ajustes e inserção de tabelas | Gabriel Fae |
