@@ -6,6 +6,7 @@ import '../data/clients_database.dart';
 import 'period_edit_page.dart';
 import 'workout_register_page.dart';
 import 'workout_page.dart';
+import 'training_chart_page.dart';
 
 class PeriodoPage extends StatefulWidget {
   final Period period;
@@ -165,6 +166,34 @@ class _PeriodoPageState extends State<PeriodoPage> {
                   ),
                 ),
                 const SizedBox(height: 12),
+
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF0C1F28),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TrainingChartPage(period: widget.period),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Ver Análises e Gráficos",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+
 
                 //Botão adicionar treino
                 MouseRegion(
