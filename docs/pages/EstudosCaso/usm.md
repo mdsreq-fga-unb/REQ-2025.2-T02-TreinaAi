@@ -10,7 +10,7 @@ No USM, parte-se da identificação do objetivo central do usuário e das princi
 
 A “HealthConnect” é uma empresa que busca transformar a experiência digital de saúde em uma rede ampla de clínicas e hospitais. Dessa forma, ela busca uma plataforma que unifica múltiplas ferramentas, como: gestão do cuidado, prontuário eletrônico, agendamento, prescrições, comunicação multicanal e painéis gerenciais, com foco em segurança usabilidade e interoperabilidade.
 
-## Personas, atividades e histórias
+## Personas e suas principais atividades
 
 ### Persona 1: Dr. João - Médico Clínico
 ![joaomedico](../../assets/joaoMedico.png)
@@ -19,7 +19,7 @@ A “HealthConnect” é uma empresa que busca transformar a experiência digita
 ![mariarecepcionista](../../assets/mariaRecepcionista.png)
 
 ### Persona 3: Lívia - Farmacêutica
-![liviafarmaceutica](../../assets/liviafarmaceutica.png)
+![liviafarmaceutica](../../assets/liviaFarmaceutica.png)
 
 ### Persona 4: Rafael - Coordenador de Agendamento
 ![rafaelagendamento](../../assets/rafaelAgendamento.png)

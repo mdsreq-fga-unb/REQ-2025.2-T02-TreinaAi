@@ -15,7 +15,7 @@ Este caso de uso permite ao Paciente consultar, em tempo real, a disponibilidade
 
 ## 2.1 Fluxo Principal
 
-Este caso de uso é iniciado quando o Paciente escolhe a opção “Localizar Serviços de Saúde”.
+Este caso de uso é iniciado quando o Paciente escolhe a opção “Buscar Serviços de Saúde”.
 
 2.1.1 O sistema apresenta filtros de busca, como tipo de atendimento, localização e especialidade.
 
@@ -98,7 +98,7 @@ As sugestões de unidades ou profissionais devem considerar dados básicos do Pa
 
 # 5. Precondições
 
-5.1 O Paciente deve estar autenticado no ConnectCare.
+5.1 O Paciente deve estar autenticado no sistema.
 5.2 As unidades de saúde e profissionais devem ter agendas e dados atualizados no sistema.
 
 ---
