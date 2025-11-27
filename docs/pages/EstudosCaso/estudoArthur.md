@@ -20,7 +20,7 @@ O ator deseja criar e registrar seu perfil profissional, enquanto o sistema ofer
 | **2.1.1** | O **Profissional da Saúde** acessa a opção *Criar Perfil Profissional*. |
 | **2.1.2** | O **Sistema** exibe o formulário de criação de perfil.               |
 | **2.1.3** | O **Profissional da Saúde** preenche suas informações profissionais.                  |
-| **2.1.4** | O **Sistema** valida os dados informados (RN).                       |
+| **2.1.4** | O **Sistema** valida os dados informados.                       |
 | **2.1.5** | O **Sistema** registra o novo perfil no banco de dados.              |
 | **2.1.6** | O **Sistema** confirma a criação do perfil exibindo uma mensagem de sucesso. |
 
