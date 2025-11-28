@@ -32,26 +32,27 @@ Os itens dentro do Backlog são hierárquicos:
 
 ---
 
+## Temas
+
+| Código | Tema | Descrição |
+|:--------:|:------:|--------|
+| T01 | Gerenciamento de Usuários | Tudo relacionado à administração do Profissional, permitindo cadastro de dados importantes como CREF, alunos atuais e outros. |
+| T02 | Organização e Acompanhamento de Períodos | Cadastro das métricas de objetivo, tempo disponível e relação direta com a evolução do aluno. |
+| T03 | Visualização e Monitoramento de Desempenho | Exibe, compara e monitora o desempenho do aluno com base graficos indicadores de progresso, permitindo exportação|
+| T04 | Registro e Histórico de Treinos | Permite registrar treinos, exercícios, séries e cargas, além de consultar o histórico completo para análise de progressão |
+
+## Épicos
   
 
-## Épicos do Projeto
+| Código | Tema Relacionado | Título | Descrição Geral |
+| :---: | :---: | :--- | :--- |
+| **E01** | T01 | **Criar Usuário** | Como Treinador, quero cadastrar usuários para que possam acessar a plataforma e utilizar seus recursos. |
+| **E02** | T03 | **Página do Período** | Como Treinador, quero criar e visualizar períodos de treino para organizar melhor a evolução dos alunos. |
+| **E03** | T02 | **Gerar Gráficos** | Como Treinador, quero gerar gráficos de desempenho para acompanhar a evolução dos alunos ao longo do tempo. |
+| **E04** | T01 & T04 | **Página do Aluno** |Como Treinador, quero acessar um painel completo do aluno para gerenciar suas informações e progresso.  |
+| **E05** | T04 |  **Registro de Treinos** | Como Treinador, quero registrar os treinos dos alunos para manter um histórico confiável e evitar perda de dados. |
+| **E06** | T03 & T04 | **PDF do Período** | Como Treinador, quero exportar relatórios em PDF para compartilhar o acompanhamento dos treinos com os alunos. |
 
-  
-
-A tabela a seguir organiza os Épicos do seu projeto, detalhando o Código, o Título e a Descrição Geral de cada item de alto nível:
-
-  
-
-| Código | Título | Descrição Geral |
-| :---: | :--- | :--- |
-| **E01** | **Criar Usuário** | O sistema deve permitir o cadastro do usuário, possibilitando que informações pessoais sejam armazenadas de forma organizada e segura para uso posterior. Esse recurso servirá como base para o gerenciamento dos alunos dentro da aplicação. |
-| **E02** | **Página do Período** | O sistema deve disponibilizar uma página de período para organizar e acompanhar os treinos dos alunos de forma digital. Essa página funcionará como um painel central em que serão definidos objetivos, peculiaridades do treino e observações específicas de cada aluno, substituindo os registros manuais em papel. |
-| **E03** | **Gerar Gráficos** | O sistema deve permitir a geração de gráficos personalizados a partir de métricas selecionadas, possibilitando que treinadores e alunos visualizem de forma clara a evolução do desempenho. Os gráficos poderão ser gerados em diferentes formatos e compartilhados facilmente. |
-| **E04** | **Página do Aluno** | O sistema deve oferecer uma página dedicada a cada aluno, onde seja possível visualizar e editar seu perfil completo. Essa página deve concentrar informações pessoais, períodos de treino e status de atividade (ativo/inativo), além de permitir operações CRUD (criar, visualizar, atualizar e excluir). | REQ02, |
-| **E05** | **Registro de Treinos** | O sistema deve permitir o registro de treinos de forma digital e centralizada, eliminando a dependência do aluno para anotar cargas e execuções. Esse recurso possibilita ao treinador controlar e salvar o histórico de treinos diretamente na plataforma. |
-| **E06** | **PDF do Período** | O sistema deve permitir exportar relatórios em PDF contendo a evolução e os objetivos cumpridos pelos alunos em um determinado período. |
-
-  
 
 ## Histórias de Usuário
 
@@ -215,4 +216,6 @@ O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pe
 | 06/10/2025 | 1.1 | Adição da priorização | Gabriel Fae|
 | 07/10/2025 | 1.2 | Adição dos objetivos MVP | Gabriel Fae |
 | 16/11/2025 | 1.3 | Ajustes na priorização | Davi Negreiros |
-| 27/11/2025 | 1.4 | Ajustes e inserção de tabelas | Gabriel Fae |
+| 17/11/2025 | 1.4 | Ajustes e inserção de tabelas | Gabriel Fae |
+| 24/11/2025 | 1.5 | FInalização da issue #18 | Raissa |
+
