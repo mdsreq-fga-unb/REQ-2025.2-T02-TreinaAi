@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:io';
 import 'components.dart';
 import '../models/client.dart';
 import '../data/clients_database.dart';
+import '../repositories/image_repository.dart';
 
 // ==================== CUSTOM INPUT FORMATTERS ====================
 
@@ -194,6 +196,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
   late TextEditingController weightController;
   late String selectedGender;
   bool _isSaving = false;
+  late String? _currentPhotoPath;
 
   @override
   void initState() {
@@ -204,6 +207,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
     heightController = TextEditingController(text: widget.client.height?.toString() ?? '');
     weightController = TextEditingController(text: widget.client.weight?.toString() ?? '');
     selectedGender = widget.client.gender ?? 'Masculino';
+    _currentPhotoPath = widget.client.photoPath;
   }
 
   @override
@@ -214,6 +218,192 @@ class _EditStudentPageState extends State<EditStudentPage> {
     heightController.dispose();
     weightController.dispose();
     super.dispose();
+  }
+
+  /// Abre um diálogo para escolher entre câmera ou galeria
+  void _showImageSourceDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Selecionar Imagem'),
+          content: const Text('De onde você quer selecionar a imagem?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                _pickImageFromCamera();
+              },
+              child: const Text('Câmera'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                _pickImageFromGallery();
+              },
+              child: const Text('Galeria'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// Seleciona imagem da câmera
+  Future<void> _pickImageFromCamera() async {
+    try {
+      final imageFile = await ImageRepository.instance.pickImageFromCamera();
+
+      if (imageFile == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nenhuma imagem foi capturada')),
+          );
+        }
+        return;
+      }
+
+      // Salva a imagem localmente
+      final savedPath = await ImageRepository.instance
+          .saveImageLocally(imageFile, widget.client.codClient!);
+
+      if (savedPath != null) {
+        setState(() {
+          _currentPhotoPath = savedPath;
+        });
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Foto capturada com sucesso!')),
+          );
+        }
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Erro ao salvar a foto')),
+          );
+        }
+      }
+    } catch (e) {
+      debugPrint('Erro ao capturar imagem: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Erro: $e')),
+        );
+      }
+    }
+  }
+
+  /// Seleciona imagem da galeria
+  Future<void> _pickImageFromGallery() async {
+    try {
+      final imageFile = await ImageRepository.instance.pickImageFromGallery();
+
+      if (imageFile == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nenhuma imagem foi selecionada')),
+          );
+        }
+        return;
+      }
+
+      // Salva a imagem localmente
+      final savedPath = await ImageRepository.instance
+          .saveImageLocally(imageFile, widget.client.codClient!);
+
+      if (savedPath != null) {
+        setState(() {
+          _currentPhotoPath = savedPath;
+        });
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Foto selecionada com sucesso!')),
+          );
+        }
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Erro ao salvar a foto')),
+          );
+        }
+      }
+    } catch (e) {
+      debugPrint('Erro ao selecionar imagem: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Erro: $e')),
+        );
+      }
+    }
+  }
+
+  /// Remove a foto atual
+  Future<void> _removePhoto() async {
+    if (_currentPhotoPath == null || _currentPhotoPath!.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Nenhuma foto para remover')),
+      );
+      return;
+    }
+
+    // Mostra diálogo de confirmação
+    final shouldRemove = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Remover Foto'),
+          content: const Text('Tem certeza que deseja remover a foto?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Remover', style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (shouldRemove == true) {
+      try {
+        final deleted =
+            await ImageRepository.instance.deleteImageLocally(_currentPhotoPath!);
+
+        if (deleted) {
+          setState(() {
+            _currentPhotoPath = null;
+          });
+
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Foto removida com sucesso!')),
+            );
+          }
+        } else {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Erro ao remover a foto')),
+            );
+          }
+        }
+      } catch (e) {
+        debugPrint('Erro ao remover foto: $e');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Erro: $e')),
+          );
+        }
+      }
+    }
   }
 
   Future<void> _saveChanges() async {
@@ -235,7 +425,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
         desc: descriptionController.text.trim().isNotEmpty
             ? descriptionController.text.trim()
             : null,
-        photoPath: widget.client.photoPath,
+        photoPath: _currentPhotoPath,
         age: ageController.text.isNotEmpty
             ? int.tryParse(ageController.text)
             : null,
@@ -257,6 +447,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
       debugPrint('Altura: ${updatedClient.height}');
       debugPrint('Peso: ${updatedClient.weight}');
       debugPrint('Gênero: ${updatedClient.gender}');
+      debugPrint('Foto: ${updatedClient.photoPath}');
       debugPrint('=====================================');
 
       await ClientsDatabase.instance.updateClient(updatedClient);
@@ -378,14 +569,15 @@ class _EditStudentPageState extends State<EditStudentPage> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.grey[300],
-                      image: widget.client.photoPath != null
+                      image: _currentPhotoPath != null
                           ? DecorationImage(
-                              image: NetworkImage(widget.client.photoPath!),
+                              image: FileImage(
+                                  File(_currentPhotoPath!)),
                               fit: BoxFit.cover,
                             )
                           : null,
                     ),
-                    child: widget.client.photoPath == null
+                    child: _currentPhotoPath == null
                         ? const Icon(
                             Icons.person,
                             size: 50,
@@ -411,13 +603,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
                               vertical: 12,
                             ),
                           ),
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Funcionalidade em desenvolvimento'),
-                              ),
-                            );
-                          },
+                          onPressed: _showImageSourceDialog,
                           child: const Text(
                             'Alterar foto',
                             style: TextStyle(
@@ -441,13 +627,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
                               vertical: 12,
                             ),
                           ),
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Funcionalidade em desenvolvimento'),
-                              ),
-                            );
-                          },
+                          onPressed: _removePhoto,
                           child: const Text(
                             'Remover foto',
                             style: TextStyle(
