@@ -171,7 +171,7 @@ Conferir frequência, diversidade e acessibilidade de cada show
 ## PBB Canvas - Miro
 Segue o mesmo quadro PBB Canvas no miro para melhor visualização e interação:
 
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVJHChsK4=/?embedMode=view_only_without_ui&moveToViewport=-120366,29433,39325,25857&embedId=527656463992" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVJHChsK4=/?embedMode=view_only_without_ui&moveToViewport=-111948,40863,10157,4806&embedId=427137400247" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
 ## User Stories
 
