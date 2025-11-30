@@ -8,6 +8,7 @@ class Client {
   final double? weight;
   final String? gender;
   final int codUser;
+  final bool isActive;
 
   Client({
     this.codClient,
@@ -19,6 +20,7 @@ class Client {
     this.weight,
     this.gender,
     required this.codUser,
+    this.isActive = true,
   });
 
   Map<String, dynamic> toMap() {
@@ -32,6 +34,7 @@ class Client {
       'weight': weight,
       'gender': gender,
       'codUser': codUser,
+      'isActive': isActive ? 1 : 0,
     };
   }
 
@@ -46,6 +49,7 @@ class Client {
       weight: map['weight'],
       gender: map['gender'],
       codUser: map['codUser'],
+      isActive: (map['isActive'] ?? 1) == 1,
     );
   }
 

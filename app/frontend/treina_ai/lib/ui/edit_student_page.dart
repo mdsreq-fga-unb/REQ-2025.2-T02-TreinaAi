@@ -195,6 +195,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
   late TextEditingController heightController;
   late TextEditingController weightController;
   late String selectedGender;
+  late bool isActive;
   bool _isSaving = false;
   late String? _currentPhotoPath;
 
@@ -207,6 +208,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
     heightController = TextEditingController(text: widget.client.height?.toString() ?? '');
     weightController = TextEditingController(text: widget.client.weight?.toString() ?? '');
     selectedGender = widget.client.gender ?? 'Masculino';
+    isActive = widget.client.isActive;
     _currentPhotoPath = widget.client.photoPath;
   }
 
@@ -436,6 +438,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
             ? double.tryParse(weightController.text)
             : null,
         gender: selectedGender,
+        isActive: isActive,
         codUser: widget.client.codUser,
       );
 
@@ -847,7 +850,7 @@ class _EditStudentPageState extends State<EditStudentPage> {
                           ),
                   ),
                   const SizedBox(height: 16),
-                  // Botões Inativar e Excluir
+                  // Toggle Ativar/Inativar e Botão Excluir
                   Row(
                     children: [
                       Expanded(
@@ -855,23 +858,26 @@ class _EditStudentPageState extends State<EditStudentPage> {
                           cursor: SystemMouseCursors.click,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF1C2A35),
+                              backgroundColor: isActive ? const Color(0xFF1C2A35) : Colors.blue,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               padding: const EdgeInsets.symmetric(vertical: 14),
                             ),
                             onPressed: () {
+                              setState(() {
+                                isActive = !isActive;
+                              });
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content:
-                                      Text('Funcionalidade em desenvolvimento'),
+                                SnackBar(
+                                  content: Text(isActive ? 'Aluno ativado' : 'Aluno inativado'),
+                                  duration: const Duration(seconds: 1),
                                 ),
                               );
                             },
-                            child: const Text(
-                              'Inativar Aluno',
-                              style: TextStyle(
+                            child: Text(
+                              isActive ? 'Inativar Aluno' : 'Ativar Aluno',
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),

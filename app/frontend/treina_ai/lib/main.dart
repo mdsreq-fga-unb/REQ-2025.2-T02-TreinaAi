@@ -28,7 +28,7 @@ Future<void> main() async {
   }
 
   // DESCOMENTE a linha abaixo para resetar o banco DEPOIS que as tabelas foram criadas
-  await DatabaseHelper.instance.resetDatabase();
+  //await DatabaseHelper.instance.resetDatabase();
 
   // checa se o usuário está registrado antes de rodar o app
   bool registered = false;

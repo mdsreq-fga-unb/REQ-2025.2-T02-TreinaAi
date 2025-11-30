@@ -2,7 +2,7 @@ class Exercise {
   final int? codExercise;
   final String name;
   final int? sets;
-  final int? reps;
+  final int? reps, isometrytime;
   final double? weight;
   final int codWorkout;
 
@@ -12,6 +12,7 @@ class Exercise {
     this.sets,
     this.reps,
     this.weight,
+    this.isometrytime,
     required this.codWorkout,
   });
 
@@ -22,6 +23,7 @@ class Exercise {
       'sets': sets,
       'reps': reps,
       'weight': weight,
+      'isometrytime': isometrytime,
       'codWorkout': codWorkout,
     };
   }
@@ -33,6 +35,7 @@ class Exercise {
       sets: map['sets'],
       reps: map['reps'],
       weight: map['weight'],
+      isometrytime: map['isometrytime'],
       codWorkout: map['codWorkout'],
     );
   }

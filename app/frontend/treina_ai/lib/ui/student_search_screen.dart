@@ -42,13 +42,21 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
       
       setState(() {
         activeStudents = clients
+            .where((client) => client.isActive)
             .map((client) => Student(
                   name: client.name,
                   isActive: true,
                   client: client,
                 ))
             .toList();
-        inactiveStudents = [];
+        inactiveStudents = clients
+            .where((client) => !client.isActive)
+            .map((client) => Student(
+                  name: client.name,
+                  isActive: false,
+                  client: client,
+                ))
+            .toList();
         filteredActiveStudents = activeStudents;
         filteredInactiveStudents = inactiveStudents;
         _loadingStudents = false;

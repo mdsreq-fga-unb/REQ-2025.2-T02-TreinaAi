@@ -7,6 +7,11 @@ import 'period_edit_page.dart';
 import 'workout_register_page.dart';
 import 'workout_page.dart';
 import 'training_chart_page.dart';
+import 'package:file_picker/file_picker.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
+import 'package:permission_handler/permission_handler.dart';
 
 class PeriodoPage extends StatefulWidget {
   final Period period;
@@ -23,10 +28,12 @@ class PeriodoPage extends StatefulWidget {
 class _PeriodoPageState extends State<PeriodoPage> {
   late List<Workout> workouts = [];
   bool _isLoading = true;
+  late Period currentPeriod;
 
   @override
   void initState() {
     super.initState();
+    currentPeriod = widget.period;
     _loadWorkouts();
   }
 
@@ -76,6 +83,311 @@ class _PeriodoPageState extends State<PeriodoPage> {
     }
   }
 
+  Future<void> _showClosePeriodConfirmation() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          title: const Text(
+            'Fechar Período?',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          content: Text(
+            'Tem certeza que deseja fechar o período "${widget.period.title}"? Períodos fechados não podem ser editados nem receber novos treinos.',
+            style: const TextStyle(
+              color: Colors.black87,
+              fontSize: 14,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text(
+                'Cancelar',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () => _closePeriod(),
+              child: const Text(
+                'Fechar',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _closePeriod() async {
+    try {
+      Navigator.pop(context);
+
+      final closedPeriod = Period(
+        codPeriod: widget.period.codPeriod,
+        title: widget.period.title,
+        objective: widget.period.objective,
+        observations: widget.period.observations,
+        isClosed: true,
+        codClient: widget.period.codClient,
+      );
+
+      await ClientsDatabase.instance.updatePeriod(closedPeriod);
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Período fechado com sucesso!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+
+        await Future.delayed(const Duration(milliseconds: 500));
+        if (mounted) {
+          Navigator.pop(context, true);
+        }
+      }
+    } catch (e) {
+      debugPrint('Erro ao fechar período: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao fechar período: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _uploadWorksheet() async {
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['xlsx', 'xls'],
+      );
+
+      if (result != null && result.files.single.path != null) {
+        final file = File(result.files.single.path!);
+        final appDir = await getApplicationDocumentsDirectory();
+        final worksheetsDir = Directory('${appDir.path}/worksheets');
+        
+        if (!await worksheetsDir.exists()) {
+          await worksheetsDir.create(recursive: true);
+        }
+
+        final fileName = 'worksheet_${widget.period.codPeriod}_${DateTime.now().millisecondsSinceEpoch}${path.extension(file.path)}';
+        final savedFile = await file.copy('${worksheetsDir.path}/$fileName');
+
+        await ClientsDatabase.instance.updatePeriod(
+          Period(
+            codPeriod: widget.period.codPeriod,
+            title: widget.period.title,
+            objective: widget.period.objective,
+            observations: widget.period.observations,
+            worksheetPath: savedFile.path,
+            isClosed: widget.period.isClosed,
+            codClient: widget.period.codClient,
+          ),
+        );
+
+        // Reload period data
+        final updatedPeriod = await ClientsDatabase.instance.getPeriodById(widget.period.codPeriod!);
+        if (updatedPeriod != null) {
+          setState(() {
+            currentPeriod = updatedPeriod;
+          });
+        }
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Planilha carregada com sucesso!'),
+              backgroundColor: Colors.green,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao carregar planilha: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _downloadWorksheet() async {
+    try {
+      if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Nenhuma planilha disponível para download'),
+              backgroundColor: Colors.orange,
+            ),
+          );
+        }
+        return;
+      }
+
+      final file = File(currentPeriod.worksheetPath!);
+      if (!await file.exists()) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Arquivo não encontrado'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+        return;
+      }
+
+      // Request storage permission for Android
+      if (Platform.isAndroid) {
+        final status = await Permission.storage.request();
+        if (!status.isGranted) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Permissão de armazenamento necessária'),
+                backgroundColor: Colors.orange,
+              ),
+            );
+          }
+          return;
+        }
+      }
+
+      // Get Downloads directory
+      Directory? downloadsDir;
+      if (Platform.isAndroid) {
+        // For Android, use external storage Downloads
+        downloadsDir = Directory('/storage/emulated/0/Download');
+      } else if (Platform.isWindows) {
+        downloadsDir = Directory('${Platform.environment['USERPROFILE']}\\Downloads');
+      } else {
+        // Fallback to app documents
+        final appDir = await getApplicationDocumentsDirectory();
+        downloadsDir = Directory('${appDir.path}/downloads');
+      }
+
+      if (!await downloadsDir.exists()) {
+        await downloadsDir.create(recursive: true);
+      }
+
+      final fileName = 'planilha_${currentPeriod.title.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')}_${DateTime.now().millisecondsSinceEpoch}${path.extension(file.path)}';
+      final targetPath = '${downloadsDir.path}/$fileName';
+      await file.copy(targetPath);
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Planilha baixada: $fileName'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao baixar planilha: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _deleteWorksheet() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Confirmar exclusão'),
+        content: const Text('Tem certeza que deseja apagar essa planilha de treino?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancelar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('Apagar'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      try {
+        if (currentPeriod.worksheetPath != null && currentPeriod.worksheetPath!.isNotEmpty) {
+          final file = File(currentPeriod.worksheetPath!);
+          if (await file.exists()) {
+            await file.delete();
+          }
+        }
+
+        await ClientsDatabase.instance.updatePeriod(
+          Period(
+            codPeriod: widget.period.codPeriod,
+            title: widget.period.title,
+            objective: widget.period.objective,
+            observations: widget.period.observations,
+            worksheetPath: null,
+            isClosed: widget.period.isClosed,
+            codClient: widget.period.codClient,
+          ),
+        );
+
+        // Reload period data
+        final updatedPeriod = await ClientsDatabase.instance.getPeriodById(widget.period.codPeriod!);
+        if (updatedPeriod != null) {
+          setState(() {
+            currentPeriod = updatedPeriod;
+          });
+        }
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Planilha removida com sucesso!'),
+              backgroundColor: Colors.green,
+            ),
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Erro ao remover planilha: $e'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +398,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          widget.period.title.toUpperCase(),
+          currentPeriod.title.toUpperCase(),
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -94,20 +406,21 @@ class _PeriodoPageState extends State<PeriodoPage> {
           ),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit, color: Colors.black),
-            onPressed: () async {
-              final result = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PeriodEditPage(period: widget.period),
-                ),
-              );
-              if (result == true && mounted) {
-                Navigator.pop(context, true);
-              }
-            },
-          ),
+          if (!currentPeriod.isClosed)
+            IconButton(
+              icon: const Icon(Icons.edit, color: Colors.black),
+              onPressed: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PeriodEditPage(period: widget.period),
+                  ),
+                );
+                if (result == true && mounted) {
+                  Navigator.pop(context, true);
+                }
+              },
+            ),
         ],
         backgroundColor: Colors.white,
         elevation: 0,
@@ -123,11 +436,43 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 const SizedBox(height: 8),
                 Center(
                   child: Text(
-                    "Objetivo: ${widget.period.objective ?? 'Sem objetivo definido'}",
+                    "Objetivo: ${currentPeriod.objective ?? 'Sem objetivo definido'}",
                     style: const TextStyle(fontSize: 15, color: Colors.black87),
                     textAlign: TextAlign.center,
                   ),
                 ),
+                if (currentPeriod.observations != null && currentPeriod.observations!.isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Observações:',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          currentPeriod.observations!,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 30),
 
                 // Training Plan
@@ -147,12 +492,33 @@ class _PeriodoPageState extends State<PeriodoPage> {
                     SquareActionButton(
                       text: "Baixar\nplanilha",
                       color: const Color(0xFF0C1F28),
-                      onPressed: () {},
+                      onPressed: _downloadWorksheet,
                     ),
                     const SizedBox(width: 24),
-                    AddSquareButton(
-                      onPressed: () {},
-                    ),
+                    if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty)
+                      AddSquareButton(
+                        onPressed: _uploadWorksheet,
+                      )
+                    else
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: _deleteWorksheet,
+                          child: Container(
+                            width: 110,
+                            height: 110,
+                            decoration: BoxDecoration(
+                              color: Colors.red.withOpacity(0.7),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Icon(
+                              Icons.close,
+                              color: Colors.white,
+                              size: 48,
+                            ),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
 
@@ -196,22 +562,24 @@ class _PeriodoPageState extends State<PeriodoPage> {
 
 
                 //Botão adicionar treino
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: _addWorkout,
-                    child: Container(
-                      height: 36,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: const Color(0xFFE67C5B)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                if (!currentPeriod.isClosed)
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: _addWorkout,
+                      child: Container(
+                        height: 36,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: const Color(0xFFE67C5B)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                if (!currentPeriod.isClosed)
                 const SizedBox(height: 14),
 
                 //Lista de treinos
@@ -293,7 +661,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 const SizedBox(height: 12),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFA0162B),
+                    backgroundColor: widget.period.isClosed ? Colors.grey : const Color(0xFFA0162B),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -301,10 +669,10 @@ class _PeriodoPageState extends State<PeriodoPage> {
                     elevation: 4,
                     shadowColor: Colors.black.withOpacity(0.2),
                   ),
-                  onPressed: () {},
-                  child: const Text(
-                    "Fechar Período",
-                    style: TextStyle(
+                  onPressed: widget.period.isClosed ? null : _showClosePeriodConfirmation,
+                  child: Text(
+                    widget.period.isClosed ? "Período Fechado" : "Fechar Período",
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
