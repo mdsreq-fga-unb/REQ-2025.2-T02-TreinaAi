@@ -9,12 +9,14 @@ class ExerciseInput {
   int? sets;
   int? reps;
   double? weight;
+  int? isometrytime;
 
   ExerciseInput({
     required this.name,
     this.sets,
     this.reps,
     this.weight,
+    this.isometrytime,
   });
 }
 
@@ -132,6 +134,7 @@ class _WorkoutRegisterPageState extends State<WorkoutRegisterPage> {
           sets: exerciseInput.sets,
           reps: exerciseInput.reps,
           weight: exerciseInput.weight,
+          isometrytime: exerciseInput.isometrytime,
           codWorkout: workoutId,
         );
         await ClientsDatabase.instance.insertExercise(exercise);
@@ -389,6 +392,16 @@ class _WorkoutRegisterPageState extends State<WorkoutRegisterPage> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 12),
+
+          // Campo de Isometria
+          _inputField(
+            'Isometria em segundos',
+            exercise.isometrytime?.toString() ?? '',
+            (value) {
+              exercise.isometrytime = int.tryParse(value);
+            },
           ),
         ],
       ),

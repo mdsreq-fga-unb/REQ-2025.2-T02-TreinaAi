@@ -10,6 +10,7 @@ class ExerciseEditInput {
   int? sets;
   int? reps;
   double? weight;
+  int? isometrytime;
 
   ExerciseEditInput({
     this.codExercise,
@@ -17,6 +18,7 @@ class ExerciseEditInput {
     this.sets,
     this.reps,
     this.weight,
+    this.isometrytime,
   });
 }
 
@@ -63,6 +65,7 @@ class _WorkoutEditPageState extends State<WorkoutEditPage> {
                   sets: e.sets,
                   reps: e.reps,
                   weight: e.weight,
+                  isometrytime: e.isometrytime,
                 ))
             .toList();
         _isLoading = false;
@@ -165,6 +168,7 @@ class _WorkoutEditPageState extends State<WorkoutEditPage> {
           sets: exerciseInput.sets,
           reps: exerciseInput.reps,
           weight: exerciseInput.weight,
+          isometrytime: exerciseInput.isometrytime,
           codWorkout: widget.workout.codWorkout!,
         );
         await ClientsDatabase.instance.insertExercise(exercise);
@@ -553,6 +557,16 @@ class _WorkoutEditPageState extends State<WorkoutEditPage> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 12),
+
+          // Campo de Isometria
+          _inputField(
+            'Isometria em segundos',
+            exercise.isometrytime?.toString() ?? '',
+            (value) {
+              exercise.isometrytime = int.tryParse(value);
+            },
           ),
         ],
       ),

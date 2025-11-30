@@ -23,6 +23,7 @@ class DatabaseSchema {
         height REAL,
         weight REAL,
         gender TEXT,
+        isActive INTEGER DEFAULT 1,
         codUser INTEGER,
         FOREIGN KEY (codUser) REFERENCES users (codUser)
       )
@@ -33,6 +34,8 @@ class DatabaseSchema {
         codPeriod INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
         objective TEXT,
+        observations TEXT,
+        isClosed INTEGER DEFAULT 0,
         codClient INTEGER,
         FOREIGN KEY (codClient) REFERENCES clients (codClient)
       )
@@ -55,6 +58,7 @@ class DatabaseSchema {
         sets INTEGER,
         reps INTEGER,
         weight REAL,
+        isometrytime INTEGER,
         codWorkout INTEGER,
         FOREIGN KEY (codWorkout) REFERENCES workout (codWorkout)
       )

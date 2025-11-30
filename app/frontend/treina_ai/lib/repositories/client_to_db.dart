@@ -1,5 +1,3 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
 import '../models/client.dart';
 import 'package:treina_ai/data/users_database.dart';
 

@@ -61,6 +61,9 @@ class _StudentPageState extends State<StudentPage> {
     }
   }
 
+  List<Period> get openPeriods => periods.where((p) => !p.isClosed).toList();
+  List<Period> get closedPeriods => periods.where((p) => p.isClosed).toList();
+
   void _navigateToEditStudent() async {
     final result = await Navigator.push(
       context,
@@ -234,7 +237,7 @@ class _StudentPageState extends State<StudentPage> {
                 runSpacing: 24,
                 alignment: WrapAlignment.center,
                 children: [
-                  ...periods.map((period) {
+                  ...openPeriods.map((period) {
                     return SquareActionButton(
                       text: "${period.title}\n${period.objective ?? "Sem objetivo"}",
                       color: primaryRed,
@@ -261,28 +264,31 @@ class _StudentPageState extends State<StudentPage> {
             // Grid de Períodos Fechados
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              child: GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: 1,
-                children: widget.periodosFechados.map((periodo) {
-                  return GestureDetector(
-                    onTap: () => widget.onTapPeriodoFechado(periodo),
-                    child: MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: PeriodoCardFechado(
-                        mes: periodo.mes,
-                        objetivo: periodo.objetivo,
-                        descricao: periodo.descricao,
-                        color: periodo.color,
+              child: closedPeriods.isEmpty
+                  ? const Center(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: Text(
+                          'Nenhum período fechado',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14,
+                          ),
+                        ),
                       ),
+                    )
+                  : Wrap(
+                      spacing: 24,
+                      runSpacing: 24,
+                      alignment: WrapAlignment.center,
+                      children: closedPeriods.map((period) {
+                        return SquareActionButton(
+                          text: "${period.title}\n${period.objective ?? "Sem objetivo"}",
+                          color: const Color(0xFF6B2C2C),
+                          onPressed: () => _navigateToPeriodPage(period),
+                        );
+                      }).toList(),
                     ),
-                  );
-                }).toList(),
-              ),
             ),
 
             // ==================== BOTÃO EDITAR PERFIL ====================

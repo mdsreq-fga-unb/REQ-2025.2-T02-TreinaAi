@@ -18,6 +18,7 @@ class PeriodEditPage extends StatefulWidget {
 class _PeriodEditPageState extends State<PeriodEditPage> {
   late TextEditingController _titleController;
   late TextEditingController _objectiveController;
+  late TextEditingController _observationsController;
   bool _isSaving = false;
 
   @override
@@ -25,12 +26,14 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
     super.initState();
     _titleController = TextEditingController(text: widget.period.title);
     _objectiveController = TextEditingController(text: widget.period.objective ?? '');
+    _observationsController = TextEditingController(text: widget.period.observations ?? '');
   }
 
   @override
   void dispose() {
     _titleController.dispose();
     _objectiveController.dispose();
+    _observationsController.dispose();
     super.dispose();
   }
 
@@ -54,6 +57,9 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
         codPeriod: widget.period.codPeriod,
         title: _titleController.text.trim(),
         objective: _objectiveController.text.trim(),
+        observations: _observationsController.text.trim().isNotEmpty
+            ? _observationsController.text.trim()
+            : null,
         codClient: widget.period.codClient,
       );
 
@@ -228,6 +234,13 @@ class _PeriodEditPageState extends State<PeriodEditPage> {
             TextField(
               controller: _objectiveController,
               decoration: formInputDecoration('Objetivo (opcional)'),
+              maxLines: 4,
+              minLines: 2,
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _observationsController,
+              decoration: formInputDecoration('Observações (opcional)'),
               maxLines: 4,
               minLines: 2,
             ),

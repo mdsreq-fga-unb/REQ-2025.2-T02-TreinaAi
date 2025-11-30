@@ -76,6 +76,97 @@ class _PeriodoPageState extends State<PeriodoPage> {
     }
   }
 
+  Future<void> _showClosePeriodConfirmation() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          title: const Text(
+            'Fechar Período?',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          content: Text(
+            'Tem certeza que deseja fechar o período "${widget.period.title}"? Períodos fechados não podem ser editados nem receber novos treinos.',
+            style: const TextStyle(
+              color: Colors.black87,
+              fontSize: 14,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text(
+                'Cancelar',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () => _closePeriod(),
+              child: const Text(
+                'Fechar',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _closePeriod() async {
+    try {
+      Navigator.pop(context);
+
+      final closedPeriod = Period(
+        codPeriod: widget.period.codPeriod,
+        title: widget.period.title,
+        objective: widget.period.objective,
+        observations: widget.period.observations,
+        isClosed: true,
+        codClient: widget.period.codClient,
+      );
+
+      await ClientsDatabase.instance.updatePeriod(closedPeriod);
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Período fechado com sucesso!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+
+        await Future.delayed(const Duration(milliseconds: 500));
+        if (mounted) {
+          Navigator.pop(context, true);
+        }
+      }
+    } catch (e) {
+      debugPrint('Erro ao fechar período: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao fechar período: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,20 +185,21 @@ class _PeriodoPageState extends State<PeriodoPage> {
           ),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit, color: Colors.black),
-            onPressed: () async {
-              final result = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PeriodEditPage(period: widget.period),
-                ),
-              );
-              if (result == true && mounted) {
-                Navigator.pop(context, true);
-              }
-            },
-          ),
+          if (!widget.period.isClosed)
+            IconButton(
+              icon: const Icon(Icons.edit, color: Colors.black),
+              onPressed: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PeriodEditPage(period: widget.period),
+                  ),
+                );
+                if (result == true && mounted) {
+                  Navigator.pop(context, true);
+                }
+              },
+            ),
         ],
         backgroundColor: Colors.white,
         elevation: 0,
@@ -128,6 +220,38 @@ class _PeriodoPageState extends State<PeriodoPage> {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                if (widget.period.observations != null && widget.period.observations!.isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Observações:',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          widget.period.observations!,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 30),
 
                 // Training Plan
@@ -196,22 +320,24 @@ class _PeriodoPageState extends State<PeriodoPage> {
 
 
                 //Botão adicionar treino
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: _addWorkout,
-                    child: Container(
-                      height: 36,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: const Color(0xFFE67C5B)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                if (!widget.period.isClosed)
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: _addWorkout,
+                      child: Container(
+                        height: 36,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: const Color(0xFFE67C5B)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.add, color: Color(0xFFE67C5B)),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                if (!widget.period.isClosed)
                 const SizedBox(height: 14),
 
                 //Lista de treinos
@@ -293,7 +419,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 const SizedBox(height: 12),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFA0162B),
+                    backgroundColor: widget.period.isClosed ? Colors.grey : const Color(0xFFA0162B),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -301,10 +427,10 @@ class _PeriodoPageState extends State<PeriodoPage> {
                     elevation: 4,
                     shadowColor: Colors.black.withOpacity(0.2),
                   ),
-                  onPressed: () {},
-                  child: const Text(
-                    "Fechar Período",
-                    style: TextStyle(
+                  onPressed: widget.period.isClosed ? null : _showClosePeriodConfirmation,
+                  child: Text(
+                    widget.period.isClosed ? "Período Fechado" : "Fechar Período",
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,

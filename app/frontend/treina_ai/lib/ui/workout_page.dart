@@ -205,6 +205,11 @@ class _TrainingPageState extends State<TrainingPage> {
                         "Peso",
                         exercise.weight != null && exercise.weight! > 0 ? "${exercise.weight} kg" : "Sem peso",
                       ),
+                      const SizedBox(height: 12),
+                      _infoRow(
+                        "Isometria",
+                        exercise.isometrytime != null && exercise.isometrytime! > 0 ? "${exercise.isometrytime}s" : "Sem isometria",
+                      ),
                     ],
                   ),
                 ),
