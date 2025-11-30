@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'components.dart';
 import 'edit_student_page.dart';
 import 'period_register_page.dart';
@@ -163,7 +164,8 @@ class _StudentPageState extends State<StudentPage> {
                       color: Colors.grey[300],
                       image: currentClient.photoPath != null
                           ? DecorationImage(
-                              image: NetworkImage(currentClient.photoPath!),
+                              image: FileImage(
+                                  File(currentClient.photoPath!)),
                               fit: BoxFit.cover,
                             )
                           : null,

@@ -5,6 +5,7 @@ import 'components.dart';
 import '../models/client.dart';
 import '../data/clients_database.dart';
 import '../data/users_database.dart';
+import '../repositories/image_repository.dart';
 
 // ==================== CUSTOM INPUT FORMATTERS ====================
 
@@ -191,12 +192,98 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
   }
 
   Future<void> _pickImage() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Selecionar Imagem'),
+          content: const Text('De onde você quer selecionar a imagem?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                _pickImageFromCamera();
+              },
+              child: const Text('Câmera'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                _pickImageFromGallery();
+              },
+              child: const Text('Galeria'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _pickImageFromCamera() async {
     try {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Funcionalidade de câmera em desenvolvimento')),
-      );
+      final imageFile = await ImageRepository.instance.pickImageFromCamera();
+
+      if (imageFile == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nenhuma imagem foi capturada')),
+          );
+        }
+        return;
+      }
+
+      setState(() {
+        _selectedImage = imageFile;
+      });
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Foto capturada com sucesso!')),
+        );
+      }
+    } catch (e) {
+      debugPrint('Erro ao capturar imagem: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Erro: $e')),
+        );
+      }
+    }
+  }
+
+  Future<void> _pickImageFromGallery() async {
+    try {
+      final imageFile = await ImageRepository.instance.pickImageFromGallery();
+
+      if (imageFile == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nenhuma imagem foi selecionada')),
+          );
+        }
+        return;
+      }
+
+      setState(() {
+        _selectedImage = imageFile;
+      });
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Foto selecionada com sucesso!')),
+        );
+      }
     } catch (e) {
       debugPrint('Erro ao selecionar imagem: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Erro: $e')),
+        );
+      }
     }
   }
 
@@ -238,13 +325,22 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
           ? double.tryParse(_weightController.text)
           : null;
 
+      // Se houver imagem selecionada, salva localmente (ID temporário)
+      String? photoPath;
+      if (_selectedImage != null) {
+        // Usar timestamp como ID temporário antes de salvar no BD
+        final tempId = DateTime.now().millisecondsSinceEpoch;
+        photoPath = await ImageRepository.instance
+            .saveImageLocally(_selectedImage!, tempId);
+      }
+
       // Criar cliente
       final client = Client(
         name: _nameController.text.trim(),
         desc: _descriptionController.text.trim().isNotEmpty
             ? _descriptionController.text.trim()
             : null,
-        photoPath: _selectedImage?.path,
+        photoPath: photoPath,
         age: age,
         height: height,
         weight: weight,
