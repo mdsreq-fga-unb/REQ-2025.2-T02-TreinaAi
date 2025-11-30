@@ -3,6 +3,7 @@ class Period {
   final String title;
   final String? objective;
   final String? observations;
+  final String? worksheetPath;
   final bool isClosed;
   final int codClient;
 
@@ -11,6 +12,7 @@ class Period {
     required this.title,
     this.objective,
     this.observations,
+    this.worksheetPath,
     this.isClosed = false,
     required this.codClient,
   });
@@ -21,6 +23,7 @@ class Period {
       'title': title,
       'objective': objective,
       'observations': observations,
+      'worksheetPath': worksheetPath,
       'isClosed': isClosed ? 1 : 0,
       'codClient': codClient,
     };
@@ -32,6 +35,7 @@ class Period {
       title: map['title'],
       objective: map['objective'],
       observations: map['observations'],
+      worksheetPath: map['worksheetPath'],
       isClosed: (map['isClosed'] ?? 0) == 1,
       codClient: map['codClient'],
     );

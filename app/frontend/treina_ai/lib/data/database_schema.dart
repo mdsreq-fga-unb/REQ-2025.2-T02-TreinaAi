@@ -35,6 +35,7 @@ class DatabaseSchema {
         title TEXT NOT NULL,
         objective TEXT,
         observations TEXT,
+        worksheetPath TEXT,
         isClosed INTEGER DEFAULT 0,
         codClient INTEGER,
         FOREIGN KEY (codClient) REFERENCES clients (codClient)

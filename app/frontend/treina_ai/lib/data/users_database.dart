@@ -26,7 +26,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 5,
+      version: 6,
       onCreate: DatabaseSchema.onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -48,6 +48,10 @@ class DatabaseHelper {
     if (oldVersion < 5) {
       // adiciona a coluna isClosed na tabela periods
       await db.execute('ALTER TABLE periods ADD COLUMN isClosed INTEGER DEFAULT 0');
+    }
+    if (oldVersion < 6) {
+      // adiciona a coluna worksheetPath na tabela periods
+      await db.execute('ALTER TABLE periods ADD COLUMN worksheetPath TEXT');
     }
   }
 
