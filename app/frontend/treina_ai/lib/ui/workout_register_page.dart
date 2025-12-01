@@ -193,7 +193,8 @@ class _WorkoutRegisterPageState extends State<WorkoutRegisterPage> {
             // Logo
             Image.asset(
               'assets/logo.png',
-              height: 100,
+              height: 120,
+              fit: BoxFit.contain,
             ),
 
             const SizedBox(height: 24),
