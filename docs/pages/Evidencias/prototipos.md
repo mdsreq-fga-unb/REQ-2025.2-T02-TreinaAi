@@ -1,6 +1,9 @@
 # Protótipos
 Estes são os protótipos de alta fidelidade, desenvolvidos no Figma, e utilizados para validar fluxos de navegação, interações e layout.
 
+## Link Figma:
+https://www.figma.com/design/RmMGBMZuKP72cDZgRkhCPF/P%C3%A1ginas?node-id=0-1&t=LAyPre5F5Eu68Qz6-1
+
 ## Protótipo do Cadastro
 
 ![Print do cadastro](../../assets/cadastro.png)
