@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treina_ai/ui/training_chart_page.dart';
 import 'components.dart';
 import '../models/period.dart';
 import '../models/workout.dart';
@@ -6,12 +7,12 @@ import '../data/clients_database.dart';
 import 'period_edit_page.dart';
 import 'workout_register_page.dart';
 import 'workout_page.dart';
-import 'training_chart_page.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:permission_handler/permission_handler.dart';
+import 'training_pdf.dart';
 
 class PeriodoPage extends StatefulWidget {
   final Period period;
@@ -523,7 +524,6 @@ class _PeriodoPageState extends State<PeriodoPage> {
                 ),
 
                 const SizedBox(height: 36),
-
                 const Text(
                   "Treinos realizados",
                   style: TextStyle(
@@ -648,7 +648,14 @@ class _PeriodoPageState extends State<PeriodoPage> {
                     elevation: 4,
                     shadowColor: Colors.black.withOpacity(0.2),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TrainingPDF(period: widget.period),
+                        ),
+                      );
+                  },
                   child: const Text(
                     "Gerar PDF",
                     style: TextStyle(
