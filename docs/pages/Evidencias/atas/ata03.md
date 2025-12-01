@@ -9,7 +9,7 @@
 
 ## Objetivo da Reunião
 
-Apresentar o **protótipo de alta fidelidade** desenvolvido pela equipe e colher feedback detalhado do cliente para ajustes e validações.
+Apresentar o **protótipo de alta fidelidade**, já com a implementação apresentada na última reunião, desenvolvido pela equipe e colher feedback detalhado do cliente para ajustes e validações.
 
 ---
 
@@ -19,20 +19,21 @@ Apresentar o **protótipo de alta fidelidade** desenvolvido pela equipe e colher
 
 - Exibição das principais telas do sistema com layout, cores e elementos visuais próximos do produto final.  
 - Demonstração do fluxo de navegação planejado.  
-- Cliente avaliou a estética, usabilidade e coerência das telas apresentadas.
 
 ---
 
 ### 2. Feedback do Cliente
 
 - Cliente aprovou a direção visual.   
-- Ajustes de posicionamento e organização de elementos.  
+- Ajustes de posicionamento e organização de elementos na página de aluno.
+- Cliente avaliou a estética, usabilidade e coerência das telas apresentadas: pediu tons amarelados mais claros.
+
 
 ---
 
 ### 3. Alinhamento Sobre Funcionalidades
 
-- Revisão rápida dos requisitos funcionais para garantir que o protótipo reflete as necessidades levantadas anteriormente.  
+- Revisão rápida dos requisitos funcionais para garantir que o protótipo reflete as necessidades levantadas anteriormente, RF01 teve alterações e foi alterado no pages.
 - Identificação de pendências para serem incluídas na próxima entrega.
 
 ---
@@ -40,7 +41,8 @@ Apresentar o **protótipo de alta fidelidade** desenvolvido pela equipe e colher
 ### 4. Próximos Passos
 
 - Implementar os ajustes solicitados pelo cliente no protótipo.  
-- Continuar o detalhamento dos requisitos que ainda estão incompletos.  
+- Continuar o detalhamento dos requisitos que ainda estão incompletos.
+- Implementar inseção de daods no período do aluno (observação, nome, treinos, etc..)
 
 ---
 
