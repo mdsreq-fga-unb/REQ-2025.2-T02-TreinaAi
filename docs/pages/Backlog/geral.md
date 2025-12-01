@@ -70,7 +70,7 @@ A tabela a seguir organiza os Épicos do seu projeto, detalhando o **Código**, 
 | US05 | Cadastro de período de treino | Como um usuário, eu quero cadastrar um período de treino para um aluno para que ele tenha um plano estruturado e metas definidas. <br><br> **Descrição:** Cadastro de período com título, objetivo e plano de treino associado. | REQ12 | E04 |
 | US06 | Registro de treinos em período ativo | Como um usuário, eu quero registrar treinos no período ativo de um aluno para que seu progresso seja acompanhado corretamente. <br><br> **Descrição:** Inclusão de treinos ao longo do período vigente. | REQ13 | E05 |
 | US07 | Registro de exercícios em um treino | Como um usuário, eu quero registrar exercícios realizados em um treino para que eu possa detalhar carga, duração e outras informações. <br><br> **Descrição:** Cada treino pode ter exercícios vinculados com métricas registradas. | REQ13, REQ06 | E05 |
-| US08 | Edição de perfis e períodos | Como um usuário, eu quero editar perfis de alunos e períodos ativos para que eu possa manter informações sempre atualizadas. <br><br> **Descrição:** Alteração de dados de aluno, período, objetivos, planos e treinos. | REQ05, REQ04 | E02 |
+| US08 | Edição de perfis e períodos | Como um usuário, eu quero editar perfis de alunos e períodos ativos para que eu possa manter informações sempre atualizadas. <br><br> **Descrição:** Alteração de dados de aluno e período, como nome, dados, datas de treino, etc... | REQ05, REQ04 | E02 |
 | US09 | Fechamento de período de treino | Como um usuário, eu quero fechar um período de treino de um aluno para que ele seja arquivado e um novo possa ser iniciado. <br><br> **Descrição:** Função para encerrar oficialmente um período ativo. | REQ05  | E02 |
 | US10 | Geração de PDF ao encerrar período | Como um usuário, eu quero que o sistema gere um PDF ao fechar um período para que eu tenha um relatório baixável da evolução do aluno. <br><br> **Descrição:** Geração automática de arquivo PDF ao encerrar um período. | REQ14 | E06 <BR> E03  |
 | US11 | PDF completo de relatório | Como um usuário, quero que o PDF contenha título, plano de treino, datas, gráficos e variáveis para que o relatório seja completo. <br><br> **Descrição:** O PDF deve ser gerado com layout organizado e dados de evolução. | REQ15 | E03  |
@@ -217,4 +217,5 @@ O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pe
 | 17/11/2025 | 1.4 | Ajustes e inserção de tabelas | Gabriel Fae |
 | 24/11/2025 | 1.5 | FInalização da issue #18 | Raissa |
 | 29/11/2025 | 1.6 | Ajuste de rastreabilidade | Gabriel Fae |
+
 
