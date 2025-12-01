@@ -485,6 +485,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
+            fontSize: 20,
             letterSpacing: 1.2,
           ),
         ),
@@ -582,13 +583,13 @@ class _PeriodoPageState extends State<PeriodoPage> {
                       color: const Color(0xFF0C1F28),
                       onPressed: _viewWorksheet,
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: 12),
                     SquareActionButton(
                       text: "Compartilhar\nplanilha",
                       color: const Color(0xFF0C1F28),
                       onPressed: _shareWorksheet,
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: 12),
                     if (!currentPeriod.isClosed) ...[
                       if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty)
                         AddSquareButton(
@@ -598,18 +599,18 @@ class _PeriodoPageState extends State<PeriodoPage> {
                         MouseRegion(
                           cursor: SystemMouseCursors.click,
                           child: GestureDetector(
-                            onTap: _deleteWorksheet,
-                            child: Container(
-                              width: 110,
-                              height: 110,
-                              decoration: BoxDecoration(
-                                color: Colors.red.withOpacity(0.7),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: const Icon(
-                                Icons.close,
-                                color: Colors.white,
-                                size: 48,
+                          onTap: _deleteWorksheet,
+                          child: Container(
+                            width: 94,
+                            height: 94,
+                            decoration: BoxDecoration(
+                              color: Colors.red.withOpacity(0.7),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Icon(
+                              Icons.close,
+                              color: Colors.white,
+                              size: 42,
                               ),
                             ),
                           ),
