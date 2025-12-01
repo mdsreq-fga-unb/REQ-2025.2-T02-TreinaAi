@@ -9,7 +9,7 @@
 
 ## Objetivo da Reunião
 
-Realizar o **levantamento inicial dos requisitos** do sistema, entendendo a visão do cliente e as funcionalidades essenciais antes da prototipagem.
+Realizar o **levantamento inicial dos requisitos** do sistema conforme solicitado pelo professor, e demonstrar início de implementação realizado para cadastro de profissional.
 
 ---
 
@@ -17,7 +17,9 @@ Realizar o **levantamento inicial dos requisitos** do sistema, entendendo a vis�
 
 ### 1. Levantamento Inicial de Requisitos
    
-- Identificação das funcionalidades principais e complementares.  
+- Identificação das funcionalidades principais e complementares.
+- - Mostramos a funcionalidade prévia de cadastrar um profissional para conferir se estava conforme o requisitado pelo cliente
+  - - Cliente aprovou a tela e as funcionalidades, pedindo apenas adição de contato como OPCIONAL no cadastro, para aparecer no pdf final
 - Registro de dúvidas e pontos pendentes para serem esclarecidos posteriormente.
 
 ---
@@ -39,7 +41,7 @@ Realizar o **levantamento inicial dos requisitos** do sistema, entendendo a vis�
 ### 4. Próximos Passos
 
 - Preparar o documento de requisitos levantados.  
-- Validar esses requisitos com o cliente na próxima reunião (em 15 dias).  
+- Validar esses requisitos com o cliente por encontro offline via whatsapp. 
 - Após validação, iniciar a prototipagem de alta fidelidade.
 
 ---
