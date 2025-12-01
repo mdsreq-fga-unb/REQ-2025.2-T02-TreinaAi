@@ -12,6 +12,8 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:permission_handler/permission_handler.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:open_file/open_file.dart';
 import 'training_pdf.dart';
 
 class PeriodoPage extends StatefulWidget {
@@ -70,11 +72,14 @@ class _PeriodoPageState extends State<PeriodoPage> {
     }
   }
 
-  Future<void> _navigateToWorkout(Workout workout) async {
+  void _navigateToWorkout(Workout workout) async {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TrainingPage(workout: workout),
+        builder: (context) => TrainingPage(
+          workout: workout,
+          isPeriodClosed: currentPeriod.isClosed,
+        ),
       ),
     );
 
@@ -235,13 +240,13 @@ class _PeriodoPageState extends State<PeriodoPage> {
     }
   }
 
-  Future<void> _downloadWorksheet() async {
+  Future<void> _shareWorksheet() async {
     try {
       if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Nenhuma planilha disponível para download'),
+              content: Text('Nenhuma planilha disponível para compartilhar'),
               backgroundColor: Colors.orange,
             ),
           );
@@ -262,48 +267,64 @@ class _PeriodoPageState extends State<PeriodoPage> {
         return;
       }
 
-      // Request storage permission for Android
-      if (Platform.isAndroid) {
-        final status = await Permission.storage.request();
-        if (!status.isGranted) {
-          if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Permissão de armazenamento necessária'),
-                backgroundColor: Colors.orange,
-              ),
-            );
-          }
-          return;
-        }
+      // Get file extension and mime type
+      final extension = path.extension(file.path).toLowerCase();
+      String mimeType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+      if (extension == '.xls') {
+        mimeType = 'application/vnd.ms-excel';
       }
-
-      // Get Downloads directory
-      Directory? downloadsDir;
-      if (Platform.isAndroid) {
-        // For Android, use external storage Downloads
-        downloadsDir = Directory('/storage/emulated/0/Download');
-      } else if (Platform.isWindows) {
-        downloadsDir = Directory('${Platform.environment['USERPROFILE']}\\Downloads');
-      } else {
-        // Fallback to app documents
-        final appDir = await getApplicationDocumentsDirectory();
-        downloadsDir = Directory('${appDir.path}/downloads');
-      }
-
-      if (!await downloadsDir.exists()) {
-        await downloadsDir.create(recursive: true);
-      }
-
-      final fileName = 'planilha_${currentPeriod.title.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')}_${DateTime.now().millisecondsSinceEpoch}${path.extension(file.path)}';
-      final targetPath = '${downloadsDir.path}/$fileName';
-      await file.copy(targetPath);
-
+      
+      // Share directly without copying
+      await Share.shareXFiles(
+        [XFile(file.path, mimeType: mimeType, name: 'Planilha_${currentPeriod.title.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')}$extension')],
+      );
+    } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Planilha baixada: $fileName'),
-            backgroundColor: Colors.green,
+            content: Text('Erro ao compartilhar planilha: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _viewWorksheet() async {
+    try {
+      if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Nenhuma planilha disponível'),
+              backgroundColor: Colors.orange,
+            ),
+          );
+        }
+        return;
+      }
+
+      final file = File(currentPeriod.worksheetPath!);
+      if (!await file.exists()) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Arquivo não encontrado'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+        return;
+      }
+
+      // Open the file with default app
+      final result = await OpenFile.open(file.path);
+      
+      if (result.type != ResultType.done && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao abrir planilha: ${result.message}'),
+            backgroundColor: Colors.red,
           ),
         );
       }
@@ -311,7 +332,7 @@ class _PeriodoPageState extends State<PeriodoPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao baixar planilha: $e'),
+            content: Text('Erro ao visualizar planilha: $e'),
             backgroundColor: Colors.red,
           ),
         );
@@ -389,6 +410,67 @@ class _PeriodoPageState extends State<PeriodoPage> {
     }
   }
 
+  Future<void> _deletePeriod() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Confirmar exclusão'),
+        content: const Text('Tem certeza que deseja apagar esse período? Esta ação não pode ser desfeita.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancelar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('Apagar'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      try {
+        // Delete all workouts and exercises first
+        final workouts = await ClientsDatabase.instance.getWorkoutsByPeriod(widget.period.codPeriod!);
+        for (var workout in workouts) {
+          await ClientsDatabase.instance.deleteWorkout(workout.codWorkout!);
+        }
+
+        // Delete worksheet file if exists
+        if (currentPeriod.worksheetPath != null && currentPeriod.worksheetPath!.isNotEmpty) {
+          final file = File(currentPeriod.worksheetPath!);
+          if (await file.exists()) {
+            await file.delete();
+          }
+        }
+
+        // Delete period
+        await ClientsDatabase.instance.deletePeriod(widget.period.codPeriod!);
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Período removido com sucesso!'),
+              backgroundColor: Colors.green,
+            ),
+          );
+          Navigator.pop(context, true);
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Erro ao remover período: $e'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -421,6 +503,11 @@ class _PeriodoPageState extends State<PeriodoPage> {
                   Navigator.pop(context, true);
                 }
               },
+            ),
+          if (currentPeriod.isClosed)
+            IconButton(
+              icon: const Icon(Icons.delete, color: Colors.red),
+              onPressed: _deletePeriod,
             ),
         ],
         backgroundColor: Colors.white,
@@ -491,35 +578,43 @@ class _PeriodoPageState extends State<PeriodoPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SquareActionButton(
-                      text: "Baixar\nplanilha",
+                      text: "Visualizar\nplanilha",
                       color: const Color(0xFF0C1F28),
-                      onPressed: _downloadWorksheet,
+                      onPressed: _viewWorksheet,
                     ),
-                    const SizedBox(width: 24),
-                    if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty)
-                      AddSquareButton(
-                        onPressed: _uploadWorksheet,
-                      )
-                    else
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          onTap: _deleteWorksheet,
-                          child: Container(
-                            width: 110,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              color: Colors.red.withOpacity(0.7),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Icon(
-                              Icons.close,
-                              color: Colors.white,
-                              size: 48,
+                    const SizedBox(width: 16),
+                    SquareActionButton(
+                      text: "Compartilhar\nplanilha",
+                      color: const Color(0xFF0C1F28),
+                      onPressed: _shareWorksheet,
+                    ),
+                    const SizedBox(width: 16),
+                    if (!currentPeriod.isClosed) ...[
+                      if (currentPeriod.worksheetPath == null || currentPeriod.worksheetPath!.isEmpty)
+                        AddSquareButton(
+                          onPressed: _uploadWorksheet,
+                        )
+                      else
+                        MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: GestureDetector(
+                            onTap: _deleteWorksheet,
+                            child: Container(
+                              width: 110,
+                              height: 110,
+                              decoration: BoxDecoration(
+                                color: Colors.red.withOpacity(0.7),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: const Icon(
+                                Icons.close,
+                                color: Colors.white,
+                                size: 48,
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                    ],
                   ],
                 ),
 

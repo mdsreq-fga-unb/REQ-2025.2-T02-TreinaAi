@@ -7,8 +7,9 @@ import 'workout_edit_page.dart';
 
 class TrainingPage extends StatefulWidget {
   final Workout workout;
+  final bool isPeriodClosed;
 
-  const TrainingPage({super.key, required this.workout});
+  const TrainingPage({super.key, required this.workout, this.isPeriodClosed = false});
 
   @override
   State<TrainingPage> createState() => _TrainingPageState();
@@ -56,9 +57,10 @@ class _TrainingPageState extends State<TrainingPage> {
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit, color: Colors.black),
-            onPressed: () async {
+          if (!widget.isPeriodClosed)
+            IconButton(
+              icon: const Icon(Icons.edit, color: Colors.black),
+              onPressed: () async {
               final result = await Navigator.push(
                 context,
                 MaterialPageRoute(
