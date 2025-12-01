@@ -9,40 +9,41 @@
 
 ## Objetivo da Reunião
 
-Apresentar as primeiras **telas desenvolvidas do frontend** e validar a direção visual e funcional com o cliente.
+Apresentar primeiras telas de fim de período (página de resumo) e fluxo de geração de pdf futuro.
 
 ---
 
 ## Principais Assuntos Tratados
 
-### 1. Apresentação das Telas do Frontend
+### 1. Apresentação das Telas finalizadas
 
-- Demonstração das primeiras telas implementadas.  
-- Comparação entre o protótipo de alta fidelidade e as telas reais para garantir fidelidade visual.  
-- Cliente avaliou responsividade, cores, navegação e estrutura geral.
-
+- Demonstração das telas implementadas pós correção com feedback.  
+- Comparação entre o protótipo de alta fidelidade e as telas reais para garantir fidelidade visual.
+  
 ---
 
 ### 2. Feedback do Cliente
 
-- Cliente considerou o progresso positivo e alinhado ao protótipo.  
+- Cliente considerou o progresso positivo e alinhado ao protótipo, contudo pediu por uma visão separada de alunos ativos e inativos, por cor, de preferencia.
+- Cliente avaliou responsividade, cores, navegação e estrutura geral.
 - Comentou que a navegação está fluida e intuitiva, facilitando o entendimento do fluxo do usuário.  
 - Afirmou que o projeto está no caminho certo, sem pontos de crítica ou mudanças estruturais a solicitar.
+- - Requisitos não funcionais foram implementados com sucesso, tendo carregamento de informações em menos de 2 seg.
 
 ---
 
 ### 3. Pendências e Melhorias
 
 - Anotação de itens que devem ser revisados para a próxima entrega.  
-- Alguns componentes ainda precisam ser adaptados para diferentes tamanhos de tela.  
+- Alguns componentes ainda precisam ser adaptados para diferentes tamanhos de tela (principalmente botões e widgets de planilha).
 - Ajustes de tipografia e espaçamentos foram listados para melhoria visual.
 
 ---
 
 ### 4. Próximos Passos
 
-- Implementar os ajustes solicitados pelo cliente nas telas apresentadas.  
-- Desenvolver as próximas telas restantes do frontend.  
+- Implementar relatórios dinâmicos (gráficos com comparações de exercícios);
+- Ajustes no backlog do produto conforme solicitado pelo professor;
 - Preparar material para demonstrar na reunião seguinte.
 
 ---
