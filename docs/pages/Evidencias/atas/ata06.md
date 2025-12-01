@@ -9,58 +9,76 @@
 
 ## Objetivo da Reunião
 
-Apresentar ao cliente a **versão praticamente completa do sistema**, com frontend e backend implementados, demonstrando o fluxo final do produto.
-
+Apresentar ao cliente a demonstração da versão beta do Aplicativo, focando nas telas e funcionalidades de cadastro, edição e administração de valores já conectadas ao banco de dados para validação inicial.
 ---
 
 ## Principais Assuntos Tratados
 
-### 1. Demonstração Completa do Sistema
+#### 1. Demonstração das Funcionalidades Implementadas
 
-- Apresentação de todas as telas finalizadas do frontend.  
-- Demonstração das funcionalidades já conectadas ao backend.  
-- Navegação completa pelo sistema, exibindo os principais fluxos definidos pelo cliente.  
-- Visualização de operações funcionando em tempo real (cadastros, logins, consultas, entre outros).
+- Apresentação das telas finalizadas, com foco no fluxo de registro de usuário.
 
----
+- Demonstração da funcionalidade de edição de valores, permitindo alterar dados obtidos após o cadastro inicial.
 
-### 2. Integração Frontend + Backend
+- Exemplo de uso: Cadastro de testes para exemplificar o fluxo de cadastro de alunos em ambiente APK.
 
-- Explicação técnica sobre como as partes do sistema estão integradas.  
-- Mostrados endpoints funcionando corretamente.  
-- Fluxos principais totalmente integrados:  
-  - Cadastro e autenticação  
-  - Ações do usuário  
-  - Acesso aos dados do banco  
-- Cliente viu o sistema operando como um produto próximo da versão final.
+- Status Geral: Grande parte dos cadastros e administração de valores estão finalizados e funcionando.
 
----
+#### 2. Status do Desenvolvimento e Pendências Atuais
 
-### 3. Feedback do Cliente
+- Funcionalidades Não Implementadas:
 
-- Cliente demonstrou **grande satisfação** com o resultado apresentado.  
-- Afirmou que o sistema está **muito fiel ao que foi solicitado** durante o projeto.  
-- Elogiou a fluidez do uso e o acabamento visual.  
-- Reconheceu o esforço da equipe e aprovou o andamento para as etapas finais.
+- - Função de inativar aluno.
 
----
+- - Páginas de período fechadas.
 
-### 4. Pendências e Ajustes Finais
+- - Importação de tabela de treinos sem erro.
 
-- Pequenos ajustes de layout foram anotados.  
-- Alguns detalhes de usabilidade foram listados para refinamento.  
-- Ajustes finais no backend para otimização de desempenho.  
+##### Dúvida do Cliente:
 
-*(Nenhuma alteração grande foi solicitada.)*
+- Ao realizar a busca de alunos, o sistema deve exibir alunos inativos na aba de resultados? (Necessária definição de comportamento)
 
----
+#### 3. Feedback e Requisitos do Cliente
 
-### 5. Próximos Passos
+- O cliente demonstrou grande satisfação com a aplicação, elogiando a interface por ser intuitiva e prática.
 
-- Concluir refinamentos de UX e correções menores.  
-- Testes finais com o cliente antes da apresentação definitiva.  
-- Preparar documentação final do sistema.  
-- Finalizar versão estável para entrega.
+- Elogio à facilidade de edição de valores no sistema.
+
+- Novos Requisitos/Adições (Funcionalidades de Análise):
+
+- Anotação por período: Adicionar um campo para observação geral por período para maior funcionalidade.
+
+- Análise Comparativa: Necessidade de comparar dados entre dois meses (períodos) distintos.
+
+- Gráficos Escolhidos: Gráficos em comparação em linha (line charts).
+
+#### 4. Novas Métricas e Ajustes de UX
+
+##### Métricas de Performance:
+
+- Adicionar campo para segundo (para cálculo de explosão, por exemplo).
+
+- Adicionar a CADÊNCIA (tempo por repetição) junto às informações do período.
+
+- Adicionar métricas de descanso (por séries), exclusivamente para fins informacionais (sem integração com gráficos).
+
+- Adicionar campo para isometria nos treinos.
+
+- Ajustes de UX (Próxima Atualização):
+
+- Alterar cor para sinalizar o status do aluno (ativo ou inativo) nas listas.
+
+#### 5. Próximos Passos e Prioridades
+
+- Focar na implementação das métricas solicitadas (segundo, cadência, descanso/isometria).
+
+- Desenvolver as funcionalidades de análise comparativa e gráficos em linha.
+
+- Integrar a anotação por período.
+
+- Implementar a alteração de cor para status do aluno.
+
+- Definição de como será tratada a busca de alunos inativos (com base na dúvida do cliente).
 
 ---
 
