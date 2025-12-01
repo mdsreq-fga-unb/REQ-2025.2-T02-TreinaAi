@@ -45,6 +45,8 @@ Realizar o **levantamento inicial dos requisitos** do sistema conforme solicitad
 - Após validação, iniciar a prototipagem de alta fidelidade.
 
 ---
+### Próximas Entregas (Próximas Semanas)
+- US01 ,US02 ,US03
 
 ## Próxima Reunião
 
