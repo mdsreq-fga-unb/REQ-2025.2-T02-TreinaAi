@@ -56,6 +56,9 @@ nav:
     - Unidade 3: pages/VisaoDoProduto/LicaoAprendida/Unidade3.md
   - Estudos de caso:
     - PBB: pages/EstudosCaso/pbb.md
+    - USM: pages/EstudosCaso/USM.md
+    - DCU: page/EstudosCaso/DCU.md
+  - Evidências: pages/Evidencias/prototipos.md
   - Extras: 
     - Contribuição: pages/Extra/PoliticadeContribuicao.md
 
