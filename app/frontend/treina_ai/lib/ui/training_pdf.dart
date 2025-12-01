@@ -343,161 +343,106 @@ List<LineChartBarData> _buildSetsRepsLines() {
     );
   }
 
-  // =====================================================
-  // GERAR PDF
-  // =====================================================
-  Future<void> _generatePDF() async {
-    RenderRepaintBoundary boundary =
-        chartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+// =====================================================
+// GERAR PDF 
+// =====================================================
+Future<void> _generatePDF() async {
+  // --- 1. CAPTURA DOS GRÁFICOS (DEVE SER MANTIDA) ---
+  
+  // Gráfico 1: Evolução de Peso
+  RenderRepaintBoundary boundary =
+      chartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+  ui.Image img = await boundary.toImage(pixelRatio: 3.0);
+  ByteData? byteData = await img.toByteData(format: ui.ImageByteFormat.png);
+  Uint8List chartBytes = byteData?.buffer.asUint8List() ?? Uint8List(0);
 
-    ui.Image img = await boundary.toImage(pixelRatio: 3.0);
-    ByteData? byteData = await img.toByteData(format: ui.ImageByteFormat.png);
-    Uint8List chartBytes = byteData!.buffer.asUint8List();
+  // Gráfico 2: Sets x Reps
+  RenderRepaintBoundary setsRepsBoundary = 
+      setsRepsChartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+  ui.Image setsRepsImg = await setsRepsBoundary.toImage(pixelRatio: 3.0);
+  ByteData? setsRepsByteData = await setsRepsImg.toByteData(format: ui.ImageByteFormat.png);
+  Uint8List RepsChartBytes = setsRepsByteData?.buffer.asUint8List() ?? Uint8List(0);
+  
+  // ------------------------------------------------------------------
 
-    // ------------------------------------------------------------------
-    // NOVO BLOCO: RENDERIZAÇÃO DO SEGUNDO GRÁFICO (SETS X REPS)
-    // ------------------------------------------------------------------
-    RenderRepaintBoundary setsRepsBoundary = 
-        setsRepsChartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-
-    ui.Image setsRepsImg = await setsRepsBoundary.toImage(pixelRatio: 3.0);
-    ByteData? setsRepsByteData = await setsRepsImg.toByteData(format: ui.ImageByteFormat.png);
-    Uint8List RepsChartBytes = setsRepsByteData!.buffer.asUint8List();
-    // ------------------------------------------------------------------
-
-    final PdfDocument document = PdfDocument();
-    final page = document.pages.add();
-
-    final titleFont =
-        PdfStandardFont(PdfFontFamily.helvetica, 18, style: PdfFontStyle.bold);
-
-    double y = 0;
-
-          // ------------------------------------------------------------------
-    //                   SEÇÃO DO TREINADOR (ARRUMADA PÓS CAGADA Q EU FIZ)
-    // ------------------------------------------------------------------
-
-    // Carregar imagem do logo
-    final ByteData logoBytes = await rootBundle.load("assets/logo.png");
-    final Uint8List logoData = logoBytes.buffer.asUint8List();
-    final PdfBitmap logoBitmap = PdfBitmap(logoData);
-
-    // Dados do treinador
-    final User? t = trainers.isNotEmpty ? trainers.first : null;
-    final String trainerName = t?.name ?? "Treinador";
-    final String trainerCref = (t != null && t.cref.trim().isNotEmpty) ? "CREF: ${t.cref}" : "";
-    final String trainerContact = (t != null && t.contact.trim().isNotEmpty) ? "Contato: ${t.contact}" : "";
-    final textFont = PdfStandardFont(PdfFontFamily.helvetica, 14);
+  final PdfDocument document = PdfDocument();
+  final titleFont =
+      PdfStandardFont(PdfFontFamily.helvetica, 18, style: PdfFontStyle.bold);
+  final textFont = PdfStandardFont(PdfFontFamily.helvetica, 14);
 
 
-    // Fundo decorativo
-    page.graphics.drawRectangle(
-      brush: PdfSolidBrush(PdfColor(255, 200, 80)),
-      bounds: Rect.fromLTWH(0, y, page.getClientSize().width, 140),
-    );
+  // ------------------------------------------------------------------
+  // RESUMO E TREINADOR
+  // ------------------------------------------------------------------
+  PdfPage page = document.pages.add();
+  double y = 0;
 
-    // Caixa branca do texto
-    page.graphics.drawRectangle(
-      brush: PdfSolidBrush(PdfColor(255, 255, 255)),
-      bounds: Rect.fromLTWH(10, y + 10, page.getClientSize().width - 140, 110),
-    );
+  // Carregar imagem do logo (Mantido)
+  final ByteData logoBytes = await rootBundle.load("assets/logo.png");
+  final Uint8List logoData = logoBytes.buffer.asUint8List();
+  final PdfBitmap logoBitmap = PdfBitmap(logoData);
 
-    // Logo
-    page.graphics.drawImage(
-      logoBitmap,
-      Rect.fromLTWH(page.getClientSize().width - 120, y + 10, 110, 110),
-    );
+  // Dados do treinador (Mantido)
+  final User? t = trainers.isNotEmpty ? trainers.first : null;
+  final String trainerName = t?.name ?? "Treinador";
+  final String trainerCref = (t != null && t.cref.trim().isNotEmpty) ? "CREF: ${t.cref}" : "";
+  final String trainerContact = (t != null && t.contact.trim().isNotEmpty) ? "Contato: ${t.contact}" : "";
 
-    // Título
-      page.graphics.drawString(
-        "Personal",
-        PdfStandardFont(PdfFontFamily.helvetica, 20, style: PdfFontStyle.bold),
-        brush: PdfSolidBrush(PdfColor(120, 40, 20)), // tom vinho igual ao logo
-        bounds: Rect.fromLTWH(20, y + 15, 400, 30),
-      );
+  // Fundo decorativo
+  page.graphics.drawRectangle(
+    brush: PdfSolidBrush(PdfColor(255, 200, 80)),
+    bounds: Rect.fromLTWH(0, y, page.getClientSize().width, 140),
+  );
 
-    // nome
-
-        page.graphics.drawString(
-      "Nome: $trainerName",
+  // Caixa branca do texto e Logo... (Código de Treinador mantido, com ajuste no Y)
+  page.graphics.drawRectangle(
+    brush: PdfSolidBrush(PdfColor(255, 255, 255)),
+    bounds: Rect.fromLTWH(10, y + 10, page.getClientSize().width - 140, 110),
+  );
+  page.graphics.drawImage(
+    logoBitmap,
+    Rect.fromLTWH(page.getClientSize().width - 120, y + 10, 110, 110),
+  );
+  page.graphics.drawString(
+    "Personal",
+    PdfStandardFont(PdfFontFamily.helvetica, 20, style: PdfFontStyle.bold),
+    brush: PdfSolidBrush(PdfColor(120, 40, 20)),
+    bounds: Rect.fromLTWH(20, y + 15, 400, 30),
+  );
+  page.graphics.drawString(
+    "Nome: $trainerName",
+    PdfStandardFont(PdfFontFamily.helvetica, 14),
+    bounds: Rect.fromLTWH(20, y + 50, 400, 20),
+  );
+  if (trainerCref.isNotEmpty) {
+    page.graphics.drawString(
+      trainerCref,
       PdfStandardFont(PdfFontFamily.helvetica, 14),
-      bounds: Rect.fromLTWH(20, y + 50, 400, 20),
+      bounds: Rect.fromLTWH(20, y + 70, 400, 20),
     );
-
-    // CREF (se existir)
-    if (trainerCref.isNotEmpty) {
-      page.graphics.drawString(
-        trainerCref,
-        PdfStandardFont(PdfFontFamily.helvetica, 14),
-        bounds: Rect.fromLTWH(20, y + 70, 400, 20),
-      );
-    }
-
-    // Contato (se existir)
-    if (trainerContact.isNotEmpty) {
-      page.graphics.drawString(
-        trainerContact,
-        PdfStandardFont(PdfFontFamily.helvetica, 14),
-        bounds: Rect.fromLTWH(20, y + 90, 400, 20),
-      );
-    }
-
-    y += 160;
-
-    // ---- TÍTULO ----
+  }
+  if (trainerContact.isNotEmpty) {
     page.graphics.drawString(
-      "Evolução dos Exercícios",
-      titleFont,
-      bounds: Rect.fromLTWH(0, y, 500, 30),
-    );
-    y += 40;
-
-    // ---- GRÁFICO ----
-    page.graphics.drawImage(
-      PdfBitmap(chartBytes),
-      Rect.fromLTWH(0, y, 500, 280),
-    );
-    y += 300;
-
-    // ---- LEGENDA ----
-   final legend = exerciseDailyMax.keys.join(" | ");
-
-    page.graphics.drawString(
-      "Legenda: $legend",
+      trainerContact,
       PdfStandardFont(PdfFontFamily.helvetica, 14),
-      bounds: Rect.fromLTWH(0, y, 500, 40),
+      bounds: Rect.fromLTWH(20, y + 90, 400, 20),
     );
+  }
 
-    // ---- NOVO GRÁFICO (SETS X REPS) ----
-    page.graphics.drawImage(
-      PdfBitmap(RepsChartBytes), // Usa os bytes do novo gráfico
-      Rect.fromLTWH(0, y, 500, 280),
-    );
-    y += 300;
+  y += 160; 
 
-    final legendSetsReps = exerciseDailySetsReps.keys.join(" | ");
+  // informações do aluno -- futuramente adicionar.
 
-    page.graphics.drawString(
-      "Legenda: $legendSetsReps",
-      PdfStandardFont(PdfFontFamily.helvetica, 14),
-      bounds: Rect.fromLTWH(0, y, 500, 40),
-    );
+  // --- RESUMO DO PERÍODO (MESMOS VALORES DO WIDGET) ---
+  final resumoTitleFont = PdfStandardFont(PdfFontFamily.helvetica, 18, style: PdfFontStyle.bold);
 
-    y += 40;
+  page.graphics.drawString(
+    'Resumo do Período',
+    resumoTitleFont,
+    bounds: Rect.fromLTWH(0, y, 500, 30),
+  );
+  y += 40;
 
-    // ---- RESUMO ----
-    final resumoTitleFont = PdfStandardFont(PdfFontFamily.helvetica, 18);
-      
-    // Adiciona o título do resumo, usando o 'y' atualizado
-    page.graphics.drawString(
-      'Resumo:',
-      resumoTitleFont,
-      bounds: Rect.fromLTWH(0, y, 300, 20),
-    );
-
-    y += 25;
-
-    // Exemplo: variável mostTrained deve vir de onde você já usa no widget
   final String mostTrained = exerciseCount.isEmpty
       ? "-"
       : exerciseCount.entries.reduce((a, b) => a.value > b.value ? a : b).key;
@@ -511,15 +456,98 @@ List<LineChartBarData> _buildSetsRepsLines() {
   page.graphics.drawString(
     resumoTexto,
     textFont,
-    bounds: Rect.fromLTWH(0, y, 500, 200),
+    bounds: Rect.fromLTWH(0, y, 500, 100), // Aumentei a altura para garantir o espaço
   );
 
-    final List<int> bytes = await document.save();
-    document.dispose();
+  y += 110; 
 
-    await saveAndOpenFile(bytes, 'relatorio_treino.pdf');
+  //page.graphics.drawString(
+    //'Treinos Registrados (Tabela)',
+    //resumoTitleFont,
+    //bounds: Rect.fromLTWH(0, y, 500, 30),
+  //);
+  y += 40;
+  
+  // ------------------------------------------------------------------
+  // GRÁFICO 1 (EVOLUÇÃO DE PESO)
+  // ------------------------------------------------------------------
+  page = document.pages.add(); // Adiciona nova página
+  y = 0; 
+
+  page.graphics.drawString(
+    "Evolução de Peso (Máximo Diário)",
+    titleFont,
+    bounds: Rect.fromLTWH(0, y, 500, 30),
+  );
+  y += 40;
+
+  if (chartBytes.isNotEmpty) {
+    page.graphics.drawImage(
+      PdfBitmap(chartBytes),
+      Rect.fromLTWH(0, y, 500, 280),
+    );
+    y += 300;
+  } else {
+    page.graphics.drawString(
+      "Dados de Evolução de Peso não disponíveis ou erro na captura.",
+      textFont,
+      bounds: Rect.fromLTWH(0, y, 500, 30),
+    );
+    y += 100;
+  }
+  
+  final legend = exerciseDailyMax.keys.join(" | ");
+  page.graphics.drawString(
+    "Legenda: $legend",
+    PdfStandardFont(PdfFontFamily.helvetica, 14),
+    bounds: Rect.fromLTWH(0, y, 500, 40),
+  );
+
+
+  // ------------------------------------------------------------------
+  // GRÁFICO 2 (SETS X REPS)
+  // ------------------------------------------------------------------
+  page = document.pages.add();
+  y = 0;
+
+  page.graphics.drawString(
+    "Volume Total (Séries x Repetições)",
+    titleFont,
+    bounds: Rect.fromLTWH(0, y, 500, 30),
+  );
+  y += 40;
+
+  if (RepsChartBytes.isNotEmpty) {
+    page.graphics.drawImage(
+      PdfBitmap(RepsChartBytes),
+      Rect.fromLTWH(0, y, 500, 280),
+    );
+    y += 300;
+  } else {
+    page.graphics.drawString(
+      "Dados de Volume Total (Séries x Repetições) não disponíveis ou erro na captura.",
+      textFont,
+      bounds: Rect.fromLTWH(0, y, 500, 30),
+    );
+    y += 40;
   }
 
+  final legendSetsReps = exerciseDailySetsReps.keys.join(" | ");
+  page.graphics.drawString(
+    "Legenda: $legendSetsReps",
+    PdfStandardFont(PdfFontFamily.helvetica, 14),
+    bounds: Rect.fromLTWH(0, y, 500, 40),
+  );
+
+
+  // ------------------------------------------------------------------
+  // SALVAR DOCUMENTO
+  // ------------------------------------------------------------------
+  final List<int> bytes = await document.save();
+  document.dispose();
+
+  await saveAndOpenFile(bytes, 'relatorio_treino.pdf');
+}
   // =====================================================
   // TELA PRINCIPAL
   // =====================================================
@@ -597,17 +625,14 @@ List<LineChartBarData> _buildSetsRepsLines() {
               // ======================
                 // GRÁFICO
                 // ======================
-                ExpansionTile(
-                  title: const Text(
+                const Text(
                     "Evolução dos 3 exercícios mais realizados",
                     style: TextStyle(
                       color: Color.fromARGB(255, 241, 99, 23),
                       fontSize: 18,
                     ),
                   ),
-                  initiallyExpanded: false, // Começa fechado para economizar espaço
-                  children: [
-                    const SizedBox(height: 0),
+                    const SizedBox(height: 5),
                 // ======================
                 // LEGENDA do infernoooooooooooooooooo
                 // ======================
@@ -677,25 +702,18 @@ List<LineChartBarData> _buildSetsRepsLines() {
                       ),
                     ),
                   ),
-
-                  ],
-                ),                const SizedBox(height: 5),
-
                 const SizedBox(height:20), // Espaçamento entre os gráficos
 
                 // ======================
                 // NOVO GRÁFICO (SETS x REPS) obs: davi eu te odeio se vc ler aq mlk eu te pego no soco
                 // ======================
-                ExpansionTile(
-                  title: const Text(
+                  const Text(
                     "Volume Total (Séries x Repetições) dos exercícios",
                     style: TextStyle(
                       color: Color.fromARGB(255, 241, 99, 23),
                       fontSize: 18,
                     ),
                   ),
-                  initiallyExpanded: false,
-                  children: [
                 const SizedBox(height: 5),
 
                 // Reutiliza a mesma lógica de legenda, pois usa os mesmos 5 exercícios
@@ -764,8 +782,7 @@ List<LineChartBarData> _buildSetsRepsLines() {
 
                 // ... (fim do build)
               ],
-            ),
-              ],
-          ),
-  ));
+          )),
+  );
+
 }}
