@@ -14,8 +14,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter/rendering.dart';
 import '../models/user.dart';
 
-User? trainer;
-
 class TrainingPDF extends StatefulWidget {
   final Period period;
 
@@ -27,10 +25,12 @@ class TrainingPDF extends StatefulWidget {
 
 class _TrainingChartPageState extends State<TrainingPDF> {
   final db = ClientsDatabase.instance;
+  final userDB = DatabaseHelper.instance;
 
   // ---------------------------- VARIÁVEIS GERAIS ----------------------------------
   // Listas que receberão os dados do banco
   List<Workout> workouts = [];
+  List<User> trainers = [];
   List<Exercise> allExercises = [];
 
   // Síntese do período
@@ -55,6 +55,11 @@ class _TrainingChartPageState extends State<TrainingPDF> {
   Future<void> _loadAll() async {
     // Carrega todos os treinos do período
     workouts = await db.getWorkoutsByPeriod(widget.period.codPeriod ?? 0);
+
+    final User? t = await userDB.getFirstUser();
+    if (t != null) {
+      trainers = [t];
+    }
 
     // Carrega todos os exercícios de todos os treinos
     List<Exercise> temp = [];
@@ -182,8 +187,8 @@ Widget _buildSummaryWidget() {
       final ex = allExercises.where((e) => e.codWorkout == w.codWorkout);
       return ex.fold<double>(0, (sum, e) {
           final peso = e.weight ?? 0;
-          final repeticoes = e.sets ?? 1;   
-          return sum + (peso * repeticoes);
+          final repeticoes = e.reps ?? 1;   
+          return (peso * repeticoes);
         });
     }).toList();
 
@@ -241,8 +246,73 @@ Widget _buildSummaryWidget() {
   double y = 0;
 
   // ------------------------------------------------------------------
-  // TREINADOR DEPOIS AQUI
-  // ------------------------------------------------------------------
+//                   SEÇÃO DO TREINADOR (ARRUMADA PÓS CAGADA Q EU FIZ)
+// ------------------------------------------------------------------
+
+// Carregar imagem do logo
+final ByteData logoBytes = await rootBundle.load("assets/logo.png");
+final Uint8List logoData = logoBytes.buffer.asUint8List();
+final PdfBitmap logoBitmap = PdfBitmap(logoData);
+
+// Dados do treinador
+final User? t = trainers.isNotEmpty ? trainers.first : null;
+final String trainerName = t?.name ?? "Treinador";
+final String trainerCref = (t != null && t.cref.trim().isNotEmpty) ? "CREF: ${t.cref}" : "";
+final String trainerContact = (t != null && t.contact.trim().isNotEmpty) ? "Contato: ${t.contact}" : "";
+
+// Fundo decorativo
+page.graphics.drawRectangle(
+  brush: PdfSolidBrush(PdfColor(255, 200, 80)),
+  bounds: Rect.fromLTWH(0, y, page.getClientSize().width, 140),
+);
+
+// Logo
+page.graphics.drawImage(
+  logoBitmap,
+  Rect.fromLTWH(page.getClientSize().width - 120, y + 10, 110, 110),
+);
+
+// Caixa branca do texto
+page.graphics.drawRectangle(
+  brush: PdfSolidBrush(PdfColor(255, 255, 255)),
+  bounds: Rect.fromLTWH(10, y + 10, page.getClientSize().width - 140, 110),
+);
+
+// Título
+page.graphics.drawString(
+  "Treinador",
+  PdfStandardFont(PdfFontFamily.helvetica, 20, style: PdfFontStyle.bold),
+  brush: PdfSolidBrush(PdfColor(120, 40, 20)), // tom vinho igual ao logo
+  bounds: Rect.fromLTWH(20, y + 15, 400, 30),
+);
+
+// Nome
+page.graphics.drawString(
+  "Nome: $trainerName",
+  PdfStandardFont(PdfFontFamily.helvetica, 14),
+  bounds: Rect.fromLTWH(20, y + 50, 400, 20),
+);
+
+// CREF (se existir)
+if (trainerCref.isNotEmpty) {
+  page.graphics.drawString(
+    trainerCref,
+    PdfStandardFont(PdfFontFamily.helvetica, 14),
+    bounds: Rect.fromLTWH(20, y + 70, 400, 20),
+  );
+}
+
+// Contato (se existir)
+if (trainerContact.isNotEmpty) {
+  page.graphics.drawString(
+    trainerContact,
+    PdfStandardFont(PdfFontFamily.helvetica, 14),
+    bounds: Rect.fromLTWH(20, y + 90, 400, 20),
+  );
+}
+
+y += 160;
+
 
   // ---- FRASE DO PERÍODO ----
   page.graphics.drawString(
