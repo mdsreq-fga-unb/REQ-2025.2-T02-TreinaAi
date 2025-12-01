@@ -1,8 +1,3 @@
-// ============================================
-//  TRAINING_PDF - COM GRÁFICO DE 3 LINHAS
-//  (Opção 1 — Maior peso do dia por exercício)
-// ============================================
-
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -15,7 +10,6 @@ import '../models/period.dart';
 import '../models/workout.dart';
 import '../models/exercise.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/rendering.dart';
 import '../models/user.dart';
 
@@ -48,11 +42,13 @@ class _TrainingPDFState extends State<TrainingPDF> {
   DateTime? firstDate;
   DateTime? lastDate;
 
-  // Contagem do exercício mais realizado
+  // Contagem do exercício mais realizado e da repetições e sets
   Map<String, int> exerciseCount = {};
   Map<String, Map<DateTime, double>> exerciseDailyMax = {};
+  Map<String, Map<DateTime, double>> exerciseDailySetsReps = {};
 
   final GlobalKey chartKey = GlobalKey();
+  final GlobalKey setsRepsChartKey = GlobalKey();
 
   @override
   void initState() {
@@ -83,6 +79,24 @@ class _TrainingPDFState extends State<TrainingPDF> {
       temp.addAll(list);
     }
     allExercises = temp;
+
+     if (workouts.isNotEmpty) {
+      // Mapeia a lista de Workouts para uma lista de objetos DateTime.
+      final List<DateTime> dates = workouts
+          .map((w) => parseBrazilianDate(w.date))
+          .toList();
+
+      firstDate = dates.reduce((a, b) => a.isBefore(b) ? a : b);
+      lastDate = dates.reduce((a, b) => a.isAfter(b) ? a : b);
+
+      totalWorkouts = workouts.length;
+
+      } else {
+      // Garante que se a lista estiver vazia, os valores sejam nulos (DIABO FICA NULO TODA HORA ESSA DROGA GODDAMIT)
+      firstDate = null;
+      lastDate = null;
+      totalWorkouts = 0;
+      }
 
     _computeTop3DailyMax();
     setState(() {});
@@ -129,7 +143,7 @@ class _TrainingPDFState extends State<TrainingPDF> {
   } 
 
   // =====================================================
-  // TOP 3 EXERCÍCIOS + MAIOR PESO DO DIA
+  // TOP 5 EXERCÍCIOS + MAIOR PESO DO DIA
   // =====================================================
   void _computeTop3DailyMax() {
     exerciseCount = {};
@@ -140,14 +154,17 @@ class _TrainingPDFState extends State<TrainingPDF> {
     }
 
     // Pegamos os 3 mais realizados
-    final top3 = exerciseCount.entries.toList()
+    final top5 = exerciseCount.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
 
-    final selected = top3.take(3).map((e) => e.key).toList();
+    final selected = top5.take(5).map((e) => e.key).toList();
 
     exerciseDailyMax = {
       for (var name in selected) name: {}
     };
+    exerciseDailySetsReps = {
+    for (var name in selected) name: {}
+  };
 
     // Agrupar por nome + data -> maior peso do dia
     for (var e in allExercises) {
@@ -172,7 +189,7 @@ class _TrainingPDFState extends State<TrainingPDF> {
 
         if (associatedWorkout != null) {
           // assume-se que Workout.date existe no formato "dd/MM/yyyy"
-          dateString = associatedWorkout.date ?? '';
+          dateString = associatedWorkout.date;
         }
 
         // se não encontrou ainda, tentar campos possíveis no Exercise via dynamic
@@ -193,11 +210,14 @@ class _TrainingPDFState extends State<TrainingPDF> {
 
       final DateTime d = parseBrazilianDate(dateString);
       final double peso = (e.weight ?? 0).toDouble();
+      final double setsReps = ((e.sets ?? 1) * (e.reps ?? 1)).toDouble();
 
       if (!exerciseDailyMax[e.name]!.containsKey(d) ||
           peso > exerciseDailyMax[e.name]![d]!) {
         exerciseDailyMax[e.name]![d] = peso;
       }
+
+      exerciseDailySetsReps[e.name]![d] = (exerciseDailySetsReps[e.name]![d] ?? 0) + setsReps;
     }
 
     // Garantir datas em ordem
@@ -207,7 +227,15 @@ class _TrainingPDFState extends State<TrainingPDF> {
           ..sort((a, b) => a.key.compareTo(b.key)),
       );
       exerciseDailyMax[key] = sorted;
+
+      final sortedSetsReps = Map.fromEntries(
+      exerciseDailySetsReps[key]!.entries.toList()
+        ..sort((a, b) => a.key.compareTo(b.key)),
+    );
+    exerciseDailySetsReps[key] = sortedSetsReps;
     }
+
+    
   }
 
   // GERA SPOTS PARA O GRÁFICO
@@ -218,6 +246,8 @@ class _TrainingPDFState extends State<TrainingPDF> {
       Colors.orange,
       Colors.blue,
       Colors.green,
+      Colors.red,
+      Colors.purple,
     ];
 
     int index = 0;
@@ -246,12 +276,53 @@ class _TrainingPDFState extends State<TrainingPDF> {
     return lines;
   }
 
+  // GERA SPOTS PARA O GRÁFICO DE SETS E REPS
+  // GERA SPOTS PARA O NOVO GRÁFICO (SETS * REPS)
+List<LineChartBarData> _buildSetsRepsLines() {
+  List<LineChartBarData> lines = [];
+
+  final colors = [
+    Colors.orange,
+    Colors.blue,
+    Colors.green,
+    Colors.red,
+    Colors.purple,
+  ];
+
+  int index = 0;
+
+  exerciseDailySetsReps.forEach((name, data) {
+    final spots = <FlSpot>[];
+    int x = 0;
+
+    data.forEach((date, setsRepsTotal) {
+      spots.add(FlSpot(x.toDouble(), setsRepsTotal));
+      x++;
+    });
+
+    lines.add(
+      LineChartBarData(
+        spots: spots,
+        isCurved: true,
+        barWidth: 3,
+        color: colors[index % colors.length],
+      ),
+    );
+
+    index++;
+  });
+
+  return lines;
+}
+
   // TEXTO DA LEGENDA
   Widget _buildLegend() {
     final colors = [
       Colors.orange,
       Colors.blue,
       Colors.green,
+      Colors.red,
+      Colors.purple
     ];
 
     int i = 0;
@@ -282,6 +353,17 @@ class _TrainingPDFState extends State<TrainingPDF> {
     ui.Image img = await boundary.toImage(pixelRatio: 3.0);
     ByteData? byteData = await img.toByteData(format: ui.ImageByteFormat.png);
     Uint8List chartBytes = byteData!.buffer.asUint8List();
+
+    // ------------------------------------------------------------------
+    // NOVO BLOCO: RENDERIZAÇÃO DO SEGUNDO GRÁFICO (SETS X REPS)
+    // ------------------------------------------------------------------
+    RenderRepaintBoundary setsRepsBoundary = 
+        setsRepsChartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+
+    ui.Image setsRepsImg = await setsRepsBoundary.toImage(pixelRatio: 3.0);
+    ByteData? setsRepsByteData = await setsRepsImg.toByteData(format: ui.ImageByteFormat.png);
+    Uint8List RepsChartBytes = setsRepsByteData!.buffer.asUint8List();
+    // ------------------------------------------------------------------
 
     final PdfDocument document = PdfDocument();
     final page = document.pages.add();
@@ -386,6 +468,21 @@ class _TrainingPDFState extends State<TrainingPDF> {
       bounds: Rect.fromLTWH(0, y, 500, 40),
     );
 
+    // ---- NOVO GRÁFICO (SETS X REPS) ----
+    page.graphics.drawImage(
+      PdfBitmap(RepsChartBytes), // Usa os bytes do novo gráfico
+      Rect.fromLTWH(0, y, 500, 280),
+    );
+    y += 300;
+
+    final legendSetsReps = exerciseDailySetsReps.keys.join(" | ");
+
+    page.graphics.drawString(
+      "Legenda: $legendSetsReps",
+      PdfStandardFont(PdfFontFamily.helvetica, 14),
+      bounds: Rect.fromLTWH(0, y, 500, 40),
+    );
+
     y += 40;
 
     // ---- RESUMO ----
@@ -431,7 +528,7 @@ class _TrainingPDFState extends State<TrainingPDF> {
   return Scaffold(
     backgroundColor: const Color.fromARGB(255, 236, 236, 236),
     appBar: AppBar(
-      title: Text(widget.period.title ?? ""),
+      title: Text(widget.period.title),
     ),
     body: allExercises.isEmpty
         ? const Center(child: CircularProgressIndicator())
@@ -440,89 +537,6 @@ class _TrainingPDFState extends State<TrainingPDF> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Evolução dos 3 exercícios mais realizados",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 241, 154, 23),
-                    fontSize: 18,
-                  ),
-                ),
-                const SizedBox(height: 20),
-
-                // ======================
-                // GRÁFICO
-                // ======================
-                RepaintBoundary(
-  key: chartKey,
-  child: SizedBox(
-    height: 300,
-    child: LineChart(
-      LineChartData(
-        lineBarsData: _buildLines(),
-        minY: 0,
-        gridData: const FlGridData(show: false),
-        borderData: FlBorderData(show: true),
-        titlesData: FlTitlesData(
-  leftTitles: AxisTitles(
-    sideTitles: SideTitles(
-      showTitles: true,
-      interval: 10,
-      reservedSize: 40,
-      getTitlesWidget: (value, meta) {
-        return Text(
-          "${value.toInt()} kg",
-          style: const TextStyle(fontSize: 10),
-        );
-      },
-    ),
-  ),
-
-  // REMOVER OS NÚMEROS DO TOPO
-  topTitles: AxisTitles(
-    sideTitles: SideTitles(showTitles: false),
-  ),
-
-  // REMOVER OS NÚMEROS NA DIREITA
-  rightTitles: AxisTitles(
-    sideTitles: SideTitles(showTitles: false),
-  ),
-
-  bottomTitles: AxisTitles(
-    sideTitles: SideTitles(
-      showTitles: true,
-      getTitlesWidget: (value, meta) {
-        final int idx = value.toInt();
-        final allDates = exerciseDailyMax.values
-            .expand((m) => m.keys)
-            .toSet()
-            .toList()
-          ..sort();
-
-        if (idx < 0 || idx >= allDates.length) {
-          return const SizedBox.shrink();
-        }
-
-        final d = allDates[idx];
-        return Text(
-          "${d.day}/${d.month}",
-          style: const TextStyle(fontSize: 10),
-        );
-      },
-    ),
-  ),
-        ),
-      ),
-    ),
-  ),
-),
-
-                const SizedBox(height: 20),
-
-                // ======================
-                // LEGENDA do infernoooooooooooooooooo
-                // ======================
-                _buildLegend(),
-
                 const SizedBox(height: 40),
 
                 // ======================
@@ -579,8 +593,179 @@ class _TrainingPDFState extends State<TrainingPDF> {
                 ),
 
                 const SizedBox(height: 40),
+
+              // ======================
+                // GRÁFICO
+                // ======================
+                ExpansionTile(
+                  title: const Text(
+                    "Evolução dos 3 exercícios mais realizados",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 241, 99, 23),
+                      fontSize: 18,
+                    ),
+                  ),
+                  initiallyExpanded: false, // Começa fechado para economizar espaço
+                  children: [
+                    const SizedBox(height: 0),
+                // ======================
+                // LEGENDA do infernoooooooooooooooooo
+                // ======================
+                _buildLegend(),
+
+                  const SizedBox(height: 20),
+                RepaintBoundary(
+                    key: chartKey,
+                    child: SizedBox(
+                      height: 300,
+                      child: LineChart(
+                        LineChartData(
+                          lineBarsData: _buildLines(),
+                          minY: 0,
+                          gridData: const FlGridData(show: false),
+                          borderData: FlBorderData(show: true),
+                          titlesData: FlTitlesData(
+                    leftTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: 10,
+                        reservedSize: 40,
+                        getTitlesWidget: (value, meta) {
+                          return Text(
+                            "${value.toInt()} kg",
+                            style: const TextStyle(fontSize: 10),
+                          );
+                        },
+                      ),
+                    ),
+
+                    // REMOVER OS NÚMEROS DO TOPO
+                    topTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+
+                    // REMOVER OS NÚMEROS NA DIREITA
+                    rightTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        getTitlesWidget: (value, meta) {
+                          final int idx = value.toInt();
+                          final allDates = exerciseDailyMax.values
+                              .expand((m) => m.keys)
+                              .toSet()
+                              .toList()
+                            ..sort();
+
+                          if (idx < 0 || idx >= allDates.length) {
+                            return const SizedBox.shrink();
+                          }
+
+                          final d = allDates[idx];
+                          return Text(
+                            "${d.day}/${d.month}",
+                            style: const TextStyle(fontSize: 10),
+                          );
+                        },
+                      ),
+                    ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  ],
+                ),                const SizedBox(height: 5),
+
+                const SizedBox(height:20), // Espaçamento entre os gráficos
+
+                // ======================
+                // NOVO GRÁFICO (SETS x REPS) obs: davi eu te odeio se vc ler aq mlk eu te pego no soco
+                // ======================
+                ExpansionTile(
+                  title: const Text(
+                    "Volume Total (Séries x Repetições) dos exercícios",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 241, 99, 23),
+                      fontSize: 18,
+                    ),
+                  ),
+                  initiallyExpanded: false,
+                  children: [
+                const SizedBox(height: 5),
+
+                // Reutiliza a mesma lógica de legenda, pois usa os mesmos 5 exercícios
+                _buildLegend(),
+
+                const SizedBox(height: 25),
+
+                RepaintBoundary(
+                  key: setsRepsChartKey, // Usa a nova chave
+                  child: SizedBox(
+                    height: 320,
+                    child: LineChart(
+
+                      LineChartData(
+                        lineBarsData: _buildSetsRepsLines(), // Chama o novo gerador
+                        minY: 0,
+                        gridData: const FlGridData(show: false),
+                        borderData: FlBorderData(show: true),
+                        titlesData: FlTitlesData(
+                          leftTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: true,
+                              interval: 5, // Ajuste o intervalo se o valor for muito alto
+                              reservedSize: 40,
+                              getTitlesWidget: (value, meta) {
+                                return Text(
+                                  value.toInt().toString(),
+                                  style: const TextStyle(fontSize: 10),
+                                );
+                              },
+                            ),
+                          ),
+                          // ... (Top, Right titles: showTitles: false)
+                          topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                          rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+
+                          bottomTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: true,
+                              getTitlesWidget: (value, meta) {
+                                final int idx = value.toInt();
+                                final allDates = exerciseDailySetsReps.values // Usa o novo mapa
+                                    .expand((m) => m.keys)
+                                    .toSet()
+                                    .toList()
+                                  ..sort();
+
+                                if (idx < 0 || idx >= allDates.length) {
+                                  return const SizedBox.shrink();
+                                }
+
+                                final d = allDates[idx];
+                                return Text(
+                                  "${d.day}/${d.month}",
+                                  style: const TextStyle(fontSize: 10),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+
+                // ... (fim do build)
               ],
             ),
+              ],
           ),
-  );
+  ));
 }}

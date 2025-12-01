@@ -137,7 +137,7 @@ class _TrainingChartPageState extends State<TrainingChartPage> {
     // Extrair datas únicas (somente datas válidas, ignorando fallback/inválidas)
     final dateSet = <DateTime>{};
     for (final e in filtered) {
-      final w = _findWorkout(e.codWorkout!)!;
+      final w = _findWorkout(e.codWorkout)!;
       final dt = parseBrazilianDateSafe(w.date);
       if (dt != null && !(dt.year == 2000 && dt.month == 1 && dt.day == 1)) {
         dateSet.add(DateTime(dt.year, dt.month, dt.day)); // normaliza sem hora
