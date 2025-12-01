@@ -262,8 +262,8 @@ class SquareActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 110,
-      height: 110,
+      width: 90,
+      height: 90,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: ElevatedButton(
@@ -282,7 +282,7 @@ class SquareActionButton extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: 12,
               fontWeight: FontWeight.w600,
               height: 1.2,
             ),
@@ -301,8 +301,8 @@ class AddSquareButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 110,
-      height: 110,
+      width: 94,
+      height: 94,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: ElevatedButton(
@@ -315,7 +315,7 @@ class AddSquareButton extends StatelessWidget {
             shadowColor: Colors.black.withOpacity(0.1),
           ),
           onPressed: onPressed,
-          child: const Icon(Icons.add, color: Colors.black, size: 34),
+          child: const Icon(Icons.add, color: Colors.black, size: 32),
         ),
       ),
     );
