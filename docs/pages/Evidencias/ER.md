@@ -7,7 +7,8 @@ Utilizamos o Trello como ferramenta de apoio ao gerenciamento das histórias de 
 - Critérios de aceitação
 - Link direto para o protótipo correspondente, quando houver
 - Etiquetas de sprint à qual ela pertence e se está incluida no mvp
-  
+
+![Trello](../../assets/trello.png)
 ## Organização do Quadro Trello
 O quadro foi estruturado com as seguintes listas (colunas):
 
