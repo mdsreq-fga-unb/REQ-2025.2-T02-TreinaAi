@@ -1,8 +1,16 @@
 # Protótipos
 Estes são os protótipos de alta fidelidade, desenvolvidos no Figma, e utilizados para validar fluxos de navegação, interações e layout.
 
-## Link Figma:
-https://www.figma.com/design/RmMGBMZuKP72cDZgRkhCPF/P%C3%A1ginas?node-id=0-1&t=LAyPre5F5Eu68Qz6-1
+## Figma:
+Abaixo você pode visualizar e navegar pelo design:
+
+<iframe
+  style="border: none;"
+  width="100%"
+  height="600"
+  src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/RmMGBMZuKP72cDZgRkhCPF/P%C3%A1ginas?node-id=0-1&t=LAyPre5F5Eu68Qz6-1"
+  allowfullscreen>
+</iframe>
 
 ## Protótipo do Cadastro
 
@@ -18,7 +26,7 @@ https://www.figma.com/design/RmMGBMZuKP72cDZgRkhCPF/P%C3%A1ginas?node-id=0-1&t=L
 
 ## Protótipo de editar perfil do aluno
 
-![Print da página de editar perfil do aluno](../../assets/editarPerfilAluno.png)
+![Print da página de editar perfil do aluno](../../assets/EditarPerfilAluno.png)
 
 ## Protótipo do período
 
