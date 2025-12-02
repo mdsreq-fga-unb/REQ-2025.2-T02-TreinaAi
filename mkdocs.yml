@@ -60,6 +60,13 @@ nav:
     - Diagrama UC: pages/EstudosCaso/DiagramaUC.md
   - Evidências:
     - Protótipos: pages/Evidencias/prototipos.md
+    - Atas:
+      - Ata 01: pages/Evidencias/atas/ata01.md
+      - Ata 02: pages/Evidencias/atas/ata02.md
+      - Ata 03: pages/Evidencias/atas/ata03.md
+      - Ata 04: pages/Evidencias/atas/ata04.md
+      - Ata 05: pages/Evidencias/atas/ata05.md
+      - Ata 06: pages/Evidencias/atas/ata06.md
     - Aplicação da ER: pages/Evidencias/ER.md
   - Extras: 
     - Contribuição: pages/Extra/PoliticadeContribuicao.md
