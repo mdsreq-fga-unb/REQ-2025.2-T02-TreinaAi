@@ -57,7 +57,7 @@ nav:
   - Estudos de caso:
     - PBB: pages/EstudosCaso/pbb.md
     - USM: pages/EstudosCaso/usm.md
-    - DCU: page/EstudosCaso/DiagramaUC.md
+    - Diagrama UC: pages/EstudosCaso/DiagramaUC.md
   - Evidências:
     - Protótipos: pages/Evidencias/prototipos.md
     - Aplicação da ER: pages/Evidencias/ER.md
