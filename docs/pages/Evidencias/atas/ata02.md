@@ -46,6 +46,7 @@ Realizar o **levantamento inicial dos requisitos** do sistema conforme solicitad
 
 ---
 
+
 ## Próxima Reunião
 
 **Data:** 13/10/2025  
