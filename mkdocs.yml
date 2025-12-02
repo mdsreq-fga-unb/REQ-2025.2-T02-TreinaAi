@@ -58,7 +58,9 @@ nav:
     - PBB: pages/EstudosCaso/pbb.md
     - USM: pages/EstudosCaso/usm.md
     - DCU: page/EstudosCaso/DiagramaUC.md
-  - Evidências: pages/Evidencias/prototipos.md
+  - Evidências:
+    - Protótipos: pages/Evidencias/prototipos.md
+    - Aplicação da ER: pages/Evidencias/ER.md
   - Extras: 
     - Contribuição: pages/Extra/PoliticadeContribuicao.md
 
