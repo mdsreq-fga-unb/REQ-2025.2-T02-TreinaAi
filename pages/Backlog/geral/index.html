@@ -1,0 +1,2510 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação oficial do projeto">
+      
+      
+        <meta name="author" content="Equipe TreinaAi">
+      
+      
+        <link rel="canonical" href="https://mdsreq-fga-unb.github.io/REQ-2025.2-T02-TreinaAi/pages/Backlog/geral/">
+      
+      
+        <link rel="prev" href="../../Requisitos/RequisitosNFunc/">
+      
+      
+        <link rel="next" href="../../Entregas/Unidade01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Backlog do Produto - TreinaAí</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backlog-do-produto" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="TreinaAí" class="md-header__button md-logo" aria-label="TreinaAí" data-md-component="logo">
+      
+  <img src="../../../assets/logoPNG.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TreinaAí
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backlog do Produto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="orange"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="red"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mdsreq-fga-unb/2025.2-TO2-TreinaAi" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    REQ-2025.2-T02-TreinaAi
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TreinaAí" class="md-nav__button md-logo" aria-label="TreinaAí" data-md-component="logo">
+      
+  <img src="../../../assets/logoPNG.png" alt="logo">
+
+    </a>
+    TreinaAí
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mdsreq-fga-unb/2025.2-TO2-TreinaAi" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    REQ-2025.2-T02-TreinaAi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão do Produto e Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão do Produto e Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/CenarioAtual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cenario Atual do cliente e negócio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/SolucaoProposta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solução Proposta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/estrategias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estratégias de Engenharia de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/Cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cronogramas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/EquipeCliente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interação entre Equipe e Cliente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos de Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/ProcessoER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engenharia de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/DorDod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DoR e DoD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/RequisitosFunc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/RequisitosNFunc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Não funcionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog do Produto
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog do Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#itens-do-backlog-e-sua-estrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Itens do Backlog e Sua Estrutura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épicos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórias de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priorizacao-do-backlog-e-definicao-do-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priorização do Backlog e Definição do MVP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Priorização do Backlog e Definição do MVP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tecnica-moscow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Técnica MoSCoW
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avaliacao-de-valor-de-negocio-e-complexidade-baixo-medio-alto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaliação de Valor de Negócio e Complexidade (Baixo / Médio / Alto)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Avaliação de Valor de Negócio e Complexidade (Baixo / Médio / Alto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valor-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valor de Negócio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexidade-esforco-tecnico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexidade / Esforço Técnico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matriz-de-priorizacao-valor-complexidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de Priorização (Valor × Complexidade)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Matriz de Priorização (Valor × Complexidade)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grafico-de-prioridade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafico de Prioridade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-do-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definição do MVP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entregas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entregas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Entregas/Unidade01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Entregas/Unidade02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Entregas/Unidade03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições Aprendidas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lições Aprendidas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/LicaoAprendida/Unidade1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/LicaoAprendida/Unidade2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/LicaoAprendida/Unidade3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estudos de caso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Estudos de caso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EstudosCaso/pbb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PBB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EstudosCaso/usm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EstudosCaso/DiagramaUC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagrama UC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evidências
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evidências
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/prototipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicação da ER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/Reuniao01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gravação de reunião
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/App/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extras
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Extras
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extra/PoliticadeContribuicao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#itens-do-backlog-e-sua-estrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Itens do Backlog e Sua Estrutura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Épicos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórias de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priorizacao-do-backlog-e-definicao-do-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priorização do Backlog e Definição do MVP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Priorização do Backlog e Definição do MVP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tecnica-moscow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Técnica MoSCoW
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avaliacao-de-valor-de-negocio-e-complexidade-baixo-medio-alto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaliação de Valor de Negócio e Complexidade (Baixo / Médio / Alto)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Avaliação de Valor de Negócio e Complexidade (Baixo / Médio / Alto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valor-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valor de Negócio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexidade-esforco-tecnico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexidade / Esforço Técnico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matriz-de-priorizacao-valor-complexidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de Priorização (Valor × Complexidade)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Matriz de Priorização (Valor × Complexidade)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grafico-de-prioridade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafico de Prioridade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-do-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definição do MVP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="backlog-do-produto">Backlog do Produto</h1>
+<p>O <strong>Backlog do Produto</strong> é uma lista viva e priorizada de tudo que é necessário para construir, manter e aprimorar um produto, servindo como uma <strong>única fonte de requisitos</strong> para qualquer mudança no produto.</p>
+<p>Todos os épicos e histórias de usuário apresentados nesta página compõem o <strong>Mínimo Produto Viável (MVP)</strong> do projeto. Ou seja, representam o conjunto essencial de funcionalidades necessárias para garantir a entrega de valor inicial aos usuários, permitindo validação, testes e evolução futura da aplicação.</p>
+<h3 id="itens-do-backlog-e-sua-estrutura">Itens do Backlog e Sua Estrutura</h3>
+<p>Os itens dentro do Backlog são hierárquicos:</p>
+<ol>
+<li>
+<p><strong>Épicos (Epics):</strong></p>
+</li>
+<li>
+<p><strong>O que são:</strong> Itens grandes e abrangentes que representam um recurso ou funcionalidade significativa. São grandes demais para serem entregues em um único ciclo de desenvolvimento (Sprint).</p>
+</li>
+<li>
+<p><strong>Estrutura Básica:</strong> Título (<code>E01 – Criar Usuário</code>) e <strong>Descrição Geral</strong> (o propósito e o valor do recurso).</p>
+</li>
+<li>
+<p><strong>Histórias de Usuário (User Stories - US):</strong></p>
+</li>
+<li>
+<p><strong>O que são:</strong> Pequenas descrições de um recurso do ponto de vista do usuário final. Representam a menor unidade de trabalho que agrega valor.</p>
+</li>
+<li>
+<p><strong>Estrutura Básica Comum:</strong> "Como um [tipo de usuário], eu quero [alguma meta], para que [algum benefício]."</p>
+</li>
+</ol>
+<hr />
+<h2 id="temas">Temas</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Código</th>
+<th style="text-align: center;">Tema</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">T01</td>
+<td style="text-align: center;">Gerenciamento de Usuários</td>
+<td>Tudo relacionado à administração do Profissional, permitindo cadastro de dados importantes como CREF, alunos atuais e outros.</td>
+</tr>
+<tr>
+<td style="text-align: center;">T02</td>
+<td style="text-align: center;">Organização e Acompanhamento de Períodos</td>
+<td>Cadastro das métricas de objetivo, tempo disponível e relação direta com a evolução do aluno.</td>
+</tr>
+<tr>
+<td style="text-align: center;">T03</td>
+<td style="text-align: center;">Visualização e Monitoramento de Desempenho</td>
+<td>Exibe, compara e monitora o desempenho do aluno com base graficos indicadores de progresso, permitindo exportação</td>
+</tr>
+<tr>
+<td style="text-align: center;">T04</td>
+<td style="text-align: center;">Registro e Histórico de Treinos</td>
+<td>Permite registrar treinos, exercícios, séries e cargas, além de consultar o histórico completo para análise de progressão</td>
+</tr>
+</tbody>
+</table>
+<h2 id="epicos">Épicos</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Código</th>
+<th style="text-align: center;">Tema Relacionado</th>
+<th style="text-align: left;">Título</th>
+<th style="text-align: left;">Descrição Geral</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>E01</strong></td>
+<td style="text-align: center;">T01</td>
+<td style="text-align: left;"><strong>Criar Usuário</strong></td>
+<td style="text-align: left;">Como Treinador, quero cadastrar usuários para que possam acessar a plataforma e utilizar seus recursos.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E02</strong></td>
+<td style="text-align: center;">T03</td>
+<td style="text-align: left;"><strong>Página do Período</strong></td>
+<td style="text-align: left;">Como Treinador, quero criar e visualizar períodos de treino para organizar melhor a evolução dos alunos.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E03</strong></td>
+<td style="text-align: center;">T02</td>
+<td style="text-align: left;"><strong>Gerar Gráficos</strong></td>
+<td style="text-align: left;">Como Treinador, quero gerar gráficos de desempenho para acompanhar a evolução dos alunos ao longo do tempo.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E04</strong></td>
+<td style="text-align: center;">T01 &amp; T04</td>
+<td style="text-align: left;"><strong>Página do Aluno</strong></td>
+<td style="text-align: left;">Como Treinador, quero acessar um painel completo do aluno para gerenciar suas informações e progresso.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E05</strong></td>
+<td style="text-align: center;">T04</td>
+<td style="text-align: left;"><strong>Registro de Treinos</strong></td>
+<td style="text-align: left;">Como Treinador, quero registrar os treinos dos alunos para manter um histórico confiável e evitar perda de dados.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E06</strong></td>
+<td style="text-align: center;">T03 &amp; T04</td>
+<td style="text-align: left;"><strong>PDF do Período</strong></td>
+<td style="text-align: left;">Como Treinador, quero exportar relatórios em PDF para compartilhar o acompanhamento dos treinos com os alunos.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="historias-de-usuario">Histórias de Usuário</h2>
+<p>A tabela a seguir organiza os Épicos do seu projeto, detalhando o <strong>Código</strong>, o <strong>Título</strong> e a <strong>Descrição Geral</strong> de cada item de alto nível:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Código</th>
+<th style="text-align: center;">Título</th>
+<th style="text-align: left;">Descrição Geral</th>
+<th style="text-align: center;">REQ</th>
+<th style="text-align: center;">EPIC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">US01</td>
+<td style="text-align: center;">Registro de novo usuário</td>
+<td style="text-align: left;">Como um novo usuário, eu quero realizar meu registro no aplicativo para que eu possa ter pdf’s personalizados e atendimento mais pessoal. <br><br> <strong>Descrição:</strong> Ao abrir o app pela primeira vez, o usuário deve preencher suas informações (nome, CREF (opcional) e pronomes) para ser atendido como preferir.</td>
+<td style="text-align: center;">REQ01</td>
+<td style="text-align: center;">E01</td>
+</tr>
+<tr>
+<td style="text-align: center;">US02</td>
+<td style="text-align: center;">Cadastro de aluno</td>
+<td style="text-align: left;">Como um usuário, eu quero cadastrar um novo aluno para que eu possa acompanhar seus períodos e treinos. <br><br> <strong>Descrição:</strong> Permite adicionar um aluno com dados pessoais e objetos de acompanhamento.</td>
+<td style="text-align: center;">REQ02</td>
+<td style="text-align: center;">E01</td>
+</tr>
+<tr>
+<td style="text-align: center;">US03</td>
+<td style="text-align: center;">Acesso ao perfil do aluno</td>
+<td style="text-align: left;">Como um usuário, eu quero abrir o perfil de um aluno para que eu possa visualizar suas informações e períodos. <br><br> <strong>Descrição:</strong> Tela com dados do aluno, períodos ativos e anteriores.</td>
+<td style="text-align: center;">REQ03, REQ04</td>
+<td style="text-align: center;">E04</td>
+</tr>
+<tr>
+<td style="text-align: center;">US04</td>
+<td style="text-align: center;">Acesso a períodos ativos ou anteriores</td>
+<td style="text-align: left;">Como um usuário, eu quero acessar períodos anteriores ou ativos de um aluno para que eu possa revisar ou acompanhar sua evolução. <br><br> <strong>Descrição:</strong> Navegação no perfil do aluno entre períodos concluídos e em andamento.</td>
+<td style="text-align: center;">REQ11</td>
+<td style="text-align: center;">E04</td>
+</tr>
+<tr>
+<td style="text-align: center;">US05</td>
+<td style="text-align: center;">Cadastro de período de treino</td>
+<td style="text-align: left;">Como um usuário, eu quero cadastrar um período de treino para um aluno para que ele tenha um plano estruturado e metas definidas. <br><br> <strong>Descrição:</strong> Cadastro de período com título, objetivo e plano de treino associado.</td>
+<td style="text-align: center;">REQ12</td>
+<td style="text-align: center;">E04</td>
+</tr>
+<tr>
+<td style="text-align: center;">US06</td>
+<td style="text-align: center;">Registro de treinos em período ativo</td>
+<td style="text-align: left;">Como um usuário, eu quero registrar treinos no período ativo de um aluno para que seu progresso seja acompanhado corretamente. <br><br> <strong>Descrição:</strong> Inclusão de treinos ao longo do período vigente.</td>
+<td style="text-align: center;">REQ13</td>
+<td style="text-align: center;">E05</td>
+</tr>
+<tr>
+<td style="text-align: center;">US07</td>
+<td style="text-align: center;">Registro de exercícios em um treino</td>
+<td style="text-align: left;">Como um usuário, eu quero registrar exercícios realizados em um treino para que eu possa detalhar carga, duração e outras informações. <br><br> <strong>Descrição:</strong> Cada treino pode ter exercícios vinculados com métricas registradas.</td>
+<td style="text-align: center;">REQ13, REQ06</td>
+<td style="text-align: center;">E05</td>
+</tr>
+<tr>
+<td style="text-align: center;">US08</td>
+<td style="text-align: center;">Edição de perfis e períodos</td>
+<td style="text-align: left;">Como um usuário, eu quero editar perfis de alunos e períodos ativos para que eu possa manter informações sempre atualizadas. <br><br> <strong>Descrição:</strong> Alteração de dados de aluno e período, como nome, dados, datas de treino, etc...</td>
+<td style="text-align: center;">REQ05, REQ04</td>
+<td style="text-align: center;">E02</td>
+</tr>
+<tr>
+<td style="text-align: center;">US09</td>
+<td style="text-align: center;">Fechamento de período de treino</td>
+<td style="text-align: left;">Como um usuário, eu quero fechar um período de treino de um aluno para que ele seja arquivado e um novo possa ser iniciado. <br><br> <strong>Descrição:</strong> Função para encerrar oficialmente um período ativo.</td>
+<td style="text-align: center;">REQ05</td>
+<td style="text-align: center;">E02, 06</td>
+</tr>
+<tr>
+<td style="text-align: center;">US10</td>
+<td style="text-align: center;">Geração de relatório</td>
+<td style="text-align: left;">Como um usuário, eu quero que o sistema gere um relatório do período para visualizar progresso dos alunos dinamicamente. <br><br> <strong>Descrição:</strong> Geração automática de resumo do período.</td>
+<td style="text-align: center;">REQ14</td>
+<td style="text-align: center;">E06 <BR> E03</td>
+</tr>
+<tr>
+<td style="text-align: center;">US11</td>
+<td style="text-align: center;">PDF completo de relatório</td>
+<td style="text-align: left;">Como um usuário, quero que o PDF contenha título, plano de treino, datas, gráficos e variáveis para que o relatório seja completo. <br><br> <strong>Descrição:</strong> O PDF deve ser gerado com layout organizado e dados de evolução.</td>
+<td style="text-align: center;">REQ15</td>
+<td style="text-align: center;">E03, 06</td>
+</tr>
+<tr>
+<td style="text-align: center;">US12</td>
+<td style="text-align: center;">Busca de alunos por nome</td>
+<td style="text-align: left;">Como um usuário, eu quero buscar alunos por nome para que eu encontre rapidamente o aluno desejado. <br><br> <strong>Descrição:</strong> Barra de busca dentro da lista de alunos cadastrados.</td>
+<td style="text-align: center;">REQ08</td>
+<td style="text-align: center;">E01</td>
+</tr>
+<tr>
+<td style="text-align: center;">US13</td>
+<td style="text-align: center;">Ocultar alunos inativos</td>
+<td style="text-align: left;">Como um usuário, eu quero ocultar alunos da minha lista para que eu possa organizar apenas os ativos. <br><br> <strong>Descrição:</strong> Função de marcar aluno como inativo, mantendo seus dados salvos.</td>
+<td style="text-align: center;">REQ09</td>
+<td style="text-align: center;">E04</td>
+</tr>
+<tr>
+<td style="text-align: center;">US14</td>
+<td style="text-align: center;">Exclusão de aluno</td>
+<td style="text-align: left;">Como um usuário, quero deletar um aluno cadastrado para que ele não apareça mais no sistema. <br><br> <strong>Descrição:</strong> Opção de exclusão definitiva de aluno.</td>
+<td style="text-align: center;">REQ07</td>
+<td style="text-align: center;">E04</td>
+</tr>
+<tr>
+<td style="text-align: center;">US15</td>
+<td style="text-align: center;">Adição de observações</td>
+<td style="text-align: left;">Como um personal, quero adicionar observações em diferentes locais do aplicativo para que eu registre informações adicionais relevantes. <br><br> <strong>Descrição:</strong> Campo de anotações livres em pontos estratégicos (aluno, período, treino, etc.).</td>
+<td style="text-align: center;">REQ10</td>
+<td style="text-align: center;">E02, 06</td>
+</tr>
+</tbody>
+</table>
+<h2 id="priorizacao-do-backlog-e-definicao-do-mvp">Priorização do Backlog e Definição do MVP</h2>
+<p>Para organizar e priorizar o backlog do sistema <strong>TreinaAí</strong>, foram aplicadas duas técnicas complementares:</p>
+<ul>
+<li><strong>MoSCoW</strong>, para classificação geral de criticidade;</li>
+<li><strong>Avaliação categórica de Valor e Complexidade</strong>, com níveis definidos em <strong>Baixo / Médio / Alto</strong>.</li>
+</ul>
+<p>Essas técnicas permitem entender tanto a importância estratégica de cada requisito quanto seu custo aproximado de implementação.</p>
+<hr />
+<h3 id="tecnica-moscow">Técnica MoSCoW</h3>
+<p>A técnica MoSCoW classifica os requisitos em quatro níveis de prioridade:</p>
+<ul>
+<li>
+<p><strong>Must Have (M)</strong> – Deve Ter: Funcionalidades indispensáveis para o funcionamento básico do sistema. Sem elas, o produto não é considerado viável.</p>
+</li>
+<li>
+<p><strong>Should Have (S)</strong> – Deveria Ter: Funcionalidades importantes, que agregam valor relevante, mas que podem ser adiadas sem comprometer a entrega inicial.</p>
+</li>
+<li>
+<p><strong>Could Have (C)</strong> – Poderia Ter: Funcionalidades desejáveis, que melhoram a experiência do usuário, mas não são essenciais para o funcionamento mínimo.</p>
+</li>
+<li>
+<p><strong>Won’t Have (W)</strong> – Não Terá por agora: Funcionalidades que não serão implementadas nesta versão, podendo ser consideradas em futuras atualizações.</p>
+</li>
+</ul>
+<hr />
+<h2 id="avaliacao-de-valor-de-negocio-e-complexidade-baixo-medio-alto">Avaliação de Valor de Negócio e Complexidade (Baixo / Médio / Alto)</h2>
+<p>Além do MoSCoW, cada requisito também recebeu uma avaliação segundo dois critérios:</p>
+<hr />
+<h3 id="valor-de-negocio">Valor de Negócio</h3>
+<p>Mede o impacto e o retorno financeiro ou estratégico para o projeto. A escala foi $ (Baixo Valor), $$ (Médio Valor) e $$$ (Alto Valor). Esse critério informou o eixo de Valor (V) da matriz de priorização.</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baixo</strong></td>
+<td>Impacto limitado; funcionalidade complementar.</td>
+</tr>
+<tr>
+<td><strong>Médio</strong></td>
+<td>Melhora relevante para usuários; facilita operações.</td>
+</tr>
+<tr>
+<td><strong>Alto</strong></td>
+<td>Impacto direto no objetivo do produto; elemento central do funcionamento.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="complexidade-esforco-tecnico">Complexidade / Esforço Técnico</h3>
+<p>Mede a complexidade de implementação. A escala utilizada foi B (Baixo Esforço), M (Médio Esforço) e A (Alto Esforço). Este critério informou o eixo de Complexidade (C) da matriz de priorização.</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baixa</strong></td>
+<td>Implementação simples; poucas dependências; baixo tempo.</td>
+</tr>
+<tr>
+<td><strong>Média</strong></td>
+<td>Exige integração moderada, validações ou interface dedicada.</td>
+</tr>
+<tr>
+<td><strong>Alta</strong></td>
+<td>Necessita múltiplas integrações, cálculos complexos ou tratamento avançado de dados.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="matriz-de-priorizacao-valor-complexidade">Matriz de Priorização (Valor × Complexidade)</h2>
+<p>A matriz a seguir cruza os níveis de Valor e Complexidade para definir a prioridade de implementação dos requisitos:</p>
+<table>
+<thead>
+<tr>
+<th>V \ C</th>
+<th>Baixa</th>
+<th>Média</th>
+<th>Alta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alto</strong></td>
+<td>Prioridade Máxima</td>
+<td>Alta</td>
+<td>Avaliar retorno</td>
+</tr>
+<tr>
+<td><strong>Médio</strong></td>
+<td>Alta</td>
+<td>Média</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td><strong>Baixo</strong></td>
+<td>Média</td>
+<td>Baixa</td>
+<td>Mínima</td>
+</tr>
+</tbody>
+</table>
+<p>Essa matriz permite identificar:</p>
+<ul>
+<li><strong>Entregar primeiro:</strong> Alto valor + baixa complexidade  </li>
+<li><strong>Planejar com cuidado:</strong> Alto valor + alta complexidade  </li>
+<li><strong>Deixar para depois:</strong> Baixo valor + alta complexidade</li>
+</ul>
+<h3 id="grafico-de-prioridade">Grafico de Prioridade</h3>
+<p><img alt="Matriz de Prioridade" src="../../../assets/priorizacao.png" /></p>
+<hr />
+<h2 id="definicao-do-mvp">Definição do MVP</h2>
+<p>O MVP é composto por funcionalidades que apresentam:</p>
+<ul>
+<li><strong>Alto valor</strong> (segundo MoSCoW e a matriz de valor);  </li>
+<li><strong>Baixa ou média complexidade</strong>;  </li>
+<li><strong>Relevância direta para os objetivos principais do produto</strong>.</li>
+</ul>
+<p><strong>Funcionalidades incluídas:</strong></p>
+<p>Correlacionamos o id de cada requisito funcional com a história de usuário e o objetivo específico que ele atende, conforme a tabela abaixo:</p>
+<p><em>Tabela 04: funcionalidades do MVP</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>US Relacionada</th>
+<th>Objetivo Específico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ02</td>
+<td>US02</td>
+<td>OE2</td>
+</tr>
+<tr>
+<td>REQ03</td>
+<td>US03</td>
+<td>OE2</td>
+</tr>
+<tr>
+<td>REQ04</td>
+<td>US03, US08</td>
+<td>OE2</td>
+</tr>
+<tr>
+<td>REQ05</td>
+<td>US09</td>
+<td>OE2</td>
+</tr>
+<tr>
+<td>REQ07</td>
+<td>US14</td>
+<td>OE1</td>
+</tr>
+<tr>
+<td>REQ10</td>
+<td>US15</td>
+<td>OE3</td>
+</tr>
+<tr>
+<td>REQ11</td>
+<td>US04</td>
+<td>OE3</td>
+</tr>
+<tr>
+<td>REQ012</td>
+<td>US05</td>
+<td>OE1</td>
+</tr>
+<tr>
+<td>REQ13</td>
+<td>US07, US06</td>
+<td>OE2</td>
+</tr>
+<tr>
+<td>REQ14</td>
+<td>US10</td>
+<td>OE4 &amp; OE5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Essas funcionalidades serão entregues na primeira versão do sistema, garantindo entrega rápida de valor com menor complexidade e maior impacto para o usuário final.</strong></p>
+<p>O mvp proposto, portanto, resolve a grande maioria dos problemas apresentados pelo cliente, principalmente a falta de tempo para adição de métricas, dificuldade de visualização da evolução e a grande gama de alunos administrados em diferentes tabelas. Assim, o MVP foca em entregar as funcionalidades essenciais que atendem diretamente aos objetivos do projeto, garantindo uma base sólida para futuras melhorias e expansões.</p>
+<h2 id="historico-de-versao">Histórico de Versão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>28/09/2025</td>
+<td>1.0</td>
+<td>Criação do Documento</td>
+<td>Gabriel Fae</td>
+</tr>
+<tr>
+<td>06/10/2025</td>
+<td>1.1</td>
+<td>Adição da priorização</td>
+<td>Gabriel Fae</td>
+</tr>
+<tr>
+<td>07/10/2025</td>
+<td>1.2</td>
+<td>Adição dos objetivos MVP</td>
+<td>Gabriel Fae</td>
+</tr>
+<tr>
+<td>16/11/2025</td>
+<td>1.3</td>
+<td>Ajustes na priorização</td>
+<td>Davi Negreiros</td>
+</tr>
+<tr>
+<td>17/11/2025</td>
+<td>1.4</td>
+<td>Ajustes e inserção de tabelas</td>
+<td>Gabriel Fae</td>
+</tr>
+<tr>
+<td>24/11/2025</td>
+<td>1.5</td>
+<td>FInalização da issue #18</td>
+<td>Raissa</td>
+</tr>
+<tr>
+<td>29/11/2025</td>
+<td>1.6</td>
+<td>Ajuste de rastreabilidade</td>
+<td>Gabriel Fae</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "search.suggest", "search.highlight", "content.code.copy", "repo.icon"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

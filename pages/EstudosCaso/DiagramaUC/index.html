@@ -1,0 +1,2674 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação oficial do projeto">
+      
+      
+        <meta name="author" content="Equipe TreinaAi">
+      
+      
+        <link rel="canonical" href="https://mdsreq-fga-unb.github.io/REQ-2025.2-T02-TreinaAi/pages/EstudosCaso/DiagramaUC/">
+      
+      
+        <link rel="prev" href="../usm/">
+      
+      
+        <link rel="next" href="../../Evidencias/prototipos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Diagrama UC - TreinaAí</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagrama-de-casos-de-uso" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="TreinaAí" class="md-header__button md-logo" aria-label="TreinaAí" data-md-component="logo">
+      
+  <img src="../../../assets/logoPNG.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TreinaAí
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diagrama UC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="orange"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="red"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mdsreq-fga-unb/2025.2-TO2-TreinaAi" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    REQ-2025.2-T02-TreinaAi
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TreinaAí" class="md-nav__button md-logo" aria-label="TreinaAí" data-md-component="logo">
+      
+  <img src="../../../assets/logoPNG.png" alt="logo">
+
+    </a>
+    TreinaAí
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mdsreq-fga-unb/2025.2-TO2-TreinaAi" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    REQ-2025.2-T02-TreinaAi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão do Produto e Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão do Produto e Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/CenarioAtual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cenario Atual do cliente e negócio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/SolucaoProposta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solução Proposta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/estrategias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estratégias de Engenharia de Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/Cronograma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cronogramas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/EquipeCliente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interação entre Equipe e Cliente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requisitos de Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Requisitos de Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/ProcessoER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engenharia de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/DorDod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DoR e DoD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/RequisitosFunc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Requisitos/RequisitosNFunc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Não funcionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Backlog/geral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog do Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entregas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entregas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Entregas/Unidade01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Entregas/Unidade02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Entregas/Unidade03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições Aprendidas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lições Aprendidas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/LicaoAprendida/Unidade1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/LicaoAprendida/Unidade2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VisaoDoProduto/LicaoAprendida/Unidade3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidade 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estudos de caso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Estudos de caso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pbb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PBB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagrama UC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagrama UC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#atores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Casos de Uso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paciente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paciente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-informacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistema de informações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profissional-de-saude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profissional de saúde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ongs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ongs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentes-comunitarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentes comunitários
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-no-miro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama no miro
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evidências
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evidências
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/prototipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/atas/ata06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ata 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicação da ER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/Reuniao01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gravação de reunião
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Evidencias/App/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extras
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Extras
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extra/PoliticadeContribuicao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuição
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#atores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Casos de Uso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paciente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paciente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-informacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistema de informações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profissional-de-saude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profissional de saúde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ongs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ongs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentes-comunitarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentes comunitários
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-no-miro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama no miro
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="diagrama-de-casos-de-uso">Diagrama de Casos de Uso</h1>
+<p>Tem por objetivo apresentar uma visão externa das funções e serviços que o sistema deverá oferecer aos usuários, sem se preocupar em como tais funções serão implementadas</p>
+<p>Para este estudo, usamos como base o projeto Connect Care, um app para ajudar pessoas numa comunidade necessitada.</p>
+<h3 id="atores">Atores</h3>
+<p>Os atores são papéis que um usuário desempenha com relação ao sistema. Podem ser humanos, sistemas ou dispositivos de hardware.</p>
+<ul>
+<li>Quem ou o quê utiliza o sistema? </li>
+<li>Quem ou o quê recebe informações do sistema?</li>
+<li>Quem ou o quê provê informações para o sistema? </li>
+<li>Em que lugar da empresa o sistema será utilizado?</li>
+<li>Quem ou o quê suporta e mantém o sistema?</li>
+<li>Que outros sistemas utilizam este sistema?</li>
+</ul>
+<p><strong>Os atores identificados na Connect Care são:</strong></p>
+<ul>
+<li><strong>Pacientes</strong>: utilizam diretamente do sistema para buscar informações, além de realizar um registro manual.</li>
+</ul>
+<p>-<strong> Sistema de informações</strong>: usa das informações do paciente para acessar, pelo sistema, pontos de interesse.</p>
+<ul>
+<li>
+<p><strong>Profissional de saúde</strong>: acessa a plataforma para acessar exames e detalhes do Paciente.</p>
+</li>
+<li>
+<p><strong>Agentes comunitários:</strong> usam o sistema para identificar áreas prioritárias.</p>
+</li>
+<li>
+<p><strong>ONG:</strong> usam o sistema para divulgar e gerenciar iniciativas.</p>
+</li>
+<li>
+<p><strong>Administrador</strong>: garante a segurança da plataforma, usando o sistema para obter informações sobre o app no geral.</p>
+</li>
+</ul>
+<h3 id="casos-de-uso">Casos de Uso</h3>
+<p>Usando o formato “<strong>Verbo no infinitivo + Objeto</strong>”, identificamos os seguintes casos de uso:</p>
+<h3 id="paciente">Paciente</h3>
+<ul>
+<li>Registrar com informações pessoais;</li>
+<li>Buscar serviços de saúde;</li>
+<li>Realizar agendamento de consultas;</li>
+<li>Consultar disponibilidade de horários;</li>
+<li>Realizar feedback da consulta;</li>
+</ul>
+<p><img alt="Paciente" src="../../../assets/paciente.png" /></p>
+<h3 id="sistema-de-informacoes">Sistema de informações</h3>
+<ul>
+<li>Coletar dados do paciente;</li>
+<li>Buscar postos de saúde próximos do paciente;</li>
+<li>Indicar campanhas existentes;</li>
+</ul>
+<p><img alt="SisMapa" src="../../../assets/sistemaMapa.png" /></p>
+<h3 id="profissional-de-saude">Profissional de saúde</h3>
+<ul>
+<li>Gerenciar atendimentos de pacientes;</li>
+<li>Acessar informações de pacientes;</li>
+<li>Criar perfil profissional;</li>
+<li>Organizar fluxo de trabalho;</li>
+<li>Visualizar agenda de consultas;</li>
+<li>Acessar histórico do paciente;</li>
+<li>Atualizar prontuário do paciente;</li>
+</ul>
+<p><img alt="profissionalsaude" src="../../../assets/profissionalsaude.png" /></p>
+<h3 id="ongs">Ongs</h3>
+<ul>
+<li>Divulgar campanhas;</li>
+<li>Divulgar iniciativas de saúde;</li>
+<li>Administrar iniciativas;</li>
+</ul>
+<h3 id="agentes-comunitarios">Agentes comunitários</h3>
+<ul>
+<li>Registrar visitas domiciliares;</li>
+<li>Criar relatórios de condições de saúde;</li>
+<li>Identificar áreas prioritárias.</li>
+</ul>
+<h3 id="administrador">Administrador</h3>
+<ul>
+<li>Integrar novas funcionalidades;</li>
+<li>Atualizar informações de parceiros;</li>
+<li>Responder feedback do usuário;</li>
+<li>Monitorar indicadores de desempenho;</li>
+</ul>
+<p><img alt="agenteAdmin" src="../../../assets/agenteAdmin.png" /></p>
+<h3 id="diagrama-no-miro">Diagrama no miro</h3>
+<p><img alt="agenteAdmin" src="../../../assets/DiagramUC.png" /></p>
+<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVJHChsK4=/?embedMode=view_only_without_ui&moveToViewport=-107585,-9026,29568,19204&embedId=411380534809" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+<p>:::::</p>
+<hr />
+<h1 id="especificacoes-de-caso-de-uso">Especificações de caso de uso</h1>
+<p>Abaixo está a especificação completa de cinco casos de uso selecionados para detalhamento.</p>
+<h2 id="1-realizar-agendamento-de-consultas">1. Realizar Agendamento de Consultas</h2>
+<h4 id="11-breve-descricao">1.1 Breve Descrição</h4>
+<p>Para o seguinte experimento, utilizamos de um exemplo geral: um adulto levando seu filho à um médico.</p>
+<p>Permite ao Paciente, através do aplicativo, localizar postos de saúde próximos, verificar a disponibilidade de médicos por especialidade (pediatria) e efetuar o agendamento de uma consulta para seu filho. O sistema deve confirmar o agendamento ou informar sobre a indisponibilidade.</p>
+<h4 id="12-atores">1.2 Atores</h4>
+<ul>
+<li><strong>Ator Principal:</strong> Paciente</li>
+<li><strong>Atores Secundários:</strong> Sistema de Localização (GPS) e Profissional de saúde (recebe a confirmação).</li>
+</ul>
+<hr />
+<h3 id="2-fluxo-de-eventos">2. Fluxo de Eventos</h3>
+<h4 id="21-fluxo-principal">2.1 Fluxo Principal</h4>
+<p>O caminho padrão para um agendamento bem-sucedido.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Passo</th>
+<th style="text-align: left;">Ação do Ator (Paciente)</th>
+<th style="text-align: left;">Ação do Sistema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">O Paciente acessa a função de "Agendamento de Consultas" no aplicativo.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">O Paciente informa a especialidade desejada (pediatria) e a localização atual ou CEP.</td>
+<td style="text-align: left;">O Sistema [RN01] exibe um mapa com os postos de saúde próximos (até 5km) e o tempo de deslocamento estimado.</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">O Paciente seleciona o posto de saúde de sua preferência.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">O Paciente seleciona o médico desejado e o dia do agendamento.</td>
+<td style="text-align: left;">O Sistema consulta a agenda do médico selecionado e [RN02] exibe os horários disponíveis.</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">O Paciente seleciona o horário desejado.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">O Sistema solicita a confirmação dos dados (posto, médico, data, hora, nome do paciente/filho).</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">O Paciente confirma o agendamento.</td>
+<td style="text-align: left;">O Sistema [RN03] reserva o horário na agenda do médico, [Pós-condição 1] registra o agendamento no sistema e [Pós-condição 2] envia uma notificação de confirmação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">O Sistema exibe a tela de confirmação do agendamento com o número de protocolo.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="22-fluxos-alternativos">2.2 Fluxos Alternativos</h4>
+<p>Variações do fluxo principal que não são erros.</p>
+<ul>
+<li>
+<p><strong>[FA01] Troca de Localização (iniciado no passo 2.1.2)</strong></p>
+<ul>
+<li>2.2.1.1 O Paciente insere manualmente um novo endereço ou CEP diferente do atual.</li>
+<li>2.2.1.2 O Sistema recalcula e [RN01] exibe os postos de saúde próximos à nova localização.</li>
+<li>2.2.1.3 O fluxo retorna ao passo 2.1.3.</li>
+</ul>
+</li>
+<li>
+<p><strong>[FA02] Indisponibilidade na Agenda (iniciado no passo 2.1.4)</strong></p>
+<ul>
+<li>2.2.2.1 O Paciente seleciona um dia sem horários disponíveis.</li>
+<li>2.2.2.2 O Sistema exibe a mensagem "Não há horários livres neste dia" e sugere datas próximas com disponibilidade.</li>
+<li>2.2.2.3 O fluxo retorna ao passo 2.1.4 (seleção de dia).</li>
+</ul>
+</li>
+</ul>
+<h4 id="23-fluxos-de-excecao">2.3 Fluxos de Exceção</h4>
+<p>Erros e falhas.</p>
+<ul>
+<li>
+<p><strong>[FE01] Postos de Saúde Indisponíveis (iniciado no passo 2)</strong></p>
+<ul>
+<li>2.3.1.1 Se o Sistema [RN01] não encontrar postos de saúde em um raio de 5km (ou na especialidade desejada) OU se todos os postos próximos estiverem com a agenda lotada.</li>
+<li>2.3.1.2 O Sistema exibe a mensagem de erro: <strong>"Não foi possível encontrar postos de saúde próximos com horários livres para a especialidade de Pediatria."</strong></li>
+<li>2.3.1.3 O Sistema encerra o caso de uso.</li>
+</ul>
+</li>
+<li>
+<p><strong>[FE02] Campo Obrigatório Incompleto (iniciado em qualquer passo)</strong></p>
+<ul>
+<li>2.3.2.1 O Paciente tenta avançar sem preencher um campo obrigatório (Ex: Especialidade, Médico, Horário).</li>
+<li>2.3.2.2 O Sistema exibe a mensagem de erro: <strong>"Informação incompleta. Por favor, preencha o campo [Nome do Campo] para continuar."</strong></li>
+<li>2.3.2.3 O fluxo permanece no passo atual.</li>
+</ul>
+</li>
+<li>
+<p><strong>[FE03] Horário Selecionado Ocupado (iniciado no passo 7)</strong></p>
+<ul>
+<li>2.3.3.1 Durante o processamento da reserva, outro Paciente simultaneamente reservou o mesmo horário.</li>
+<li>2.3.3.2 O Sistema cancela a reserva atual e exibe a mensagem: <strong>"O horário selecionado não está mais disponível. Por favor, escolha outro horário."</strong></li>
+<li>2.3.3.3 O fluxo retorna ao passo 2.1.4 (seleção de dia).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-requisitos-especiais">3. Requisitos Especiais</h3>
+<ul>
+<li>O agendamento deve ser otimizado para dispositivos móveis (Android e iOS) diferentes.</li>
+<li>O sistema deve consultar a localização do usuário com permissão explícita (GPS).</li>
+<li>O tempo de resposta para a consulta de disponibilidade (passo 2.1.4) não deve exceder 2 segundos.</li>
+</ul>
+<h3 id="4-regras-de-negocio">4. Regras de Negócio</h3>
+<ul>
+<li><strong>[RN01]</strong> A busca por postos de saúde deve priorizar a distância física (raio de 5km) e a especialidade desejada (pediatria, por exemplo).</li>
+<li><strong>[RN02]</strong> A disponibilidade de horários é determinada pela agenda médica real e deve ser exibida em tempo real.</li>
+<li><strong>[RN03]</strong> Após a confirmação (passo 7), o horário é imediatamente bloqueado na agenda do médico.</li>
+<li><strong>[RN04]</strong> O Paciente só pode agendar consultas para ele próprio ou dependentes cadastrados em seu perfil, não podendo realizar consultas para outrem sem cadastro de informações prévio.</li>
+</ul>
+<h3 id="5-precondicoes">5. Precondições</h3>
+<ul>
+<li>O Paciente deve estar autenticado no aplicativo.</li>
+<li>O serviço de localização (GPS) do Paciente deve estar ativo (se a busca for por proximidade).</li>
+<li>O Paciente deve ter dependentes (filho, padrasto, mãe, etc) cadastrados no sistema (Referência RN04).</li>
+</ul>
+<h3 id="6-pos-condicoes">6. Pós-condições</h3>
+<ul>
+<li><strong>[Pós-condição 1]</strong> O agendamento é registrado no sistema de trabalho do profissional de saúde.</li>
+<li><strong>[Pós-condição 2]</strong> Uma notificação de confirmação é enviada ao Paciente e ao Profissional de Saúde.</li>
+<li><strong>[Pós-condição 3]</strong> O horário reservado é marcado como indisponível na agenda do médico.</li>
+</ul>
+<h3 id="7-pontos-de-extensao">7. Pontos de Extensão</h3>
+<ul>
+<li>No passo 7, este caso de uso pode ser estendido por <strong>"Gerar Lembrete de Consulta"</strong>.</li>
+<li>No passo 2, este caso de uso pode ser estendido por <strong>"Consultar Histórico de Agendamentos"</strong>.</li>
+</ul>
+<hr />
+<h2 id="2-criar-perfil-profissional">2. Criar perfil profissional</h2>
+<h4 id="11-breve-descricao_1">1.1 Breve Descrição</h4>
+<p>O caso de uso "Criar Perfil Profissional" tem como objetivo permitir que o usuário registre suas informações pessoais, experiências e habilidades em um perfil organizado dentro da plataforma.</p>
+<p>O ator deseja criar e registrar seu perfil profissional, enquanto o sistema oferece os meios para coletar, salvar e disponibilizar essas informações de forma estruturada.</p>
+<h4 id="12-atores_1">1.2 Atores</h4>
+<ul>
+<li><strong>Ator Principal:</strong> Profissional da Saúde - responsável por iniciar a ação de criar o perfil profissional</li>
+<li><strong>Atores Secundários:</strong>  </li>
+<li>Sistema de autentificção - responsável por validar a identidade do profissional antes da criação do perfil.</li>
+</ul>
+<h4 id="2-fluxo-de-eventos_1">2. Fluxo de Eventos</h4>
+<h5 id="21-fluxo-principal_1">2.1 Fluxo Principal</h5>
+<table>
+<thead>
+<tr>
+<th>Passo</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2.1.1</strong></td>
+<td>O <strong>Profissional da Saúde</strong> acessa a opção <em>Criar Perfil Profissional</em>.</td>
+</tr>
+<tr>
+<td><strong>2.1.2</strong></td>
+<td>O <strong>Sistema</strong> exibe o formulário de criação de perfil.</td>
+</tr>
+<tr>
+<td><strong>2.1.3</strong></td>
+<td>O <strong>Profissional da Saúde</strong> preenche suas informações profissionais.</td>
+</tr>
+<tr>
+<td><strong>2.1.4</strong></td>
+<td>O <strong>Sistema</strong> valida os dados informados.</td>
+</tr>
+<tr>
+<td><strong>2.1.5</strong></td>
+<td>O <strong>Sistema</strong> registra o novo perfil no banco de dados.</td>
+</tr>
+<tr>
+<td><strong>2.1.6</strong></td>
+<td>O <strong>Sistema</strong> confirma a criação do perfil exibindo uma mensagem de sucesso.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-fluxos-alternativos_1">2.2 Fluxos Alternativos</h3>
+<h4 id="fa01-edicao-opcional-de-informacoes-adicionais">[FA01] – Edição opcional de informações adicionais</h4>
+<p><strong>Origem:</strong> Passo 2.1.3<br />
+1. O <strong>Ator</strong> opta por adicionar informações complementares ao perfil (ex.: certificações, idiomas).<br />
+2. O <strong>Sistema</strong> exibe os campos opcionais correspondentes.<br />
+3. O <strong>Ator</strong> preenche os campos desejados.<br />
+<strong>Retorno:</strong> O fluxo volta ao passo 2.1.4.</p>
+<hr />
+<h4 id="fa02-indicacao-de-experiencia-profissional-previa">[FA02] – Indicação de experiência profissional prévia</h4>
+<p><strong>Origem:</strong> Passo 2.1.3<br />
+1. O <strong>Ator</strong> decide incluir experiências profissionais anteriores.<br />
+2. O <strong>Sistema</strong> exibe os campos para cargo, instituição, período e descrição da atividade.<br />
+3. O <strong>Ator</strong> adiciona uma ou mais experiências.<br />
+<strong>Retorno:</strong> O fluxo volta ao passo 2.1.4.</p>
+<hr />
+<h4 id="fa03-insercao-de-links-externos">[FA03] – Inserção de links externos</h4>
+<p><strong>Origem:</strong> Passo 2.1.3<br />
+1. O <strong>Ator</strong> opta por inserir links relevantes (ex.: LinkedIn, portfólio, site profissional).<br />
+2. O <strong>Sistema</strong> apresenta os campos para adicionar URLs .<br />
+3. O <strong>Ator</strong> insere um ou mais links.<br />
+4. O <strong>Sistema</strong> verifica se os links possuem formato válido.<br />
+<strong>Retorno:</strong> O fluxo volta ao passo 2.1.4.</p>
+<h3 id="23-fluxos-de-excecao_1">2.3 Fluxos de Exceção</h3>
+<h4 id="fe01-dados-obrigatorios-ausentes">[FE01] – Dados obrigatórios ausentes</h4>
+<p><strong>Origem:</strong> Passo 2.1.4<br />
+1. O <strong>Sistema</strong> identifica que campos obrigatórios não foram preenchidos.<br />
+2. O <strong>Sistema</strong> exibe mensagem informando os campos faltantes e solicita correção.<br />
+<strong>Retorno:</strong> O fluxo retorna ao passo 2.1.3.</p>
+<hr />
+<h4 id="fe02-formato-de-dados-invalido">[FE02] – Formato de dados inválido</h4>
+<p><strong>Origem:</strong> Passo 2.1.4<br />
+1. O <strong>Sistema</strong> detecta dados em formato inválido (ex.: e-mail incorreto, telefone incompleto).<br />
+2. O <strong>Sistema</strong> destaca os campos inválidos e orienta o ator a corrigir.<br />
+<strong>Retorno:</strong> O fluxo retorna ao passo 2.1.3.</p>
+<hr />
+<h4 id="fe03-falha-ao-registrar-o-perfil-no-banco-de-dados">[FE03] – Falha ao registrar o perfil no banco de dados</h4>
+<p><strong>Origem:</strong> Passo 2.1.5<br />
+1. O <strong>Sistema</strong> não consegue salvar o perfil devido a uma falha na operação de banco de dados.<br />
+2. O <strong>Sistema</strong> informa o erro e solicita que o ator tente novamente mais tarde.<br />
+<strong>Retorno:</strong> O fluxo é encerrado sem criar o perfil.</p>
+<hr />
+<h4 id="fe04-tamanho-de-arquivo-excedido-caso-exista-upload">[FE04] – Tamanho de arquivo excedido (caso exista upload)</h4>
+<p><strong>Origem:</strong> Passo 2.1.3<br />
+1. O <strong>Sistema</strong> detecta que um arquivo enviado (ex.: foto) excede o tamanho permitido.<br />
+2. O <strong>Sistema</strong> exibe mensagem de erro e rejeita o upload.<br />
+<strong>Retorno:</strong> O fluxo retorna ao passo 2.1.3.</p>
+<h3 id="3-requisitos-especiais_1">3. Requisitos Especiais</h3>
+<ul>
+<li>
+<p><strong>Compatibilidade com dispositivos móveis:</strong><br />
+  O sistema deve permitir a criação do perfil profissional em smartphones e tablets, mantendo layout responsivo e usabilidade adequada.</p>
+</li>
+<li>
+<p><strong>Requisitos de performance:</strong><br />
+  O formulário de criação do perfil e a validação dos dados devem ser executados rapidamente pelo sistema.</p>
+</li>
+</ul>
+<h3 id="4-regras-de-negocio_1">4. Regras de Negócio</h3>
+<p><strong>[RN01]</strong> Todos os campos obrigatórios do perfil devem estar preenchidos para permitir a criação do perfil profissional.</p>
+<p><strong>[RN02]</strong> O número de registro profissional (ex.: CRM, COREN, CRP) deve seguir o formato definido pelo respectivo conselho e ser validado antes do registro do perfil.</p>
+<p><strong>[RN03]</strong> Cada profissional pode possuir apenas um perfil ativo por CPF cadastrado.</p>
+<p><strong>[RN04]</strong> Em caso de integração externa, o sistema deve verificar o registro profissional em até 5 segundos; após esse tempo, a verificação deve ser considerada indisponível.</p>
+<h3 id="5-pre-condicoes">5. Pré-condições</h3>
+<ul>
+<li>O <strong>Profissional da Saúde</strong> deve estar autenticado no sistema.  </li>
+<li>O ator deve ter sido previamente validado como um <strong>profissional da saúde legítimo</strong> (ex.: registro em conselho profissional confirmado).  </li>
+<li>O sistema deve estar conectado ao banco de dados.  </li>
+<li>O ator deve possuir um cadastro básico ativo (ex.: CPF e e-mail verificados). </li>
+</ul>
+<h3 id="6-pos-condicoes_1">6. Pós-condições</h3>
+<ul>
+<li>Um novo perfil profissional é criado e armazenado no banco de dados.  </li>
+<li>O ator passa a ter acesso às funcionalidades que dependem de um perfil profissional ativo.  </li>
+</ul>
+<hr />
+<h2 id="3-registrar-informacoes">3. Registrar Informações</h2>
+<h2 id="11-breve-descricao_2">1.1 Breve Descrição</h2>
+<p>Este caso de uso permite que o <strong>Paciente</strong> registre informações relevantes à sua saúde no aplicativo, tais como sintomas, medições (pressão, glicemia, etc.), evolução de uma condição ou anotações pessoais.<br />
+O objetivo é manter um histórico organizado que pode ser consultado posteriormente pelo usuário ou compartilhado com profissionais de saúde.</p>
+<h2 id="12-atores_2">1.2 Atores</h2>
+<ul>
+<li><strong>Ator Principal:</strong> Paciente  </li>
+<li><strong>Atores Secundários:</strong>  </li>
+<li>Profissional de saúde (acessa as informações caso tenha permissão)</li>
+</ul>
+<h3 id="2-fluxo-de-eventos_2">2. Fluxo de Eventos</h3>
+<h4 id="21-fluxo-principal_2">2.1 Fluxo Principal</h4>
+<p>O caminho padrão para um registro de informações bem-sucedido.</p>
+<table>
+<thead>
+<tr>
+<th>Passo</th>
+<th>Ação do Ator (Paciente)</th>
+<th>Ação do Sistema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>O Paciente acessa a função <strong>"Registrar Informações"</strong> no aplicativo.</td>
+<td>O Sistema exibe um formulário com os campos disponíveis para registro.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>O Paciente seleciona o tipo de informação (ex.: Sintomas).</td>
+<td>O Sistema exibe campos específicos conforme o tipo escolhido.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>O Paciente preenche os campos necessários.</td>
+<td>O Sistema valida os dados preenchidos.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>O Paciente anexa fotos, documentos ou exames (opcional).</td>
+<td>O Sistema realiza o upload e verifica a integridade dos arquivos.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>O Paciente confirma o registro.</td>
+<td>O Sistema salva o registro, gera um identificador único e exibe a confirmação.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="22-fluxos-alternativos_2">2.2 Fluxos Alternativos</h2>
+<h3 id="fa01-registro-sem-anexos-iniciado-no-passo-4"><strong>[FA01] Registro sem Anexos (iniciado no passo 4)</strong></h3>
+<ul>
+<li>O Paciente decide não anexar arquivos.  </li>
+<li>O Sistema continua para a etapa de confirmação.  </li>
+<li>O fluxo retorna ao passo 5.</li>
+</ul>
+<h3 id="fa02-categoria-personalizada-iniciado-no-passo-2"><strong>[FA02] Categoria Personalizada (iniciado no passo 2)</strong></h3>
+<ul>
+<li>O Paciente escolhe “Outro tipo de informação”.  </li>
+<li>O Sistema solicita o nome da nova categoria.  </li>
+<li>O Sistema registra a categoria e retorna ao passo 3.</li>
+</ul>
+<hr />
+<h2 id="23-fluxos-de-excecao_2">2.3 Fluxos de Exceção</h2>
+<h3 id="fe01-campo-obrigatorio-incompleto"><strong>[FE01] Campo Obrigatório Incompleto</strong></h3>
+<ul>
+<li>O Paciente tenta prosseguir sem preencher um campo obrigatório.  </li>
+<li>O Sistema exibe:<br />
+<strong>“Informação incompleta. Preencha o campo [Nome do Campo] para continuar.”</strong>  </li>
+<li>O fluxo permanece no passo atual.</li>
+</ul>
+<h3 id="fe02-falha-no-upload-de-arquivo"><strong>[FE02] Falha no Upload de Arquivo</strong></h3>
+<ul>
+<li>O Sistema não consegue processar o arquivo anexado.  </li>
+<li>O Sistema exibe:<br />
+<strong>“Não foi possível enviar o arquivo. Tente novamente.”</strong>  </li>
+<li>O usuário pode tentar novamente ou prosseguir sem anexos.</li>
+</ul>
+<h3 id="fe03-falha-ao-salvar-registro"><strong>[FE03] Falha ao Salvar Registro</strong></h3>
+<ul>
+<li>O Sistema não consegue salvar o registro.  </li>
+<li>O Sistema exibe:<br />
+<strong>“Ocorreu um erro ao salvar suas informações. Tente novamente mais tarde.”</strong>  </li>
+<li>O caso de uso é encerrado.</li>
+</ul>
+<h1 id="3-requisitos-especiais_2">3. Requisitos Especiais</h1>
+<ul>
+<li>Deve funcionar em modo offline, sincronizando quando houver conexão.  </li>
+<li>Anexos aceitos: imagens, PDF e documentos de até 20 MB.  </li>
+<li>Os dados devem ser criptografados.  </li>
+<li>Interface adaptada para dispositivos móveis.</li>
+</ul>
+<h1 id="4-regras-de-negocio_2">4. Regras de Negócio</h1>
+<ul>
+<li><strong>RN01:</strong> O usuário só pode registrar informações do próprio perfil ou de dependentes.  </li>
+<li><strong>RN02:</strong> Cada tipo de informação possui campos obrigatórios específicos.  </li>
+<li><strong>RN03:</strong> Todos os arquivos anexados devem ser verificados quanto à integridade.  </li>
+<li><strong>RN04:</strong> O registro só é validado após confirmação explícita do usuário.</li>
+</ul>
+<h1 id="5-precondicoes_1">5. Precondições</h1>
+<ul>
+<li>O Paciente deve estar autenticado no sistema.  </li>
+<li>O dispositivo deve ter espaço disponível para anexos.  </li>
+<li>O Paciente deve ter permissão para registrar informações de dependentes.</li>
+</ul>
+<h1 id="6-pos-condicoes_2">6. Pós-condições</h1>
+<ul>
+<li>O registro é salvo no sistema.  </li>
+<li>O histórico do paciente é atualizado.  </li>
+<li>Anexos são vinculados ao registro criado.</li>
+</ul>
+<hr />
+<h2 id="4-responder-feedback-do-usuario">4. Responder Feedback do Usuário</h2>
+<h3 id="11-breve-descricao_3">1.1 Breve Descrição</h3>
+<p>Este caso de uso permite que o Administrador ou a equipe responsável pela plataforma visualize, analise e responda aos feedbacks enviados pelos Usuários (pacientes, profissionais de saúde, agentes comunitários ou ONGs).</p>
+<p>O objetivo é garantir que sugestões, reclamações ou elogios recebidos possam ser avaliados e respondidos, melhorando a qualidade dos serviços oferecidos e fortalecendo o canal de comunicação.</p>
+<h3 id="12-atores_3">1.2 Atores</h3>
+<ul>
+<li><strong>Ator Principal:</strong> Administrador do Sistema</li>
+<li><strong>Atores Secundários:</strong>  </li>
+<li>Usuário que enviou o feedback  </li>
+<li>Banco de Dados de Feedback  </li>
+<li>Sistema de Notificações (Push/E-mail)  </li>
+</ul>
+<hr />
+<h3 id="2-fluxo-de-eventos_3">2. Fluxo de Eventos</h3>
+<h4 id="21-fluxo-principal_3">2.1 Fluxo Principal</h4>
+<p>O processo padrão para responder a um feedback é descrito abaixo:</p>
+<table>
+<thead>
+<tr>
+<th>Passo</th>
+<th>Ação do Ator (Administrador)</th>
+<th>Ação do Sistema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>O Administrador acessa a função “Gerenciar Feedback” no painel administrativo.</td>
+<td>O Sistema lista todos os feedbacks pendentes de resposta.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>O Administrador seleciona um feedback para visualizar.</td>
+<td>O Sistema exibe detalhes: tipo, descrição, data, autor e categoria.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>O Administrador escreve uma resposta para o feedback selecionado.</td>
+<td>O Sistema valida os campos obrigatórios (texto da resposta).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>O Administrador confirma o envio da resposta.</td>
+<td>O Sistema registra a resposta no banco de dados.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>—</td>
+<td>O Sistema envia uma notificação ao Usuário informando que seu feedback foi respondido.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>—</td>
+<td>O Sistema altera o status do feedback para “Respondido”.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="22-fluxos-alternativos_3">2.2 Fluxos Alternativos</h3>
+<h4 id="fa01-filtrar-feedback-iniciado-no-passo-1"><strong>[FA01] Filtrar Feedback (iniciado no passo 1)</strong></h4>
+<ul>
+<li>2.2.1 O Administrador utiliza filtros (categoria, pendente, respondido, data).</li>
+<li>2.2.2 O Sistema atualiza a lista conforme o filtro aplicado.</li>
+<li>2.2.3 O fluxo retorna ao passo 1.</li>
+</ul>
+<h4 id="fa02-resposta-rascunho-iniciado-no-passo-3"><strong>[FA02] Resposta Rascunho (iniciado no passo 3)</strong></h4>
+<ul>
+<li>2.2.1 O Administrador decide não enviar a resposta imediatamente.</li>
+<li>2.2.2 O Sistema salva como “Rascunho”.</li>
+<li>2.2.3 O fluxo termina.</li>
+</ul>
+<hr />
+<h3 id="23-fluxos-de-excecao_3">2.3 Fluxos de Exceção</h3>
+<h4 id="fe01-sistema-de-notificacoes-indisponivel-iniciado-no-passo-5"><strong>[FE01] Sistema de Notificações Indisponível (iniciado no passo 5)</strong></h4>
+<ul>
+<li>2.3.1 O Sistema não consegue enviar a notificação ao Usuário.</li>
+<li>2.3.2 O Sistema salva a resposta, mas exibe a mensagem:<br />
+  “Notificação não enviada. Será reenviada automaticamente mais tarde.”</li>
+<li>2.3.3 O fluxo continua normalmente.</li>
+</ul>
+<h4 id="fe02-campos-obrigatorios-incompletos-iniciado-no-passo-3"><strong>[FE02] Campos Obrigatórios Incompletos (iniciado no passo 3)</strong></h4>
+<ul>
+<li>2.3.1 O Administrador tenta salvar a resposta sem preencher o texto.</li>
+<li>2.3.2 O Sistema exibe:<br />
+  “Preencha o campo ‘Resposta’ para continuar.”</li>
+<li>2.3.3 O fluxo retorna ao passo 3.</li>
+</ul>
+<h4 id="fe03-falha-no-banco-de-dados-iniciado-no-passo-4"><strong>[FE03] Falha no Banco de Dados (iniciado no passo 4)</strong></h4>
+<ul>
+<li>2.3.1 O Sistema encontra erro ao salvar a resposta.</li>
+<li>2.3.2 O Sistema exibe:<br />
+  “Erro ao salvar a resposta. Tente novamente mais tarde.”</li>
+<li>2.3.3 O caso de uso termina sem alterar o status do feedback.</li>
+</ul>
+<h3 id="3-requisitos-especiais_3">3. Requisitos Especiais</h3>
+<ul>
+<li>O sistema deve garantir que a resposta seja salva mesmo que a notificação falhe.</li>
+<li>A interface deve permitir visualizar feedbacks por ordem cronológica.</li>
+<li>A resposta deve ser registrada com data, hora e identificação do Administrador.</li>
+<li>O sistema deve permitir anexar arquivos na resposta (opcional).</li>
+</ul>
+<h3 id="4-regras-de-negocio_3">4. Regras de Negócio</h3>
+<ul>
+<li><strong>RN01:</strong> Apenas Administradores podem responder feedbacks.</li>
+<li><strong>RN02:</strong> Após respondido, o feedback não pode ser apagado, apenas arquivado.</li>
+<li><strong>RN03:</strong> A resposta deve ficar visível para o Usuário na área “Meus Feedbacks”.</li>
+<li><strong>RN04:</strong> O sistema deve registrar o log de todas as alterações no feedback.</li>
+</ul>
+<h3 id="5-precondicoes_2">5. Precondições</h3>
+<ul>
+<li>O Administrador deve estar autenticado no sistema.</li>
+<li>Deve existir ao menos um feedback pendente ou arquivado.</li>
+<li>O sistema de banco de dados deve estar disponível para leitura.</li>
+</ul>
+<h3 id="6-pos-condicoes_3">6. Pós-condições</h3>
+<ul>
+<li>A resposta fica registrada no histórico do feedback.</li>
+<li>O status do feedback é atualizado para “Respondido”.</li>
+<li>Uma notificação é enviada ao Usuário (quando possível).</li>
+</ul>
+<hr />
+<h2 id="5-consultar-disponibilidade-de-horario">5. Consultar Disponibilidade de Horário</h2>
+<h3 id="11-breve-descricao_4">1.1 Breve Descrição</h3>
+<p>Este caso de uso permite ao Paciente consultar, em tempo real, a disponibilidade de horários de atendimento oferecidos por Profissionais de Saúde ou unidades parceiras cadastradas no ConnectCare. A partir desta funcionalidade, o paciente pode localizar serviços de saúde, aplicar filtros de busca e visualizar os horários disponíveis, preparando-se para realizar o agendamento em seguida. Nenhuma reserva é efetivada neste caso de uso.</p>
+<h3 id="12-atores_4">1.2 Atores</h3>
+<ul>
+<li>Paciente - ator principal</li>
+<li>Profissional de Saúde - ator secundário</li>
+</ul>
+<hr />
+<h2 id="2-fluxo-de-eventos_4">2. Fluxo de Eventos</h2>
+<h3 id="21-fluxo-principal_4">2.1 Fluxo Principal</h3>
+<p>Este caso de uso é iniciado quando o Paciente escolhe a opção “Buscar Serviços de Saúde”.</p>
+<p>2.1.1 O sistema apresenta filtros de busca, como tipo de atendimento, localização e especialidade.</p>
+<p>2.1.2 O Paciente preenche e confirma os filtros desejados.</p>
+<p>2.1.3 O sistema sugere unidades de saúde e profissionais compatíveis com a busca realizada [RN02].</p>
+<p>2.1.4 O Paciente seleciona a unidade de saúde ou profissional exibido na lista de resultados.</p>
+<p>2.1.5 O Paciente escolhe a opção “Consultar Disponibilidade de Horário”.</p>
+<p>2.1.6 O sistema acessa a agenda do profissional/unidade e verifica se os dados estão registrados e atualizados [RN01][FE02].</p>
+<p>2.1.7 O sistema apresenta a grade com os horários disponíveis para os próximos dias.</p>
+<p>2.1.8 O Paciente visualiza as opções e seleciona um horário disponível.</p>
+<p>2.1.9 O sistema registra a consulta realizada no log.</p>
+<p>2.1.10 O caso de uso é encerrado, encaminhando o horário selecionado para o caso de uso “Agendar Consulta”.</p>
+<h3 id="22-fluxos-alternativos_4">2.2 Fluxos Alternativos</h3>
+<h4 id="221-fa01-ajustar-filtros-de-busca">2.2.1 [FA01] Ajustar Filtros de Busca</h4>
+<p>No passo 2.1.4 o Paciente decide alterar os filtros utilizados.</p>
+<p>2.2.1.1 O sistema exibe novamente a área de filtros.
+2.2.1.2 O Paciente ajusta os filtros e confirma.
+2.2.1.3 O sistema apresenta nova lista de unidades e profissionais.</p>
+<p>(Retorna ao passo 2.1.4)</p>
+<h4 id="222-fa02-sugerir-atendimento-alternativo">2.2.2 [FA02] Sugerir Atendimento Alternativo</h4>
+<p>No passo 2.1.7 o Paciente não encontra horários satisfatórios.</p>
+<p>2.2.2.1 O sistema identifica indisponibilidade ou dificuldade de acesso.
+2.2.2.2 O sistema apresenta serviços alternativos, como campanhas móveis ou visitas domiciliares.</p>
+<p>(O fluxo pode encerrar ou o Paciente pode seguir para o agendamento alternativo)</p>
+<h3 id="23-fluxos-de-excecao_4">2.3 Fluxos de Exceção</h3>
+<h4 id="231-fe01-horarios-esgotados">2.3.1 [FE01] Horários Esgotados</h4>
+<p>No passo 2.1.7 o sistema identifica que não existe disponibilidade para o dia solicitado.
+O sistema exibe mensagem informando indisponibilidade e oferece visualização de datas futuras.
+O fluxo retorna ao passo 2.1.7 ou encerra.</p>
+<h4 id="232-fe02-dados-do-profissional-nao-registrados">2.3.2 [FE02] Dados do Profissional Não Registrados</h4>
+<p>No passo 2.1.6 o sistema identifica ausência ou inconsistência na agenda cadastrada.
+O sistema informa a indisponibilidade e sugere ao Paciente escolher outra unidade.
+O caso de uso é encerrado.</p>
+<h2 id="3-requisitos-especiais_4">3. Requisitos Especiais</h2>
+<p>3.1 A funcionalidade deve oferecer desempenho adequado mesmo em dispositivos simples ou com baixa conectividade.
+3.2 O sistema deve permitir mapear e exibir unidades de saúde geograficamente próximas ao Paciente.</p>
+<h2 id="4-regras-de-negocio_4">4. Regras de Negócio</h2>
+<p>4.1 [RN01] Cadastro de Disponibilidade
+O Profissional de Saúde deve registrar previamente sua agenda para que o sistema possa exibir os horários disponíveis.</p>
+<p>4.2 [RN02] Sugestões Personalizadas
+As sugestões de unidades ou profissionais devem considerar dados básicos do Paciente, como idade, condições preexistentes e sintomas informados.</p>
+<h2 id="5-precondicoes_3">5. Precondições</h2>
+<p>5.1 O Paciente deve estar autenticado no sistema.
+5.2 As unidades de saúde e profissionais devem ter agendas e dados atualizados no sistema.</p>
+<h2 id="6-pos-condicoes_4">6. Pós-condições</h2>
+<p>6.1 O Paciente conhece os horários disponíveis para o atendimento desejado.
+6.2 O sistema registra a consulta realizada no log de auditoria.</p>
+<h2 id="7-pontos-de-extensao_1">7. Pontos de Extensão</h2>
+<p>7.1 Nos passos 2.1.3 e 2.2.1.3 este caso de uso pode ser estendido por “Buscar Serviço de Saúde”.
+7.2 Após o passo 2.1.8 este caso de uso pode ser estendido por “Agendar Consulta”.</p>
+<hr />
+<h2 id="1-nome-do-caso-de-uso">1. Nome do Caso de Uso</h2>
+<p>Acessar Histórico de Saúde</p>
+<h3 id="11-breve-descricao_5">1.1 Breve Descrição</h3>
+<p>Este caso de uso permite que o Profissional de Saúde visualize o histórico clínico do Paciente.<br />
+O histórico inclui informações como: consultas anteriores, exames feitos, diagnósticos registrados, campanhas ou iniciativas das quais o paciente participou e visitas domiciliares realizadas.</p>
+<p>O objetivo é fornecer ao profissional uma visão consolidada e confiável do prontuário do paciente, permitindo atendimento mais rápido e preciso.<br />
+Algumas informações podem vir de sistemas externos (ex.: sistema de mapas, campanhas vinculadas a ONGs, registros de agentes comunitários).</p>
+<h3 id="12-atores_5">1.2 Atores</h3>
+<ul>
+<li><strong>Ator Principal:</strong> Profissional de Saúde  </li>
+<li><strong>Atores Secundários:</strong>  </li>
+<li>Sistema de Armazenamento de Histórico  </li>
+<li>Administrador (libera permissões)  </li>
+<li>Agente Comunitário de Saúde (pode ter gerado parte do histórico)</li>
+</ul>
+<h2 id="2-fluxo-de-eventos_5">2. Fluxo de Eventos</h2>
+<h3 id="21-fluxo-principal_5">2.1 Fluxo Principal</h3>
+<p>O fluxo abaixo descreve o caminho padrão para consultar o histórico com sucesso.</p>
+<table>
+<thead>
+<tr>
+<th>Passo</th>
+<th>Ação do Ator (Profissional de Saúde)</th>
+<th>Ação do Sistema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>O Profissional acessa a função “Acessar Histórico” no aplicativo ou sistema web.</td>
+<td>O Sistema valida a sessão do profissional e exibe o campo de busca por paciente.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>O Profissional informa o identificador do paciente (CPF, nome completo ou ID do sistema).</td>
+<td>O Sistema consulta a base de dados e exibe os pacientes correspondentes.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>O Profissional seleciona o paciente desejado.</td>
+<td>O Sistema exibe o resumo do histórico clínico (consultas, exames, diagnósticos, iniciativas).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>O Profissional seleciona um item específico do histórico (consulta, exame, registro de iniciativa).</td>
+<td>O Sistema exibe os detalhes completos do item selecionado.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>O Profissional finaliza a visualização.</td>
+<td>O Sistema registra o acesso no log de auditoria.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-fluxos-alternativos_5">2.2 Fluxos Alternativos</h3>
+<h4 id="fa01-paciente-nao-encontrado-iniciado-no-passo-2"><strong>[FA01] Paciente não encontrado (iniciado no passo 2)</strong></h4>
+<ul>
+<li>2.2.1 O Profissional insere um nome incompleto ou CPF com erro.</li>
+<li>2.2.2 O Sistema exibe a mensagem “Paciente não encontrado. Verifique os dados e tente novamente.”</li>
+<li>2.2.3 O fluxo retorna ao passo 2.</li>
+</ul>
+<h4 id="fa02-historico-parcial-iniciado-no-passo-3"><strong>[FA02] Histórico parcial (iniciado no passo 3)</strong></h4>
+<ul>
+<li>2.2.1 O Sistema identifica que parte dos dados do paciente está em um sistema externo.</li>
+<li>2.2.2 O Sistema exibe um aviso: “Algumas informações estão sendo carregadas de sistemas externos.”</li>
+<li>2.2.3 O fluxo continua normalmente.</li>
+</ul>
+<h3 id="23-fluxos-de-excecao_5">2.3 Fluxos de Exceção</h3>
+<h4 id="fe01-falha-de-comunicacao-com-o-sistema-de-historico-iniciado-no-passo-3"><strong>[FE01] Falha de Comunicação com o Sistema de Histórico (iniciado no passo 3)</strong></h4>
+<ul>
+<li>2.3.1 O Sistema não consegue acessar a base de dados.</li>
+<li>2.3.2 O Sistema exibe: “Erro ao acessar o histórico. Tente novamente mais tarde.”</li>
+<li>2.3.3 O caso de uso é encerrado.</li>
+</ul>
+<h4 id="fe02-profissional-sem-permissao-iniciado-no-passo-1"><strong>[FE02] Profissional sem permissão (iniciado no passo 1)</strong></h4>
+<ul>
+<li>2.3.1 O Sistema detecta que o profissional não tem acesso ao prontuário do paciente.</li>
+<li>2.3.2 O Sistema exibe: “Acesso negado. Entre em contato com o Administrador.”</li>
+<li>2.3.3 O caso de uso é encerrado.</li>
+</ul>
+<h4 id="fe03-registro-especifico-nao-acessivel-iniciado-no-passo-4"><strong>[FE03] Registro específico não acessível (iniciado no passo 4)</strong></h4>
+<ul>
+<li>2.3.1 O Sistema não encontra detalhes do registro selecionado.</li>
+<li>2.3.2 O Sistema exibe: “Informações indisponíveis.”</li>
+<li>2.3.3 O fluxo retorna ao passo 3.</li>
+</ul>
+<h3 id="3-requisitos-especiais_5">3. Requisitos Especiais</h3>
+<ul>
+<li>A consulta ao histórico deve retornar em até <strong>3 segundos</strong>.</li>
+<li>O sistema deve registrar todos os acessos para fins de auditoria.</li>
+<li>O histórico deve ser responsivo e acessível em dispositivos móveis.</li>
+<li>Caso existam registros externos, o sistema deve integrar via API segura.</li>
+</ul>
+<h3 id="4-regras-de-negocio_5">4. Regras de Negócio</h3>
+<ul>
+<li><strong>RN01:</strong> Apenas profissionais autorizados podem visualizar o histórico.</li>
+<li><strong>RN02:</strong> Dados sensíveis (diagnósticos, exames, notas médicas) devem seguir protocolos de sigilo.</li>
+<li><strong>RN03:</strong> Todo acesso ao histórico deve ficar registrado com data, hora e profissional.</li>
+<li><strong>RN04:</strong> O profissional só pode acessar históricos de pacientes vinculados à sua unidade de atendimento, salvo permissão especial do Administrador.</li>
+</ul>
+<h3 id="5-precondicoes_4">5. Precondições</h3>
+<ul>
+<li>O Profissional deve estar autenticado no aplicativo/sistema.</li>
+<li>O Paciente deve existir no sistema.</li>
+<li>O Profissional deve possuir permissão mínima de consulta conforme RN01.</li>
+</ul>
+<h3 id="6-pos-condicoes_5">6. Pós-condições</h3>
+<ul>
+<li>Um registro de auditoria é criado.</li>
+<li>O Sistema mantém o histórico intacto, sem alterações.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "search.suggest", "search.highlight", "content.code.copy", "repo.icon"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
