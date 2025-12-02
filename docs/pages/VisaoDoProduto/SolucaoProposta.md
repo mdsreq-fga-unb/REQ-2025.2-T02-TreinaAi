@@ -49,11 +49,9 @@ Para o desenvolvimento da solução proposta, serão utilizadas tecnologias mode
 
 - **Front-end:** O desenvolvimento do aplicativo mobile será realizado com o framework **Flutter**, utilizando a linguagem **Dart**. Essa escolha permite construir interfaces nativas para múltiplas plataformas (Android e iOS) a partir de uma única base de código, reduzindo custos e tempo de desenvolvimento, além de proporcionar alto desempenho e experiência de uso fluida, fora o maior ponto positivo: a facilidade de criação de tabelas, gráficos e visuais.
 
-- **Back-end:** A camada de servidor será implementada com **Node.js** em typescript, oferecendo uma base robusta, escalável e com tipagem estática para maior segurança no desenvolvimento. Essa combinação favorece a produtividade da equipe e garante uma arquitetura flexível para a evolução futura do sistema.
+- **Back-end:** A camada de servidor será implementada também com Flutter em dart, relacionando as rotas diretamente por uma biblioteca permitida pela api, que oferece uma base robusta, escalável e com tipagem estática para maior segurança no desenvolvimento. Essa combinação favorece a produtividade da equipe e garante uma arquitetura flexível para a evolução futura do sistema.
 
-- **Banco de Dados:** Para o armazenamento dos dados será utilizado o sistema de gerenciamento de banco de dados relacional **PostgreSQL**, reconhecido por sua confiabilidade, suporte a dados complexos e alta performance em ambientes com grande volume de informações, além da grende comunidade online que pode ensinar e facilitar o aprendizado.
-
-- **Garantia de Qualidade (QA):** Para a automação de testes será adotado o framework **Appium**, que permite a execução de testes funcionais em múltiplas plataformas móveis. Essa ferramenta garantirá a qualidade e estabilidade do aplicativo, reduzindo falhas e garantindo uma experiência consistente para os usuários finais.
+- **Banco de Dados:** Para o armazenamento dos dados será utilizado o sistema de gerenciamento de banco de dados relacional **SqLITE**, reconhecido por sua confiabilidade, suporte a dados complexos e alta performance em ambientes com grande volume de informações, além da grende comunidade online que pode ensinar e facilitar o aprendizado.
 
 
 ## 2.4 Pesquisa de Mercado e Análise Competitiva
