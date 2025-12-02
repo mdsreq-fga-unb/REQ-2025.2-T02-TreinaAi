@@ -5,7 +5,9 @@ Requisitos funcionais são especificações que descrevem o que o sistema deve f
 Com base na definição acima, montamos uma lista de requisitos inicias que conseguimos montar com base nos objetivos específicos.
 
 - **Valor**: impacto do requisito para sucesso do projeto.
-- **CT**: custo de produção do requisito, calculado com a soma de tempo ( 0 a 5) e esforço (0 a 5).
+- **Complexidade:** Mede a complexidade de implementação. A escala utilizada foi B (Baixo Esforço), M (Médio Esforço) e A (Alto Esforço).
+- **MoSCoW**: A técnica MoSCoW classifica os requisitos em quatro níveis de prioridade: M, S, C  e W.
+- **Prioridade**: Definiu a prioridade do requisito conforme uma avaliação cruzada entre valor e complexidade.
 
 ### Personal e Administração de Alunos
 
@@ -32,6 +34,7 @@ Com base na definição acima, montamos uma lista de requisitos inicias que cons
 | REQ13  | Registrar treinos por aluno | Médio | Média | S | Média |
 | REQ14  | Exportar PDF ao inativar período | Alto | Alta | M | Avaliar retorno |
 | REQ15  | Gerar gráficos das métricas de treino | Alto | Alta | S | Avaliar retorno |
+
 
 
 
