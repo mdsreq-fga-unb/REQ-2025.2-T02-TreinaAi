@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.treina_ai"
+    namespace = "com.example.treinaai"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
