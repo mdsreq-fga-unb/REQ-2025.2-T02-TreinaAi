@@ -130,14 +130,15 @@ class _TrainingPDFState extends State<TrainingPDF> {
   Widget _buildSummaryWidget() {
     final totalWorkouts = workouts.length;
     final totalExercises = allExercises.length;
-    final totalCarga = allExercises.fold<double>(0, (sum, item) => sum + (item.weight ?? 0));
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text("Objetivo do Período: ${widget.period.objective ?? "Nenhum"}", style: const TextStyle(fontSize: 16)),
         Text("Total de Treinos: $totalWorkouts", style: const TextStyle(fontSize: 16)),
         Text("Total de Exercícios: $totalExercises", style: const TextStyle(fontSize: 16)),
-        Text("Carga Total Levantada: ${totalCarga.toStringAsFixed(1)} kg", style: const TextStyle(fontSize: 16)),
+        Text("Início: ${firstDate != null ? "${firstDate!.day}/${firstDate!.month}/${firstDate!.year}" : "-"}", style: const TextStyle(fontSize: 16)),
+        Text("Fim: ${lastDate != null ? "${lastDate!.day}/${lastDate!.month}/${lastDate!.year}" : "-"}", style: const TextStyle(fontSize: 16)),
       ],
     ); // column
   } 
@@ -448,10 +449,12 @@ Future<void> _generatePDF() async {
       : exerciseCount.entries.reduce((a, b) => a.value > b.value ? a : b).key;
 
   String resumoTexto =
+      "Objetivo do período: ${widget.period.objective ?? "Nenhum"}\n"
       "Total de treinos: $totalWorkouts\n"
       "Início: ${firstDate != null ? "${firstDate!.day}/${firstDate!.month}/${firstDate!.year}" : "-"}\n"
       "Fim: ${lastDate != null ? "${lastDate!.day}/${lastDate!.month}/${lastDate!.year}" : "-"}\n"
-      "Exercício mais treinado: $mostTrained";
+      "Exercício mais treinado: $mostTrained\n"
+      "Observações: ${widget.period.observations ?? "Nenhuma"}";
 
   page.graphics.drawString(
     resumoTexto,
@@ -475,7 +478,7 @@ Future<void> _generatePDF() async {
   y = 0; 
 
   page.graphics.drawString(
-    "Evolução de Peso (Máximo Diário)",
+    "Evolução de Peso",
     titleFont,
     bounds: Rect.fromLTWH(0, y, 500, 30),
   );
